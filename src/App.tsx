@@ -55,7 +55,7 @@ function App() {
   return (
     <>
       <div className="flex flex-col items-center">
-        <p className='text-4xl mb-10 font-semibold'>Binary tree visualizer</p>
+        <p className='text-4xl mb-10 font-semibold'>Binary Tree Visualizer (preorder)</p>
         <div className='flex flex-col gap-2 items-center mb-5'>
           <div>
           <input
@@ -67,10 +67,10 @@ function App() {
           </div>
           <div className='flex gap-1 '>
           <button
-            className='h-10 w-20 rounded-xl text-center bg-[#82251e] cursor-pointer font-sans font-medium hover:bg-[#82251e]/80'
+            className='h-10 w-20 rounded-lg text-center bg-[#82251e] cursor-pointer font-sans font-medium hover:bg-[#82251e]/80'
             onClick={() => { setInputtext(""), setRoot(null) }}>Reset</button>
           <button
-            className='h-10 w-50 rounded-xl text-center bg-[#50476b] cursor-pointer font-sans font-medium hover:bg-[#50476b]/80'
+            className='h-10 w-50 rounded-lg text-center bg-[#50476b] cursor-pointer font-sans font-medium hover:bg-[#50476b]/80'
             onClick={sortList}>Make binary search tree</button>
             </div>
         </div>
