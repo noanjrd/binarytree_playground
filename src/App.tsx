@@ -1,8 +1,8 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import './App.css'
 import { MakeBinaryTree, SortTree } from "../utils/Binarytrees.ts"
 import DisplayBinaryTree from "../utils/DisplayBinaryTree.tsx"
-import { ToastContainer, toast } from 'react-toastify';
+import { ToastContainer, toast,type Id } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 type TreeNode = {
@@ -15,6 +15,7 @@ function App() {
   const [nblist, setNblist] = useState<number[]>([])
   const [root, setRoot] = useState<TreeNode | null>(null)
   const [inputtext, setInputtext] = useState("")
+  const toastIdRed = useRef<Id | null>(null)
 
   useEffect(() => {
     modifyliste(inputtext)
@@ -36,9 +37,12 @@ function App() {
     console.log(modtext)
 
     for (let i = 0; i < modtext.length; i++) {
-      if (isNaN(Number(modtext[i])) && modtext[i] != ",") {
+      if (isNaN(Number(modtext[i])) && modtext[i] != ',' &&  modtext[i] != '.') {
         console.error("Only number")
-        toast.error("Format needed : [1,2,3,...]")
+        if (!toast.isActive(toastIdRed.current as Id))
+        {
+          toastIdRed.current = toast.error("Format needed : [1,2,3,...]")
+        }
         return
       }
 
