@@ -1,9 +1,9 @@
 {
-  "name": "binarytrees_visualizer",
+  "name": "binarytree_visualizer",
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://github.com/noanjrd/binarytrees_visualizer",
+  "homepage": "https://github.com/noanjrd/binarytree_visualizer",
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",

@@ -1,27 +1,36 @@
 import { useEffect, useState } from 'react'
 import './App.css'
-import MakeBinaryTree from "../utils/Binarytrees.ts"
+import { MakeBinaryTree, SortTree } from "../utils/Binarytrees.ts"
 import DisplayBinaryTree from "../utils/DisplayBinaryTree.tsx"
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-
+type TreeNode = {
+  val: number;
+  left: TreeNode | null;
+  right: TreeNode | null;
+}
 
 function App() {
-  const [liste, setListe] = useState<number[]>([])
-  const root = MakeBinaryTree(liste)
+  const [nblist, setNblist] = useState<number[]>([])
+  const [root, setRoot] = useState<TreeNode | null>(null)
   const [inputtext, setInputtext] = useState("")
-  // const options = ["default"]
 
   useEffect(() => {
     modifyliste(inputtext)
   }, [inputtext])
 
+  function getTreeDeepness(root:TreeNode|null) : any
+  {
+      if (root === null)
+          return 0
+      return 1 + Math.max(getTreeDeepness(root.left), getTreeDeepness(root.right))
+  }
+
   const modifyliste = ((text: string) => {
-    if (text.length === 0)
-    {
-      setListe([])
-      return 
+    if (text.length === 0) {
+      setNblist([])
+      return
     }
     const modtext = text.replace(/\[/g, "").replace(/\]/g, "")
     console.log(modtext)
@@ -29,30 +38,43 @@ function App() {
     for (let i = 0; i < modtext.length; i++) {
       if (isNaN(Number(modtext[i])) && modtext[i] != ",") {
         console.error("Only number")
-        toast.error("This input only takes numbers")
+        toast.error("Format needed : [1,2,3,...]")
         return
       }
 
     }
     const NumberArray = modtext.split(',').map(Number)
-    setListe(NumberArray)
+    setNblist(NumberArray)
+    setRoot(MakeBinaryTree(NumberArray))
+  })
+
+  const sortList = (() => {
+    setRoot(SortTree(nblist))
+
   })
   return (
     <>
-      <div className="">
-
-        <div className='flex flex-row gap-2'>
+      <div className="flex flex-col items-center">
+        <p className='text-4xl mb-10 font-semibold'>Binary tree visualizer</p>
+        <div className='flex flex-col gap-2 items-center mb-5'>
+          <div>
           <input
-            className="w-80 h-10 bg-white text-black rounded-sm mb-5 px-2 items-center justify-center"
-            placeholder='Enter your tree'
+            className="w-90 h-10 bg-white text-black rounded-sm  px-2 items-center justify-center"
+            placeholder='Enter your binary tree here'
             value={inputtext}
             onChange={(e) => setInputtext(e.target.value)}
           />
+          </div>
+          <div className='flex gap-1 '>
           <button
-            className='h-10 w-20 rounded-sm text-center bg-[#82251e] cursor-pointer font-sans font-medium hover:bg-[#82251e]/80'
-            onClick={() => {setInputtext("")}}>reset</button>
+            className='h-10 w-20 rounded-xl text-center bg-[#82251e] cursor-pointer font-sans font-medium hover:bg-[#82251e]/80'
+            onClick={() => { setInputtext(""), setRoot(null) }}>Reset</button>
+          <button
+            className='h-10 w-50 rounded-xl text-center bg-[#50476b] cursor-pointer font-sans font-medium hover:bg-[#50476b]/80'
+            onClick={sortList}>Make binary search tree</button>
+            </div>
         </div>
-        <DisplayBinaryTree root={root} />
+        <DisplayBinaryTree root={root} deepness={getTreeDeepness(root)} />
         <ToastContainer />
         {/* <p className='text-red-900 text-xl'>COucou</p> */}
       </div>

@@ -1,14 +1,16 @@
 import "../src/App.css"
 
-export default function DisplayBinaryTree({ root }: { root: any }) {
+
+
+export default function DisplayBinaryTree({ root, deepness }: { root: any, deepness:any }) {
     if (!root) {
         return null
     }
     return (
         <>
-            <div className="flex flex-col justify items-center">
+            <div className="flex flex-col  items-center w-min">
                 <div>
-                    <p className="text-white">{root.val}</p>
+                    <p className={`text-white ${deepness < 6 ? "text-xl" : "text-lg"}`}>{root.val}</p>
                 </div>
                 {(root.left || root.right) && (
                     <div className="flex w-full justify-between items-start mt-1">
@@ -24,9 +26,9 @@ export default function DisplayBinaryTree({ root }: { root: any }) {
                         )}
                     </div>
                 )}
-                <div className="flex flex-row gap-2">
-                    <DisplayBinaryTree root={root.left} />
-                    <DisplayBinaryTree root={root.right} />
+                <div className={`flex flex-row ${deepness < 6 ? "gap-6" : "gap-2"}`}>
+                    <DisplayBinaryTree root={root.left} deepness={deepness}/>
+                    <DisplayBinaryTree root={root.right} deepness={deepness} />
                 </div>
             </div>
         </>
