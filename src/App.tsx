@@ -5,14 +5,13 @@ import DisplayBinaryTree from "../utils/DisplayBinaryTree.tsx"
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-import Alert from '@mui/material/Alert';
 
 
 function App() {
   const [liste, setListe] = useState<number[]>([])
   const root = MakeBinaryTree(liste)
   const [inputtext, setInputtext] = useState("")
-  const options = ["default"]
+  // const options = ["default"]
 
   useEffect(() => {
     modifyliste(inputtext)
@@ -28,7 +27,7 @@ function App() {
     console.log(modtext)
 
     for (let i = 0; i < modtext.length; i++) {
-      if (isNaN(modtext[i]) && modtext[i] != ",") {
+      if (isNaN(Number(modtext[i])) && modtext[i] != ",") {
         console.error("Only number")
         toast.error("This input only takes numbers")
         return
