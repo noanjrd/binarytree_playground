@@ -18,10 +18,12 @@ function App() {
   const [inputtext, setInputtext] = useState("")
   const toastIdRed = useRef<Id | null>(null)
   const [isOpen, setIsOpen] = useState<boolean>(false)
+  const [SearchTree, setSearchTree] = useState<boolean>(false)
 
   useEffect(() => {
     modifyliste(inputtext)
-  }, [inputtext])
+  }, [inputtext, SearchTree])
+
 
   function getTreeDeepness(root: TreeNode | null): any {
     if (root === null)
@@ -49,41 +51,42 @@ function App() {
     }
     const NumberArray = modtext.split(',').map(Number)
     setNblist(NumberArray)
-    setRoot(MakeBinaryTree(NumberArray))
+    if (SearchTree === false)
+      setRoot(MakeBinaryTree(NumberArray))
+    if (SearchTree === true)
+      setRoot(SortTree(nblist))
   })
 
-  const sortList = (() => {
-    setRoot(SortTree(nblist))
-
-  })
   return (
     <>
-      <div className="flex flex-col items-center w-full h-full relative justify-center ">
-        <div onClick={() => setIsOpen(!isOpen)} className=''>
+      <div className=' w-full h-full'>
+        <div className=''>
           <BurgerMenu isOpen={isOpen} setIsOpen={setIsOpen} />
         </div>
-        <p className='text-4xl mb-10 font-semibold mt-12'>Binary Tree Visualizer (preorder)</p>
-        <div className='flex flex-col gap-2 items-center mb-5'>
-          <div>
-            <input
-              className="w-90 h-10 bg-white text-black rounded-sm  px-2 items-center justify-center"
-              placeholder='Enter your binary tree here'
-              value={inputtext}
-              onChange={(e) => setInputtext(e.target.value)}
-            />
+        <div className="flex flex-col items-center w-full h-full justify-center mb-10 ">
+          <p className='text-4xl mb-10 font-semibold mt-12'>Binary Tree Visualizer (preorder)</p>
+          <div className='flex flex-col gap-2 items-center mb-5'>
+            <div>
+              <input
+                className="sm:w-90 w-65 h-11 bg-white text-black rounded-sm  px-2 items-center justify-center text-md"
+                placeholder='Enter your binary tree here'
+                value={inputtext}
+                onChange={(e) => setInputtext(e.target.value)}
+              />
+            </div>
+            <div className='flex gap-1 flex-col sm:flex-row justify-center items-center'>
+              <button
+                className='h-10 px-3 rounded-lg text-center bg-[#50476b] cursor-pointer font-sans hover:bg-[#50476b]/80'
+                onClick={() => {setSearchTree(!SearchTree)}}>{!SearchTree ? "Turn into binary search tree" : "Turn into simple binary tree"}</button>
+              <button
+                className='h-10 w-20 rounded-lg text-center bg-[#82251e] cursor-pointer font-sans  hover:bg-[#82251e]/80'
+                onClick={() => { setInputtext(""), setRoot(null) }}>Reset</button>
+            </div>
           </div>
-          <div className='flex gap-1 '>
-            <button
-              className='h-10 w-20 rounded-lg text-center bg-[#82251e] cursor-pointer font-sans font-medium hover:bg-[#82251e]/80'
-              onClick={() => { setInputtext(""), setRoot(null) }}>Reset</button>
-            <button
-              className='h-10 w-50 rounded-lg text-center bg-[#50476b] cursor-pointer font-sans font-medium hover:bg-[#50476b]/80'
-              onClick={sortList}>Make binary search tree</button>
-          </div>
+          <DisplayBinaryTree root={root} deepness={getTreeDeepness(root)} />
+          <ToastContainer />
+          {/* <p className='text-red-900 text-xl'>COucou</p> */}
         </div>
-        <DisplayBinaryTree root={root} deepness={getTreeDeepness(root)} />
-        <ToastContainer />
-        {/* <p className='text-red-900 text-xl'>COucou</p> */}
       </div>
     </>
   )
