@@ -1,5 +1,4 @@
-import "../src/App.css"
-
+import "../App.css"
 
 
 export default function DisplayBinaryTree({ root, deepness }: { root: any, deepness:any }) {
@@ -10,8 +9,7 @@ export default function DisplayBinaryTree({ root, deepness }: { root: any, deepn
         <>
             <div className="flex flex-col  items-center w-min">
                 <div className="relative flex justify-center items-center">
-                    {/* <div className=" absolute border rounded-full w-10 h-10"></div> */}
-                    <p className={`text-white text-center hover:opacity-75  ${deepness < 6 ? "text-xl" : "text-lg"}`}>{root.val}</p>
+                    <p className={`text-white text-center hover:opacity-75  ${deepness < 5 ? "text-xl" : "text-lg"}`}>{root.val}</p>
                 </div>
                 {(root.left || root.right) && (
                     <div className="flex w-full justify-between items-start mt-3">
@@ -27,7 +25,7 @@ export default function DisplayBinaryTree({ root, deepness }: { root: any, deepn
                         )}
                     </div>
                 )}
-                <div className={`flex flex-row ${deepness < 6 ? "gap-6" : "gap-2"}`}>
+                <div className={`flex flex-row ${deepness < 5 ? "gap-6" : "gap-2"}`}>
                     <DisplayBinaryTree root={root.left} deepness={deepness}/>
                     <DisplayBinaryTree root={root.right} deepness={deepness} />
                 </div>
