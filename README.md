@@ -56,17 +56,5 @@ http://localhost:5173
 
 ---
 
-## 📚 Educational Purpose
-
-This project was created to:
-
-* Better understand **binary trees**
-* Practice **React + TypeScript**
-* Experiment with **visual representations of algorithms**
-
-It is not meant to be a full production-ready library, but a **learning and exploration tool**.
-
----
-
 ⭐ If you like this project, feel free to give it a star!
 
