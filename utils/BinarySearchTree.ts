@@ -1,47 +1,87 @@
 import { type TreeNode } from "../src/types/types"
+import {ORDER_TYPE} from "../src/types/constants"
 
-function MakeBinarySearchTree(root:TreeNode, nb:number)
+function Preorder(root:TreeNode, values:Array<number>, i:number)
 {
-    console.log(nb)
-    while (root != null)
+    if (i >= values.length)
     {
-        if (root.val > nb)
+        return
+    }
+    let rootcpy = root
+    while (rootcpy != null)
+    {
+        if (rootcpy.val > values[i])
         {
-            if (root.left === null)
+            if (rootcpy.left === null)
             {
-                root.left = {val:nb, left:null, right:null}
-                return
+                rootcpy.left = {val:values[i], left:null, right:null}
+                return Preorder(root,values, i+1)
             }
-            root = root.left
+            rootcpy = rootcpy.left
             continue
         }
         else
         {
-            if (root.right === null)
+            if (rootcpy.right === null)
             {
-                root.right = {val:nb, left:null, right:null}
-                return
+                rootcpy.right = {val:values[i], left:null, right:null}
+                return Preorder(root,values,i+1)
             }
-            root = root.right
+            rootcpy = rootcpy.right
             continue
         }
     }
     return 
 }
 
-export function SortTree(values:Array<number>)
+function Postorder(root:TreeNode, values:Array<number>, i:number)
+{
+    if (i < 0)
+    {
+        return
+    }
+    let rootcpy = root
+    while (rootcpy != null)
+    {
+        if (rootcpy.val > values[i])
+        {
+            if (rootcpy.left === null)
+            {
+                rootcpy.left = {val:values[i], left:null, right:null}
+                return Postorder(root,values, i-1)
+            }
+            rootcpy = rootcpy.left
+            continue
+        }
+        else
+        {
+            if (rootcpy.right === null)
+            {
+                rootcpy.right = {val:values[i], left:null, right:null}
+                return Postorder(root,values,i-1)
+            }
+            rootcpy = rootcpy.right
+            continue
+        }
+    }
+    return 
+}
+
+export function SortTree(values:Array<number>,type:string)
 {
     if (values.length === 0){
         return null
     }
-    // const nblist = values.sort()
-    console.log(values)
-    let i = 1
-    const root : TreeNode = {val:values[0], left:null,  right:null}
-    while(i < values.length)
+    let root : TreeNode =  {val:0, left:null,  right:null} ;
+    if (type === ORDER_TYPE.PREORDER)
     {
-        MakeBinarySearchTree(root, values[i])
-        i++
+        root = {val:values[0], left:null,  right:null}
+        Preorder(root,values,1)
+    }
+    if (type === ORDER_TYPE.POSTORDER)
+    {
+        root = {val:values[values.length-1], left:null,  right:null}
+        Postorder(root,values,(values.length)-2)
     }
     return root
 }

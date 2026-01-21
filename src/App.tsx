@@ -7,8 +7,8 @@ import { ToastContainer, toast, type Id } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import BurgerMenu from "./components/BurgerMenu.tsx"
 import { type TreeNode } from './types/types.ts'
-import { ORDER_TYPE, orderOptions} from './types/constants.ts'
-import './radio.css'
+import { ORDER_TYPE, orderOptions } from './types/constants.ts'
+import './style/radio.css'
 import RadioGroup from './components/RadioGroup.tsx'
 
 
@@ -42,7 +42,8 @@ function App() {
     console.log(modtext)
 
     for (let i = 0; i < modtext.length; i++) {
-      if (isNaN(Number(modtext[i])) && modtext[i] != ',' && modtext[i] != '.') {
+      if (isNaN(Number(modtext[i])) && modtext[i] != ','
+        && modtext[i] != '.' && modtext[i] != '-') {
         console.error("Only number")
         if (!toast.isActive(toastIdRed.current as Id)) {
           toastIdRed.current = toast.error("Format needed : [1,2,3,...]")
@@ -56,25 +57,25 @@ function App() {
     if (SearchTree === false)
       setRoot(MakeTree(NumberArray, OrderType))
     if (SearchTree === true)
-      setRoot(SortTree(nblist))
+      setRoot(SortTree(NumberArray, OrderType))
   })
 
   return (
     <>
       <div className=' w-full h-full '>
-        <BurgerMenu isOpen={isOpen} setIsOpen={setIsOpen} />
-        <p className='text-4xl mb-10 font-semibold mt-8 '>Binary Tree Visualizer ({OrderType})</p>
-        <div className='flex flex-row'>
-          <div className='w-1/2 h-full border-r '>
+        {/* <BurgerMenu isOpen={isOpen} setIsOpen={setIsOpen} /> */}
+        <p className='text-4xl mb-10 font-semibold mt-8 text-[#303030]'>Binary Tree Visualizer</p>
+        {/* <div className='flex flex-row'> */}
+          {/* <div className='w-1/2 h-full border-r '>
             <p>Coucou</p>
-          </div>
-          <div className="flex flex-col items-center w-1/2 h-full justify-center mb-10 ">
+          </div> */}
+          <div className="flex flex-col items-center w-full h-full justify-center mb-10 ">
             <div className='flex flex-col gap-2 items-center mb-5'>
-             <RadioGroup options={orderOptions} value={OrderType} onChange={setOrderType} name="ordertypechange"/>
+              <RadioGroup options={orderOptions} value={OrderType} onChange={setOrderType} name="ordertypechange" />
 
               <div>
                 <input
-                  className="sm:w-90 w-65 h-11 bg-white text-black rounded-sm  px-2 items-center justify-center text-md"
+                  className="w-96 text-[#2c2c2c] border-black border-2 p-2.5 focus:outline-none focus:shadow-[2px_2px_0px_rgba(0,0,0,1)] focus:bg-[#FFF8F3] active:shadow-[2px_2px_0px_rgba(0,0,0,1)]"
                   placeholder='Enter your binary tree here'
                   value={inputtext}
                   onChange={(e) => setInputtext(e.target.value)}
@@ -82,10 +83,10 @@ function App() {
               </div>
               <div className='flex gap-1 flex-col sm:flex-row justify-center items-center'>
                 <button
-                  className='button-home  bg-[#50476b]  hover:bg-[#50476b]/80'
+                  className='button-home   bg-[#8EAAEB] hover:bg-[#799DF2]  active:bg-[#6A95F8] '
                   onClick={() => { setSearchTree(!SearchTree) }}>{!SearchTree ? "Turn into binary search tree" : "Turn into simple binary tree"}</button>
                 <button
-                  className='button-home  bg-[#82251e]  hover:bg-[#82251e]/80'
+                  className='button-home   bg-[#A3332A]  hover:bg-[#912c25]'
                   onClick={() => { setInputtext(""), setRoot(null) }}>Reset</button>
               </div>
             </div>
@@ -93,7 +94,7 @@ function App() {
             <ToastContainer />
             {/* <p className='text-red-900 text-xl'>COucou</p> */}
           </div>
-        </div>
+        {/* </div> */}
       </div>
     </>
   )
