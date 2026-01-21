@@ -73,7 +73,7 @@ function App() {
                   onChange={(e) => setInputtext(e.target.value)}
                 />
               </div>
-              <div className='flex gap-1 flex-col sm:flex-row justify-center items-center mt-1'>
+              <div className='flex gap-1 flex-row justify-center items-center mt-1'>
                 <RadioGroup options={orderOptions} value={OrderType} onChange={setOrderType} name="ordertypechange" />
                 <button
                   className='button-home   bg-[#A3332A]  hover:bg-[#912c25]'
