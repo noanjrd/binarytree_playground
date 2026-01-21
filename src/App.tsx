@@ -5,7 +5,7 @@ import { SortTree } from "../utils/BinarySearchTree.ts"
 import DisplayBinaryTree from "./components/DisplayBinaryTree.tsx"
 import { ToastContainer, toast, type Id } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import BurgerMenu from "./components/BurgerMenu.tsx"
+// import BurgerMenu from "./components/BurgerMenu.tsx"
 import { type TreeNode } from './types/types.ts'
 import { ORDER_TYPE, orderOptions } from './types/constants.ts'
 import './style/radio.css'
@@ -14,11 +14,10 @@ import RadioGroup from './components/RadioGroup.tsx'
 
 
 function App() {
-  const [nblist, setNblist] = useState<number[]>([])
   const [root, setRoot] = useState<TreeNode | null>(null)
   const [inputtext, setInputtext] = useState("")
   const toastIdRed = useRef<Id | null>(null)
-  const [isOpen, setIsOpen] = useState<boolean>(false)
+  // const [isOpen, setIsOpen] = useState<boolean>(false)
   const [SearchTree, setSearchTree] = useState<boolean>(false)
   const [OrderType, setOrderType] = useState<string>(ORDER_TYPE.PREORDER)
 
@@ -35,7 +34,6 @@ function App() {
 
   const modifyliste = ((text: string) => {
     if (text.length === 0) {
-      setNblist([])
       return
     }
     const modtext = text.replace(/\[/g, "").replace(/\]/g, "")
@@ -53,7 +51,6 @@ function App() {
 
     }
     const NumberArray = modtext.split(',').map(Number)
-    setNblist(NumberArray)
     if (SearchTree === false)
       setRoot(MakeTree(NumberArray, OrderType))
     if (SearchTree === true)
