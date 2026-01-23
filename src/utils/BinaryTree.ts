@@ -1,4 +1,4 @@
-import {Preorder} from './PreorderTree'
+import {Preorder, Preorder_bst} from './PreorderTree'
 import {Postorder} from './PostorderTree'
 import {ORDER_TYPE} from '../src/types/constants'
 
@@ -7,7 +7,7 @@ function checkValidInput(values : Array<string>)
 {
     for (const el of values)
     {
-        if (isNaN(Number(el)) && el != "null")
+        if (isNaN(Number(el)) && el != "null" && el != "None")
         {
             return false
         }
@@ -15,7 +15,7 @@ function checkValidInput(values : Array<string>)
     return true
 }
 
-export function MakeTree(values: Array<string>, sorttype:string) {
+export function BasicTree(values: Array<string>, sorttype:string) {
 
     let root = null
     console.log(values)
@@ -28,10 +28,31 @@ export function MakeTree(values: Array<string>, sorttype:string) {
     {
         root = Preorder(values)
     }
-    if (sorttype === ORDER_TYPE.POSTORDER)
+    // if (sorttype === ORDER_TYPE.POSTORDER)
+    // {
+    //     root = Postorder(values)
+    // }
+
+    return root
+}
+
+export function BST(values: Array<string>, sorttype:string) {
+
+    let root = null
+    console.log(values)
+    if (checkValidInput(values) === false)
     {
-        root = Postorder(values)
+        console.error("Wrong fromat")
+        throw new Error("Wrong type of number");
     }
+    if (sorttype === ORDER_TYPE.PREORDER)
+    {
+        root = Preorder_bst(values)
+    }
+    // if (sorttype === ORDER_TYPE.POSTORDER)
+    // {
+    //     root = Postorder(values)
+    // }
 
     return root
 }

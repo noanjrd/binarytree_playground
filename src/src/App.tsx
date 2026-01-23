@@ -1,7 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import './style/App.css'
-import { MakeTree } from "../utils/BinaryTree.ts"
-import { SortTree } from "../utils/BinarySearchTree.ts"
+import { BasicTree, BST } from "../utils/BinaryTree.ts"
 import DisplayBinaryTree from "./components/DisplayBinaryTree.tsx"
 import { ToastContainer, toast, type Id } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -39,18 +38,11 @@ function App() {
     const modtext = text.replace(/\[/g, "").replace(/\]/g, "")
     // console.log(modtext)
 
-    // for (let i = 0; i < modtext.length; i++) {
-    //   if (isNaN(Number(modtext[i])) && modtext[i] != ','
-    //     && modtext[i] != '.' && modtext[i] != '-') {
-    //     console.error("Only number")
-    //     return
-    //   }
 
-    // }
     const NumberArray = modtext.split(',').map(String)
     if (SearchTree === false) {
       try {
-        setRoot(MakeTree(NumberArray, OrderType))
+        setRoot(BasicTree(NumberArray, OrderType))
       }
       catch (error) {
         if (!toast.isActive(toastIdRed.current as Id)) {
@@ -59,8 +51,16 @@ function App() {
 
       }
     }
-    // if (SearchTree === true)
-    // setRoot(SortTree(NumberArray, OrderType))
+    if (SearchTree === true) {
+      try {
+        setRoot(BST(NumberArray, OrderType))
+      }
+      catch (error) {
+        if (!toast.isActive(toastIdRed.current as Id)) {
+          toastIdRed.current = toast.error("Format needed : [1,2,null,2,...]")
+        }
+      }
+    }
   })
 
   return (
