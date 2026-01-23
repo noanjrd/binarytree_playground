@@ -37,24 +37,30 @@ function App() {
       return
     }
     const modtext = text.replace(/\[/g, "").replace(/\]/g, "")
-    console.log(modtext)
+    // console.log(modtext)
 
-    for (let i = 0; i < modtext.length; i++) {
-      if (isNaN(Number(modtext[i])) && modtext[i] != ','
-        && modtext[i] != '.' && modtext[i] != '-') {
-        console.error("Only number")
-        if (!toast.isActive(toastIdRed.current as Id)) {
-          toastIdRed.current = toast.error("Format needed : [1,2,3,...]")
-        }
-        return
+    // for (let i = 0; i < modtext.length; i++) {
+    //   if (isNaN(Number(modtext[i])) && modtext[i] != ','
+    //     && modtext[i] != '.' && modtext[i] != '-') {
+    //     console.error("Only number")
+    //     return
+    //   }
+
+    // }
+    const NumberArray = modtext.split(',').map(String)
+    if (SearchTree === false) {
+      try {
+        setRoot(MakeTree(NumberArray, OrderType))
       }
+      catch (error) {
+        if (!toast.isActive(toastIdRed.current as Id)) {
+          toastIdRed.current = toast.error("Format needed : [1,2,null,2,...]")
+        }
 
+      }
     }
-    const NumberArray = modtext.split(',').map(Number)
-    if (SearchTree === false)
-      setRoot(MakeTree(NumberArray, OrderType))
-    if (SearchTree === true)
-      setRoot(SortTree(NumberArray, OrderType))
+    // if (SearchTree === true)
+    // setRoot(SortTree(NumberArray, OrderType))
   })
 
   return (
@@ -62,31 +68,31 @@ function App() {
       <div className=' w-full h-full '>
         <p className='text-4xl mb-10 font-bold mt-8 text-[#303030]'>Binary Tree Visualizer</p>
 
-          <div className="flex flex-col items-center w-full h-full justify-center mb-10 ">
-            <div className='flex flex-col gap-1 items-center mb-5'>
+        <div className="flex flex-col items-center w-full h-full justify-center mb-10 ">
+          <div className='flex flex-col gap-1 items-center mb-5'>
 
-              <div>
-                <input
-                  className="w-96 text-[#2c2c2c] border-black border-2 p-2.5 focus:outline-none focus:shadow-[2px_2px_0px_rgba(0,0,0,1)] focus:bg-[#FFF8F3] active:shadow-[2px_2px_0px_rgba(0,0,0,1)]"
-                  placeholder='Enter your binary tree here'
-                  value={inputtext}
-                  onChange={(e) => setInputtext(e.target.value)}
-                />
-              </div>
-              <div className='flex gap-1 flex-row justify-center items-center mt-1'>
-                <RadioGroup options={orderOptions} value={OrderType} onChange={setOrderType} name="ordertypechange" />
-                <button
-                  className='button-home   bg-[#A3332A]  hover:bg-[#a42017]'
-                  onClick={() => { setInputtext(""), setRoot(null) }}>Reset</button>
-              </div>
-                <button
-                  className='button-home   bg-[#648be9] hover:bg-[#4f7ce6]   '
-                  onClick={() => { setSearchTree(!SearchTree) }}>{!SearchTree ? "Turn into binary search tree" : "Turn into simple binary tree"}</button>
+            <div>
+              <input
+                className="w-96 text-[#2c2c2c] border-black border-2 p-2.5 focus:outline-none focus:shadow-[2px_2px_0px_rgba(0,0,0,1)] focus:bg-[#FFF8F3] active:shadow-[2px_2px_0px_rgba(0,0,0,1)]"
+                placeholder='Enter your binary tree here'
+                value={inputtext}
+                onChange={(e) => setInputtext(e.target.value)}
+              />
             </div>
-            <DisplayBinaryTree root={root} deepness={getTreeDeepness(root)} />
-            <ToastContainer />
-            {/* <p className='text-red-900 text-xl'>COucou</p> */}
+            <div className='flex gap-1 flex-row justify-center items-center mt-1'>
+              <RadioGroup options={orderOptions} value={OrderType} onChange={setOrderType} name="ordertypechange" />
+              <button
+                className='button-home   bg-[#A3332A]  hover:bg-[#a42017]'
+                onClick={() => { setInputtext(""), setRoot(null) }}>Reset</button>
+            </div>
+            <button
+              className='button-home   bg-[#648be9] hover:bg-[#4f7ce6]   '
+              onClick={() => { setSearchTree(!SearchTree) }}>{!SearchTree ? "Turn into binary search tree" : "Turn into simple binary tree"}</button>
           </div>
+          <DisplayBinaryTree root={root} deepness={getTreeDeepness(root)} />
+          <ToastContainer />
+          {/* <p className='text-red-900 text-xl'>COucou</p> */}
+        </div>
         {/* </div> */}
       </div>
     </>

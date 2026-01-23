@@ -1,7 +1,7 @@
 import { type TreeNode } from "../src/types/types"
 import {ORDER_TYPE} from "../src/types/constants"
 
-function Preorder(root:TreeNode, values:Array<number>, i:number)
+function Preorder(root:TreeNode, values:Array<string>, i:number)
 {
     if (i >= values.length)
     {
@@ -10,7 +10,11 @@ function Preorder(root:TreeNode, values:Array<number>, i:number)
     let rootcpy = root
     while (rootcpy != null)
     {
-        if (rootcpy.val > values[i])
+        if (rootcpy.val === "null")
+        {
+
+        }
+        if (Number(rootcpy.val) > Nuvalues[i])
         {
             if (rootcpy.left === null)
             {
@@ -67,7 +71,7 @@ function Postorder(root:TreeNode, values:Array<number>, i:number)
     return 
 }
 
-export function SortTree(values:Array<number>,type:string)
+export function SortTree(values:Array<string>,type:string)
 {
     if (values.length === 0){
         return null
@@ -78,10 +82,10 @@ export function SortTree(values:Array<number>,type:string)
         root = {val:values[0], left:null,  right:null}
         Preorder(root,values,1)
     }
-    if (type === ORDER_TYPE.POSTORDER)
-    {
-        root = {val:values[values.length-1], left:null,  right:null}
-        Postorder(root,values,(values.length)-2)
-    }
+    // if (type === ORDER_TYPE.POSTORDER)
+    // {
+    //     root = {val:values[values.length-1], left:null,  right:null}
+    //     Postorder(root,values,(values.length)-2)
+    // }
     return root
 }
