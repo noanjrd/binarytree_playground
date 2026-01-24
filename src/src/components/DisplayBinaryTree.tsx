@@ -9,7 +9,7 @@ export default function DisplayBinaryTree({ root, deepness }: { root: any, deepn
         <>
             <div className="flex flex-col  items-center w-min">
                 <div className="relative flex justify-center items-center">
-                    <p className={`text-[#303030] text-center hover:opacity-75 font-semibold  ${deepness < 5 ? "text-xl" : "text-lg"}`}>{root.val}</p>
+                    <p className={`text-[#303030] text-center hover:opacity-75 font-semibold  ${deepness < 5 ? "text-xl" : "text-lg"}  ${deepness === 1 ? "w-100 " : ""}`}>{root.val}{deepness === 1 ? root.message : ""}</p>
                 </div>
                 {(root.left || root.right) && (
                     <div className="flex w-full justify-between items-start mt-3">

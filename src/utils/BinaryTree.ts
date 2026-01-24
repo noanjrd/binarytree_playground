@@ -21,8 +21,7 @@ export function BasicTree(values: Array<string>, sorttype:string) {
     console.log(values)
     if (checkValidInput(values) === false)
     {
-        console.error("Wrong fromat")
-        throw new Error("Wrong type of number");
+        return {val:"", right:null, left:null, message:null}
     }
     if (sorttype === ORDER_TYPE.PREORDER)
     {
@@ -42,12 +41,20 @@ export function BST(values: Array<string>, sorttype:string) {
     console.log(values)
     if (checkValidInput(values) === false)
     {
-        console.error("Wrong fromat")
-        throw new Error("Wrong type of number");
+        return {val:"", right:null, left:null, message:null}
     }
     if (sorttype === ORDER_TYPE.PREORDER)
     {
-        root = Preorder_bst(values)
+        try {
+
+            root = Preorder_bst(values)
+        }
+        catch (error)
+        {if (error instanceof Error) {
+            return {val:`Invalid binary search tree `,right:null, left:null, message : `(${error.message})`}
+
+        }
+        }
     }
     // if (sorttype === ORDER_TYPE.POSTORDER)
     // {

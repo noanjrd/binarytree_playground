@@ -1,5 +1,6 @@
 export type TreeNode = {
-  val: number | null;
+  val: string | null;
   left: TreeNode | null;
   right: TreeNode | null;
+  message:string|null
 }
