@@ -11,7 +11,7 @@ export  function Preorder(values:Array<string>)
             i++
             return null
         }
-        const node : TreeNode = {val:Number(values[i]),left:null, right:null}
+        const node : TreeNode = {val:values[i],left:null, right:null, message:null}
         i++
         node.left = build_tree()
         node.right = build_tree()
@@ -27,29 +27,35 @@ export  function Preorder_bst(values:Array<string>)
     {
         return null
     }
-    function build_tree(node:TreeNode|null,val:number) : TreeNode | null
+    let max_allowed = -Infinity
+    function build_tree(node:TreeNode|null,val:string) : TreeNode | null
     {
+        if (Number(val) <= max_allowed)
+        {
+            throw new Error(val)
+        }
         if (node === null)
         {
-            const temp : TreeNode = {val:val, right:null, left:null}
+            const temp : TreeNode = {val:val, right:null, left:null, message:null}
             return temp
         }
-        if (val < Number(node.val))
+        if (Number(val) < Number(node.val))
         {
             node.left =  build_tree(node.left,val)
         }
         else
         {
+            max_allowed = Number(node.val)
             node.right = build_tree(node.right,val)
         }
         return node
     }
-    const root : TreeNode = {val:Number(values[0]), left:null, right:null}
+    const root : TreeNode = {val:values[0], left:null, right:null, message:null}
     let i = 1
     while (i < values.length)
     {
         if (values[i] !== "null" && values[i] != "None")
-            build_tree(root,Number(values[i]))
+            build_tree(root,values[i])
         i++
     }
     return root

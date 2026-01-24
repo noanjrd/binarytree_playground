@@ -74,7 +74,7 @@ function App() {
             <div>
               <input
                 className="w-96 text-[#2c2c2c] border-black border-2 p-2.5 focus:outline-none focus:shadow-[2px_2px_0px_rgba(0,0,0,1)] focus:bg-[#FFF8F3] active:shadow-[2px_2px_0px_rgba(0,0,0,1)]"
-                placeholder='Enter your binary tree here'
+                placeholder='[1,7,null,8,...]'
                 value={inputtext}
                 onChange={(e) => setInputtext(e.target.value)}
               />
