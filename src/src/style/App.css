@@ -20,6 +20,14 @@
 
 }
 
+.explain {
+  text-align: left;
+  color: black;
+  font-weight: 450;
+  margin-top: 5px;
+
+}
+
 .button-home:hover {
   --tw-shadow: 2px 2px 0px var(--tw-shadow-color, rgba(0, 0, 0, 1));
   box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
