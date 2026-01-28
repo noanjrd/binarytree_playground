@@ -1,5 +1,5 @@
 import {Preorder, Preorder_bst} from './PreorderTree'
-import {Postorder} from './PostorderTree'
+import {Postorder,Postorder_bst} from './PostorderTree'
 import {ORDER_TYPE} from '../src/types/constants'
 
 
@@ -27,10 +27,10 @@ export function BasicTree(values: Array<string>, sorttype:string) {
     {
         root = Preorder(values)
     }
-    // if (sorttype === ORDER_TYPE.POSTORDER)
-    // {
-    //     root = Postorder(values)
-    // }
+    if (sorttype === ORDER_TYPE.POSTORDER)
+    {
+        root = Postorder(values)
+    }
 
     return root
 }
@@ -56,10 +56,19 @@ export function BST(values: Array<string>, sorttype:string) {
         }
         }
     }
-    // if (sorttype === ORDER_TYPE.POSTORDER)
-    // {
-    //     root = Postorder(values)
-    // }
+    if (sorttype === ORDER_TYPE.POSTORDER)
+    {
+        try {
+
+            root = Postorder_bst(values)
+        }
+        catch (error)
+        {if (error instanceof Error) {
+            return {val:`Invalid binary search tree `,right:null, left:null, message : `(${error.message})`}
+
+        }
+        }
+    }
 
     return root
 }

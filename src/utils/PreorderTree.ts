@@ -30,7 +30,7 @@ export  function Preorder_bst(values:Array<string>)
     let max_allowed = -Infinity
     function build_tree(node:TreeNode|null,val:string) : TreeNode | null
     {
-        if (Number(val) <= max_allowed)
+        if (Number(val) < max_allowed)
         {
             throw new Error(val)
         }
@@ -60,5 +60,3 @@ export  function Preorder_bst(values:Array<string>)
     }
     return root
 }
-
-// voir le cas ou par exemple 1,2,3,0 n est pas possible

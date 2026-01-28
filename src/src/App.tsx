@@ -9,7 +9,7 @@ import { type TreeNode } from './types/types.ts'
 import { ORDER_TYPE, orderOptions } from './types/constants.ts'
 import './style/radio.css'
 import RadioGroup from './components/RadioGroup.tsx'
-
+import bgtext from "./assets/bg-text.png"
 
 
 function App() {
@@ -65,11 +65,15 @@ function App() {
 
   return (
     <>
-      <div className=' w-full h-full '>
-        <p className='text-4xl mb-10 font-bold mt-8 text-[#303030]'>Binary Tree Visualizer</p>
-
+      <div className='flex flex-col w-full h-full items-center '>
+        <p className='text-4xl mb-10 font-bold mt-8  text-black'>Binary Tree Visualizer</p>
+      <div className='flex flex-col xl:flex-row justify-center w-400  '>
+        {/* <div className='ml-20  '>
+          <img src={bgtext} className='w-250 h-full ' />
+        </div> */}
         <div className="flex flex-col items-center w-full h-full justify-center mb-10 ">
           <div className='flex flex-col gap-1 items-center mb-5'>
+            {/* <p className='text-black font-semibold text-3xl mb-5'>Interactive Binary Tree</p> */}
 
             <div>
               <input
@@ -92,6 +96,7 @@ function App() {
           <DisplayBinaryTree root={root} deepness={getTreeDeepness(root)} />
           <ToastContainer />
           {/* <p className='text-red-900 text-xl'>COucou</p> */}
+        </div>
         </div>
         {/* </div> */}
       </div>
