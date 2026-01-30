@@ -60,8 +60,3 @@ http://localhost:5173
 ---
 
 ⭐ If you like this project, feel free to give it a star!
-
----
-
-Si tu veux, je peux aussi reformuler un peu la section “Features” et “Upcoming updates” pour que ça sonne plus fluide et engageant pour les lecteurs. Veux‑tu que je fasse ça ?
-
