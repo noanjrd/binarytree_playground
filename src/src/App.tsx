@@ -67,14 +67,14 @@ function App() {
     setActionStarted("base")
   return (
     <>
-      <div className='flex flex-col w-full h-full items-center '>
+      <div className='flex flex-col w-full  items-center '>
         <p className='text-4xl mb-15 font-bold mt-8  text-black'>Binary Tree Visualizer</p>
         <div className='flex flex-col lg:flex-row justify-center w-full xl:w-350'>
           <div className='  w-full flex flex-col items-center ml-4'>
             <Explainations actionStarted={actionStarted} />
             {/* <img src={bgtext} className='w-250 h-full ' /> */}
           </div>
-          <div className="flex flex-col items-center w-full h-full justify-center mb-10 mt-5 lg:mt-0  ">
+          <div className="flex flex-col items-center w-full  justify-center mb-10 mt-5 lg:mt-0  ">
             <div className='flex flex-col gap-1 items-center mb-2'>
               <p className='text-black font-semibold text-3xl mb-5'>Interactive Binary Tree</p>
 
@@ -97,7 +97,7 @@ function App() {
                 onClick={() => { setSearchTree(!SearchTree) }}>{!SearchTree ? "Turn into binary search tree" : "Turn into simple binary tree"}</button>
             </div>
             <div className='binarytree relative overflow-y-auto overflow-x-auto py-8
-             h-85 scrollbar-none w-80 lg:w-100 flex justify-center '>
+             scrollbar-none w-80 lg:w-120 flex justify-center min-h-60 max-h-[calc(100vh-400px)] '>
               <DisplayBinaryTree root={root} deepness={getTreeDeepness(root)} />
             </div>
             {/* <p className='text-red-900 text-xl'>COucou</p> */}
