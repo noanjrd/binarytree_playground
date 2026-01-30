@@ -1,0 +1,26 @@
+@import "tailwindcss";
+
+
+.card {
+  border-width: 0;
+}
+
+@media (min-width: 640px) {
+  .card {
+      border-width: 3px;
+  border-color: black;
+  border-radius: 20px;
+  --tw-shadow: 10px 10px 0px var(--tw-shadow-color, rgba(0, 0, 0, 1));
+  box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
+
+  }
+}
+
+.explain-text {
+  text-align: left;
+  color: black;
+  font-weight: 450;
+  margin-top: 5px;
+  font-size:14px;
+
+}
