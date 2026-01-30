@@ -67,9 +67,9 @@ function App() {
     setActionStarted("base")
   return (
     <>
-      <div className='flex flex-col w-full   '>
+      <div className='flex flex-col w-full  items-center  '>
         <p className='text-4xl mb-8 lg:mb-15 font-bold mt-8 text-center text-black'>Binary Tree Visualizer</p>
-        <div className='flex flex-col lg:flex-row justify-center w-full xl:w-350'>
+        <div className='flex flex-col lg:flex-row justify-center w-full xl:w-322'>
           <div className='  w-full flex flex-col items-center'>
             <Explainations actionStarted={actionStarted} />
             {/* <img src={bgtext} className='w-250 h-full ' /> */}

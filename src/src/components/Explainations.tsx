@@ -9,7 +9,7 @@ interface ExplainationsGroupProps {
 export function Explainations({actionStarted} : ExplainationsGroupProps) {
     return (
         <>
-            <div className='card  px-8 py-8  overflow-y-auto h-full scrollbar-none '
+            <div className='card  px-5 py-5  overflow-y-auto     scrollbar-none '
                 style={{
                     scrollbarWidth: "none",   // Firefox
                     msOverflowStyle: "none"   // IE 10+
