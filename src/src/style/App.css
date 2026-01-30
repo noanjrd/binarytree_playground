@@ -17,7 +17,22 @@
   border-radius: 500px;
   cursor: pointer;
   font-weight: 500;
+}
 
+.button-red {
+  background-color: #A3332A;
+}
+
+.button-red:hover {
+  background-color: #a42017;
+}
+
+.button-blue {
+  background-color: #648be9;
+}
+
+.button-blue:hover {
+  background-color: #4f7ce6;
 }
 
 .explain {

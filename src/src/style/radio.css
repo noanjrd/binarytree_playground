@@ -4,7 +4,7 @@
   --bg-color: #fff;
   --main-color: #323232;
   position: relative;
-  width: 188px;
+  width: 190px;
   height: 40px;
   background-color: var(--bg-color);
   border: 2px solid var(--main-color);
@@ -33,7 +33,7 @@
 }
 
 .option {
-  width: 90px;
+  width: 92px;
   height: 32px;
   position: relative;
   top: 2px;

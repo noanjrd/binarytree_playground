@@ -89,11 +89,11 @@ function App() {
               <div className='flex gap-1 flex-row justify-center items-center mt-1'>
                 <RadioGroup options={orderOptions} value={OrderType} onChange={setOrderType} name="ordertypechange" />
                 <button
-                  className='button-home   bg-[#A3332A]  hover:bg-[#a42017]'
+                  className='button-home button-red'
                   onClick={() => { setInputtext(""), setRoot(null) }}>Reset</button>
               </div>
               <button
-                className='button-home   bg-[#648be9] hover:bg-[#4f7ce6]   '
+                className='button-home   button-blue   '
                 onClick={() => { setSearchTree(!SearchTree) }}>{!SearchTree ? "Turn into binary search tree" : "Turn into simple binary tree"}</button>
             </div>
             <div className='binarytree relative overflow-y-auto overflow-x-auto py-8
