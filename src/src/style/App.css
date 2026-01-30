@@ -25,8 +25,37 @@
   color: black;
   font-weight: 450;
   margin-top: 5px;
+  font-size:14px;
 
 }
+
+.binarytree {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+
+  
+/* for chrome et safari */
+  -webkit-mask-image:  
+    linear-gradient(to top, transparent 0%, black 15%, black 85%, transparent 100%),
+    linear-gradient(to left, transparent 0%, black 15%, black 85%, transparent 100%);
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-size: 100% 100%, 100% 100%;
+  -webkit-mask-composite: destination-in;
+
+  /* default */
+  mask-image: 
+    linear-gradient(to top, transparent 0%, black 15%, black 85%, transparent 100%),
+    linear-gradient(to left, transparent 0%, black 15%, black 85%, transparent 100%);
+  mask-repeat: no-repeat;
+  mask-size: 100% 100%, 100% 100%;
+  mask-composite: intersect;
+}
+
+
+.binarytree::-webkit-scrollbar {
+  display: none;
+}
+
 
 .button-home:hover {
   --tw-shadow: 2px 2px 0px var(--tw-shadow-color, rgba(0, 0, 0, 1));

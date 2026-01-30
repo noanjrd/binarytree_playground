@@ -2,19 +2,19 @@
 
 An interactive **Binary Tree Visualizer** built with **React**, **TypeScript**, **Vite**, and **Tailwind CSS**.
 
-This project helps you **understand binary trees visually** by constructing a tree from user input and displaying its structure dynamically. It is especially useful for students learning **data structures**, **binary search trees**, and **tree traversals**.
+This project helps you **understand binary trees visually** by constructing a tree from user input and displaying its structure dynamically.
 
 ---
 
 ## 🚀 Features
 
-* 🔢 Build a binary tree from a list of numbers
-* 🌿 Visual representation of nodes and branches
-* 🔄 All tree traversal ways (upcoming)
-* 📐 Dynamic sizing based on tree depth
-* ⚡ Fast development with Vite
-* 🎨 Styled with Tailwind CSS
-* 🧠 Designed for learning and experimentation
+* Build a binary tree from a list of numbers
+* Visual representation of nodes and branches
+* All tree traversal ways (upcoming)
+* Dynamic sizing based on tree depth
+* Fast development with Vite
+* Styled with Tailwind CSS
+* Designed for learning and experimentation
 
 ---
 
