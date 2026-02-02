@@ -68,7 +68,7 @@ function App() {
     setActionStarted("base")
   return (
     <>
-      <div className='relative flex flex-col w-full min-h-screen items-center justify-center  '>
+      <div className='relative flex flex-col w-full min-h-screen items-center '>
         <div className='absolute bottom-3 animate-bounce hover:opacity-70 cursor-pointer '>
           <a href='https://github.com/noanjrd'>
             <img  src={GithubIcon} width={50} height={50} />
