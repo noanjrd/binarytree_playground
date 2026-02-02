@@ -9,7 +9,7 @@ import { ORDER_TYPE, orderOptions } from './types/constants.ts'
 import './style/radio.css'
 import RadioGroup from './components/RadioGroup.tsx'
 import GithubIcon from "./assets/githubicon.png"
-import { Explainations } from './components/Explainations.tsx';
+import { Explainations } from './components/explainations/Explainations.tsx';
 
 
 function App() {
@@ -19,7 +19,7 @@ function App() {
   // const [isOpen, setIsOpen] = useState<boolean>(false)
   const [SearchTree, setSearchTree] = useState<boolean>(false)
   const [OrderType, setOrderType] = useState<string>(ORDER_TYPE.PREORDER)
-  const [actionStarted, setActionStarted] = useState<string>("base")
+  const [explainationFor, setExplainationFor] = useState<string>("base")
 
   useEffect(() => {
     modifyliste(inputtext)
@@ -37,19 +37,20 @@ function App() {
       return
     }
     const modtext = text.replace(/\[/g, "").replace(/\]/g, "")
-    // console.log(modtext)
-
 
     const NumberArray = modtext.split(',').map(String)
     if (SearchTree === false) {
       try {
         setRoot(BasicTree(NumberArray, OrderType))
+        if (OrderType === "Preorder")
+        {
+          setExplainationFor("preorder")
+        }
       }
       catch (error) {
         // if (!toast.isActive(toastIdRed.current as Id)) {
         //   toastIdRed.current = toast.error("Format needed : [1,2,null,2,...]")
         // }
-
       }
     }
     if (SearchTree === true) {
@@ -65,11 +66,11 @@ function App() {
   })
 
   if (0)
-    setActionStarted("base")
+    setExplainationFor("base")
   return (
     <>
       <div className='relative flex flex-col w-full min-h-screen items-center '>
-        <div className='absolute bottom-3 animate-bounce hover:opacity-70 cursor-pointer '>
+        <div className=' bottom-3 animate-bounce hover:opacity-70 cursor-pointer fixed '>
           <a href='https://github.com/noanjrd'>
             <img  src={GithubIcon} width={50} height={50} />
           </a>
@@ -77,10 +78,10 @@ function App() {
         <p className='text-4xl mb-8 lg:mb-15 font-bold mt-8 text-center text-black'>Binary Tree Visualizer</p>
         <div className='flex flex-col lg:flex-row justify-center w-full xl:w-322'>
           <div className='  w-full flex flex-col items-center'>
-            <Explainations actionStarted={actionStarted} />
+            <Explainations explainationFor={explainationFor} setInputText={setInputtext} />
             {/* <img src={bgtext} className='w-250 h-full ' /> */}
           </div>
-          <div className="flex flex-col items-center w-full  justify-center mb-10 mt-5 lg:mt-0  ">
+          <div className="flex flex-col items-center w-full mb-10 mt-5 lg:mt-0  ">
             <div className='flex flex-col gap-1 items-center mb-2'>
               <p className='text-black font-semibold text-3xl mb-5'>Interactive Binary Tree</p>
 

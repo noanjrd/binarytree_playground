@@ -5,6 +5,17 @@
   border-width: 0;
 }
 
+.code {
+  border-width: 0;
+  background: rgba(0, 0, 0, 0.096);
+  text-align: center;
+  border-radius: 2px;
+  padding-left: 3px;
+  padding-right: 3px;
+  padding-top: 1px;
+  padding-bottom: 1px;
+}
+
 @media (min-width: 640px) {
   .card {
       border-width: 3px;
