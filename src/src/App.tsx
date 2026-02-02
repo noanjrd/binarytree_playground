@@ -8,6 +8,7 @@ import { type TreeNode } from './types/types.ts'
 import { ORDER_TYPE, orderOptions } from './types/constants.ts'
 import './style/radio.css'
 import RadioGroup from './components/RadioGroup.tsx'
+import GithubIcon from "./assets/githubicon.png"
 import { Explainations } from './components/Explainations.tsx';
 
 
@@ -67,7 +68,10 @@ function App() {
     setActionStarted("base")
   return (
     <>
-      <div className='flex flex-col w-full  items-center  '>
+      <div className='relative flex flex-col w-full min-h-screen items-center  '>
+        <a href='https://github.com/noanjrd'>
+        <img className='absolute bottom-3 animate-bounce hover:opacity-70 cursor-pointer' src={GithubIcon} width={50} height={50} />
+        </a>
         <p className='text-4xl mb-8 lg:mb-15 font-bold mt-8 text-center text-black'>Binary Tree Visualizer</p>
         <div className='flex flex-col lg:flex-row justify-center w-full xl:w-322'>
           <div className='  w-full flex flex-col items-center'>
@@ -80,7 +84,8 @@ function App() {
 
               <div>
                 <input
-                  className="w-70 lg:w-80 text-[#2c2c2c] border-black border-2 p-2.5 focus:outline-none focus:shadow-[2px_2px_0px_rgba(0,0,0,1)] focus:bg-[#FFF8F3] active:shadow-[2px_2px_0px_rgba(0,0,0,1)]"
+                  className="w-70 lg:w-80 text-[#2c2c2c] border-black border-2 p-2.5 
+                  focus:outline-none focus:shadow-[2px_2px_0px_rgba(0,0,0,1)] active:shadow-[2px_2px_0px_rgba(0,0,0,1)]"
                   placeholder='[1,7,null,8,...]'
                   value={inputtext}
                   onChange={(e) => { setInputtext(e.target.value); }}

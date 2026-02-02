@@ -3,10 +3,10 @@ import '../style/Explainations.css'
 
 
 interface ExplainationsGroupProps {
-    actionStarted : string
+    actionStarted: string
 }
 
-export function Explainations({actionStarted} : ExplainationsGroupProps) {
+export function Explainations({ actionStarted }: ExplainationsGroupProps) {
     return (
         <>
             <div className='card  px-5 py-5  overflow-y-auto     scrollbar-none '
@@ -19,7 +19,7 @@ export function Explainations({actionStarted} : ExplainationsGroupProps) {
                         <p className='relative text-3xl text-left text-black font-semibold mb-3 '>
                             <span className="absolute left-0 bottom-0 w-76 h-4 bg-[#cdff58] -z-10 invisible sm:visible"></span>
                             What is a Binary Tree?</p>
-                        
+
                         <p className='explain-text'>A <strong>binary tree</strong> is a data structure where:</p>
                         <ul className="list-disc ml-6 mt-1">
                             <li className='explain-text'>Each node has <strong>at most two children</strong>: a left child and a right child.</li>

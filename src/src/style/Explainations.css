@@ -10,7 +10,7 @@
       border-width: 3px;
   border-color: black;
   border-radius: 20px;
-  --tw-shadow: 10px 10px 0px var(--tw-shadow-color, rgba(0, 0, 0, 1));
+  --tw-shadow: 10px 10px 0px var(--tw-shadow-color, #000000);
   box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
 
   }
