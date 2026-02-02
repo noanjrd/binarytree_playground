@@ -68,10 +68,12 @@ function App() {
     setActionStarted("base")
   return (
     <>
-      <div className='relative flex flex-col w-full min-h-screen items-center  '>
-        <a href='https://github.com/noanjrd'>
-        <img className='absolute bottom-3 animate-bounce hover:opacity-70 cursor-pointer' src={GithubIcon} width={50} height={50} />
-        </a>
+      <div className='relative flex flex-col w-full min-h-screen items-center justify-center  '>
+        <div className='absolute bottom-3 animate-bounce hover:opacity-70 cursor-pointer '>
+          <a href='https://github.com/noanjrd'>
+            <img  src={GithubIcon} width={50} height={50} />
+          </a>
+        </div>
         <p className='text-4xl mb-8 lg:mb-15 font-bold mt-8 text-center text-black'>Binary Tree Visualizer</p>
         <div className='flex flex-col lg:flex-row justify-center w-full xl:w-322'>
           <div className='  w-full flex flex-col items-center'>
