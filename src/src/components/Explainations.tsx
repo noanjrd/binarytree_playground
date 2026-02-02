@@ -16,8 +16,8 @@ export function Explainations({ actionStarted }: ExplainationsGroupProps) {
                 }}>
                 {actionStarted === "base" && (
                     <div className='mb-6 '>
-                        <p className='relative text-3xl text-left text-black font-semibold mb-3 '>
-                            <span className="absolute left-0 bottom-0 w-76 h-4 bg-[#cdff58] -z-10 invisible sm:visible"></span>
+                        <p className='relative text-3xl text-left text-black font-semibold mb-3 w-fit'>
+                            <span className="absolute left-0 bottom-0 w-full h-4 bg-[#cdff58] -z-10 invisible sm:visible"></span>
                             What is a Binary Tree?</p>
 
                         <p className='explain-text'>A <strong>binary tree</strong> is a data structure where:</p>
