@@ -7,10 +7,11 @@ interface RadioGroupProps {
     options: RadioOption[];
     value: string;
     onChange: (value:string) => void;
+    setExplainationsFor: (value:string) => void;
     name:string
 }
 
-export default function RadioGroup({options,value, onChange, name}:RadioGroupProps)
+export default function RadioGroup({options,value, onChange, name, setExplainationsFor }:RadioGroupProps)
 {
     return (
         <div className="wrapper">
@@ -22,7 +23,7 @@ export default function RadioGroup({options,value, onChange, name}:RadioGroupPro
             name={name}
             value={option.value}
             checked={value === option.value}
-            onChange={(e) => onChange(e.target.value)}
+            onChange={(e) => {onChange(e.target.value);setExplainationsFor(option.value)}}
           />
           <div className="btn">
             <span className="span">{option.label}</span>

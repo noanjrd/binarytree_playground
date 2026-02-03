@@ -3,28 +3,28 @@ import '../../style/App.css'
 import '../../style/Explainations.css'
 import { BasicExplainations } from './Base'
 import { PreorderExplainations } from './Preorder'
+import { PostorderExplainations } from './Postorder'
 
 
 interface ExplainationsGroupProps {
     explainationFor: string,
     setInputText: (value: string) => void
+    setExplainationFor: (value: string) => void
 }
 
-export function Explainations({ explainationFor, setInputText}: ExplainationsGroupProps) {
+export function Explainations({ explainationFor, setInputText, setExplainationFor}: ExplainationsGroupProps) {
 
-    const [visibleArrow, setVisibleArrow] = useState(true)
     return (
         <>
-            <div onScroll={() => setVisibleArrow(false)} className='card  px-5 py-5  overflow-y-auto  scrollbar-none max-h-[66vh]'
-                style={{
-                    scrollbarWidth: "none",   // Firefox
-                    msOverflowStyle: "none"   // IE 10+
-                }}>
+            <div>
                 {explainationFor === "base" && (
-                    <BasicExplainations />
+                    <BasicExplainations setExplainationFor={setExplainationFor} />
                 )}
-                {explainationFor === "preorder" && (
-                    <PreorderExplainations setInputText={setInputText} visibleArrow={visibleArrow} />
+                {explainationFor === "Preorder" && (
+                    <PreorderExplainations setInputText={setInputText}  />
+                )}
+                {explainationFor === "Postorder" && (
+                    <PostorderExplainations setInputText={setInputText} />
                 )}
 
             </div>

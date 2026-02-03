@@ -36,16 +36,13 @@ function App() {
     if (text.length === 0) {
       return
     }
-    const modtext = text.replace(/\[/g, "").replace(/\]/g, "")
+    const modtext = text.replace(/\[/g, "").replace(/\]/g, "").replace(/\s+/g,"")
 
     const NumberArray = modtext.split(',').map(String)
     if (SearchTree === false) {
       try {
         setRoot(BasicTree(NumberArray, OrderType))
-        if (OrderType === "Preorder")
-        {
-          setExplainationFor("preorder")
-        }
+        setExplainationFor(OrderType)
       }
       catch (error) {
         // if (!toast.isActive(toastIdRed.current as Id)) {
@@ -70,7 +67,7 @@ function App() {
   return (
     <>
       <div className='relative flex flex-col w-full min-h-screen items-center '>
-        <div className=' bottom-3 animate-bounce hover:opacity-70 cursor-pointer fixed '>
+        <div className=' bottom-3 hover:opacity-70 cursor-pointer fixed '>
           <a href='https://github.com/noanjrd'>
             <img  src={GithubIcon} width={50} height={50} />
           </a>
@@ -78,7 +75,7 @@ function App() {
         <p className='text-4xl mb-8 lg:mb-15 font-bold mt-8 text-center text-black'>Binary Tree Visualizer</p>
         <div className='flex flex-col lg:flex-row justify-center w-full xl:w-322'>
           <div className='  w-full flex flex-col items-center'>
-            <Explainations explainationFor={explainationFor} setInputText={setInputtext} />
+            <Explainations explainationFor={explainationFor} setInputText={setInputtext} setExplainationFor={setExplainationFor}/>
             {/* <img src={bgtext} className='w-250 h-full ' /> */}
           </div>
           <div className="flex flex-col items-center w-full mb-10 mt-5 lg:mt-0  ">
@@ -89,13 +86,13 @@ function App() {
                 <input
                   className="w-70 lg:w-80 text-[#2c2c2c] border-black border-2 p-2.5 
                   focus:outline-none focus:shadow-[2px_2px_0px_rgba(0,0,0,1)] active:shadow-[2px_2px_0px_rgba(0,0,0,1)]"
-                  placeholder='[1,7,null,8,...]'
+                  placeholder='Type here : [1,7,null,8,...]'
                   value={inputtext}
                   onChange={(e) => { setInputtext(e.target.value); }}
                 />
               </div>
               <div className='flex gap-1 flex-row justify-center items-center mt-1'>
-                <RadioGroup options={orderOptions} value={OrderType} onChange={setOrderType} name="ordertypechange" />
+                <RadioGroup options={orderOptions} value={OrderType} onChange={setOrderType} name="ordertypechange" setExplainationsFor={setExplainationFor} />
                 <button
                   className='button-home button-red'
                   onClick={() => { setInputtext(""), setRoot(null) }}>Reset</button>

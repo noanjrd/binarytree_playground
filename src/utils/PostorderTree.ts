@@ -2,7 +2,6 @@ import { type TreeNode } from "../src/types/types"
 
 export  function Postorder(values:Array<string>)
 {
-
     let i = values.length-1
     function build_tree() : TreeNode | null
     {
