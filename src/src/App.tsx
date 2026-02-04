@@ -10,7 +10,7 @@ import './style/radio.css'
 import RadioGroup from './components/RadioGroup.tsx'
 import GithubIcon from "./assets/githubicon.png"
 import { Explainations } from './components/explainations/Explainations.tsx';
-
+import {getTreeDeepness} from "../utils/BinaryTree.ts"
 
 function App() {
   const [root, setRoot] = useState<TreeNode | null>(null)
@@ -19,18 +19,12 @@ function App() {
   // const [isOpen, setIsOpen] = useState<boolean>(false)
   const [SearchTree, setSearchTree] = useState<boolean>(false)
   const [OrderType, setOrderType] = useState<string>(ORDER_TYPE.PREORDER)
-  const [explainationFor, setExplainationFor] = useState<string>("base")
+  const [tabOption, setTabOption] = useState<string>("Binary Tree")
 
   useEffect(() => {
     modifyliste(inputtext)
   }, [inputtext, SearchTree, OrderType])
 
-
-  function getTreeDeepness(root: TreeNode | null): any {
-    if (root === null)
-      return 0
-    return 1 + Math.max(getTreeDeepness(root.left), getTreeDeepness(root.right))
-  }
 
   const modifyliste = ((text: string) => {
     if (text.length === 0) {
@@ -42,7 +36,6 @@ function App() {
     if (SearchTree === false) {
       try {
         setRoot(BasicTree(NumberArray, OrderType))
-        setExplainationFor(OrderType)
       }
       catch (error) {
         // if (!toast.isActive(toastIdRed.current as Id)) {
@@ -62,8 +55,6 @@ function App() {
     }
   })
 
-  if (0)
-    setExplainationFor("base")
   return (
     <>
       <div className='relative flex flex-col w-full min-h-screen items-center '>
@@ -75,7 +66,7 @@ function App() {
         <p className='text-4xl mb-8 lg:mb-15 font-bold mt-8 text-center text-black'>Binary Tree Visualizer</p>
         <div className='flex flex-col lg:flex-row justify-center w-full xl:w-322'>
           <div className='  w-full flex flex-col items-center'>
-            <Explainations explainationFor={explainationFor} setInputText={setInputtext} setExplainationFor={setExplainationFor}/>
+            <Explainations explainationFor={tabOption} setInputText={setInputtext} setExplainationFor={setTabOption}/>
             {/* <img src={bgtext} className='w-250 h-full ' /> */}
           </div>
           <div className="flex flex-col items-center w-full mb-10 mt-5 lg:mt-0  ">
@@ -92,10 +83,11 @@ function App() {
                 />
               </div>
               <div className='flex gap-1 flex-row justify-center items-center mt-1'>
-                <RadioGroup options={orderOptions} value={OrderType} onChange={setOrderType} name="ordertypechange" setExplainationsFor={setExplainationFor} />
+                <RadioGroup options={orderOptions} value={OrderType} onChange={setOrderType} name="ordertypechange" tabOption={tabOption} setTabOption={setTabOption} />
                 <button
                   className='button-home button-red'
-                  onClick={() => { setInputtext(""), setRoot(null) }}>Reset</button>
+                  onClick={() => { setInputtext(""), setRoot(null) }}>Reset
+                </button>
               </div>
               <button
                 className='button-home   button-blue   '

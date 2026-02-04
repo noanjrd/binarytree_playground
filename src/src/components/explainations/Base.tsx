@@ -9,17 +9,17 @@ export interface BasicExplainationsProps {
 export function BasicExplainations({ setExplainationFor }: BasicExplainationsProps) {
 
     return (
-        <div className='card relative px-5 py-5  overflow-y-auto  scrollbar-none max-h-[66vh] flex justify-center'
+        <div className='card relative px-5 py-5  overflow-y-auto  scrollbar-none max-h-[66vh] flex justify-center min-w-130'
             style={{
                 scrollbarWidth: "none",   // Firefox
                 msOverflowStyle: "none"   // IE 10+
             }}>
-            <div onClick={() => setExplainationFor("Preorder")}
+            {/* <div onClick={() => setExplainationFor("Preorder")}
                 className={`py-2 px-2 absolute rotate-90 flex justify-center bottom-3
                     cursor-pointer hover:opacity-70 right-3 border-2 border-black rounded-full invisible sm:visible`}
             >
                 <img src={ArrowIcon} width={15} height={15} />
-            </div>
+            </div> */}
             <div className='mb-6 '>
                 <p className='relative text-3xl text-left text-black font-semibold mb-3 w-fit'>
                     <span className="absolute left-0 bottom-0 w-full h-4 bg-[#cdff58] -z-10 invisible sm:visible"></span>

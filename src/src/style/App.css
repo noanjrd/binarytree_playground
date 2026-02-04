@@ -25,6 +25,24 @@
   box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
 }
 
+.button-home-black {
+  height: 40px;
+  border-color: black;
+  border-width: 2px;
+  padding-left: 13px;
+  padding-right: 13px;
+  border-radius: 500px;
+  cursor: pointer;
+  font-weight: 500;
+  color: rgb(0, 0, 0)
+}
+
+.button-home-black:hover {
+  --tw-shadow: 2px 2px 0px var(--tw-shadow-color, rgba(0, 0, 0, 1));
+  box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
+}
+
+
 .button-red {
   background-color: #A3332A;
 }
@@ -39,6 +57,14 @@
 
 .button-blue:hover {
   background-color: #4f7ce6;
+}
+
+.button-green {
+  background-color: #6b9162;
+}
+
+.button-green:hover {
+  background-color: rgb(64, 109, 54);
 }
 
 

@@ -1,7 +1,7 @@
 import {Preorder, Preorder_bst} from './PreorderTree'
 import {Postorder,Postorder_bst} from './PostorderTree'
 import {ORDER_TYPE} from '../src/types/constants'
-
+import { type TreeNode } from '../src/types/types'
 
 function checkValidInput(values : Array<string>)
 {
@@ -13,6 +13,12 @@ function checkValidInput(values : Array<string>)
         }
     }
     return true
+}
+
+export function getTreeDeepness(root: TreeNode | null): any {
+    if (root === null)
+      return 0
+    return 1 + Math.max(getTreeDeepness(root.left), getTreeDeepness(root.right))
 }
 
 export function BasicTree(values: Array<string>, sorttype:string) {

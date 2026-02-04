@@ -12,7 +12,7 @@ export function PreorderExplainations({ setInputText }: ExplainationsGroupProps)
     const [visibleArrow, setVisibleArrow] = useState(true)
     return (
         <div onScroll={() => setVisibleArrow(false)} className='card relative px-5 py-5  overflow-y-auto 
-        scrollbar-none max-h-[66vh] flex justify-center'
+        scrollbar-none max-h-[66vh] flex justify-center min-w-130'
             style={{
                 scrollbarWidth: "none",   // Firefox
                 msOverflowStyle: "none"   // IE 10+
