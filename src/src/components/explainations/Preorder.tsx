@@ -45,7 +45,7 @@ export function PreorderExplainations({ setInputText }: ExplainationsGroupProps)
 
                 <button
                     onClick={() => setShowSteps(!showSteps)}
-                    className='mt-4 mb-2 text-black font-medium hover:opacity-70 transition-opacity flex items-center gap-2'
+                    className='cursor-pointer mt-4 mb-2 text-black font-medium hover:opacity-70 transition-opacity flex items-center gap-2'
                 >
                     <span className='text-lg'>{showSteps ? '▼' : '▶'}</span>
                     How it works (step by step)
