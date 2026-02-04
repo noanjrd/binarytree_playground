@@ -91,7 +91,7 @@ export function PreorderExplainations({ setInputText }: ExplainationsGroupProps)
                 )}
 
                 <p className='text-black text-left mt-6 font-medium mb-2 '>Preorder output (with nulls)</p>
-                <div className="cursor-copy hover:opacity-70" onClick={() => setInputText("1,8,null,null,3,4,null,null,5,null,null")}>
+                <div className="cursor-pointer hover:opacity-70" onClick={() => setInputText("1,8,null,null,3,4,null,null,5,null,null")}>
                     <p className='explain-text '><code className='code'>[1,8,null,null,3,4,null,null,5,null,null]</code></p>
                 </div>
 

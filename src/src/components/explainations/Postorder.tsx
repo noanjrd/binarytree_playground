@@ -100,7 +100,7 @@ export function PostorderExplainations({ setInputText }: ExplainationsGroupProps
                     )}
 
                     <p className='text-black text-left mt-6 font-medium mb-2 '>Postorder output (with nulls)</p>
-                    <div className="cursor-copy hover:opacity-70" onClick={() => setInputText("null,null,8,null,null,4,null,null,5,3,1")}>
+                    <div className="cursor-pointer hover:opacity-70" onClick={() => setInputText("null,null,8,null,null,4,null,null,5,3,1")}>
                         <p className='explain-text '><code className='code'>[null,null,8,null,null,4, null,null,5,3,1]</code></p>
                     </div>
 
