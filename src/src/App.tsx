@@ -67,7 +67,7 @@ function App() {
     <>
       <div className='relative flex flex-col w-full min-h-screen items-center '>
         <div className=' bottom-3 hover:opacity-70 cursor-pointer fixed '>
-          <a href='https://github.com/noanjrd'>
+          <a href='https://github.com/noanjrd/binarytree_playground'>
             <img  src={GithubIcon} width={50} height={50} />
           </a>
         </div>
