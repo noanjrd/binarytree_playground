@@ -76,7 +76,7 @@ function App() {
             <img  src={GithubIcon} width={50} height={50} />
           </a>
         </div>
-        <p className='text-4xl mb-8 lg:mb-15 font-bold mt-8 text-center text-black'>Binary Tree Visualizer</p>
+        <p className='text-4xl mb-8 lg:mb-15 font-bold mt-8 text-center text-black'>Binary Tree Playground</p>
         <div className='flex flex-col lg:flex-row justify-center w-full xl:w-322'>
           <div className='  w-full flex flex-col items-center'>
             <Explainations explainationFor={tabOption} setInputText={setInputtext} setExplainationFor={setTabOption}/>
@@ -84,7 +84,7 @@ function App() {
           </div>
           <div className="flex flex-col items-center w-full mb-10 mt-5 lg:mt-0  ">
             <div className='flex flex-col gap-1 items-center mb-2'>
-              <p className='text-black font-semibold text-3xl mb-5'>Interactive Binary Tree</p>
+              <p className='text-black font-semibold text-3xl mb-5'>Binary Tree Visualizer</p>
 
               <div>
                 <input
