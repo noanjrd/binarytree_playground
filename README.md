@@ -1,10 +1,10 @@
-# 🌳 Binary Tree Visualizer
+# 🌳 Binary Tree Playground
 
-An interactive **Binary Tree Visualizer** built with **React**, **TypeScript**, **Vite**, and **Tailwind CSS**.
+An interactive **Binary Tree Playground** built with **React**, **TypeScript**, **Vite**, and **Tailwind CSS**.
 
 This project helps you **understand binary trees visually** by constructing a tree from user input and displaying its structure dynamically.
 
-Check it out here: [noanjrd.github.io/binarytree_visualizer](https://noanjrd.github.io/binarytree_visualizer/)
+Check it out here: [noanjrd.github.io/binarytree_playground](https://noanjrd.github.io/binarytree_playground/)
 
 ---
 
@@ -35,8 +35,8 @@ Check it out here: [noanjrd.github.io/binarytree_visualizer](https://noanjrd.git
 Clone the repository:
 
 ```bash
-git clone https://github.com/noanjrd/binarytree_visualizer
-cd binarytree_visualizer
+git clone https://github.com/noanjrd/binarytree_playground
+cd binarytree_playground
 ```
 
 Install dependencies:
