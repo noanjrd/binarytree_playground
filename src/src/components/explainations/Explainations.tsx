@@ -18,7 +18,13 @@ interface ExplainationsGroupProps {
 
 export function Explainations({ explainationFor, setInputText, setExplainationFor}: ExplainationsGroupProps) {
 
-    const options = ["Binary Tree", "Preorder", "Postorder", "Challenge"]
+    const options: Record<string, string> = {
+        "Binary Tree" : "#",
+        "Preorder" : "",
+        "Postorder" : "",
+        "Challenge" : ""
+    }
+
     const [root, setRoot] = useState<TreeNode | null>(null)
     useEffect(() => {
         setRoot(GenerateRandomTree(3))
@@ -27,18 +33,22 @@ export function Explainations({ explainationFor, setInputText, setExplainationFo
         <>
             <div>
                 <div className='tab-bar flex flex-row border items-center rounded-full '>
-                    {options.map((option, index) => (
+                    {options.map((option:any, index:number) => (
                         <>
-                            <div key={index} className='tab-option'
+                            <div key={index} className={`    flex items-center    w-fit  ${explainationFor === option ? " tab-option-selected" : "tab-option"}`}
                             onClick={() => setExplainationFor(option)}>
-                                <p className='text-black font-semibold'>{option}</p>
+                            
+                                <p className={`relative text-black w-fit  text-center  ${explainationFor === option ? "font-bold": "font-semibold" }`}>
+                                    <span className={`absolute w-full h-4.5 border bg-red-600 left-0 top-2.5 -z-2`}></span>
+                                    {option}</p>
+                                
                             </div>
                         </>
                     ))}
 
                 </div>
                 {explainationFor === "Binary Tree" && (
-                    <BasicExplainations setExplainationFor={setExplainationFor} />
+                    <BasicExplainations  />
                 )}
                 {explainationFor === "Preorder" && (
                     <PreorderExplainations setInputText={setInputText}  />

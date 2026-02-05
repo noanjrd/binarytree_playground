@@ -1,12 +1,8 @@
 import '../../style/App.css'
 import '../../style/Explainations.css'
-import ArrowIcon from "../../assets/arrow.svg"
 
-export interface BasicExplainationsProps {
-    setExplainationFor: (value: string) => void
-}
 
-export function BasicExplainations({ setExplainationFor }: BasicExplainationsProps) {
+export function BasicExplainations() {
 
     return (
         <div className='card relative px-5 py-5  overflow-y-auto  scrollbar-none max-h-[66vh] flex justify-center min-w-130'

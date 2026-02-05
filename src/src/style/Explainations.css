@@ -34,6 +34,15 @@
   cursor: pointer;
 }
 
+
+.tab-option-selected
+{
+  flex: auto;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
 @media (min-width: 640px) {
   .card {
       border-width: 3px;
