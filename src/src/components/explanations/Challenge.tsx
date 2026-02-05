@@ -1,5 +1,5 @@
 import '../../style/App.css'
-import '../../style/Explainations.css'
+import '../../style/Explanations.css'
 import DisplayBinaryTree from '../DisplayBinaryTree'
 import type { TreeNode } from '../../types/types'
 import { GenerateRandomTree } from '../../../utils/GenerateTree'
@@ -33,7 +33,9 @@ export function ChallengeCard({ root, setRoot, setDeepness, deepness }: Props) {
                 </div>
                <div className='flex gap-1 flex-row justify-center items-center mt-8'>
                     <select 
-                        className='text-black rounded-full font-semibold border-2 border-black  px-4 py-2 shadow-[0px_0px_0px_0px_rgba(0,0,0,1)] hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]  transition-all cursor-pointer'
+                        className='text-black rounded-full font-semibold border-2 border-black  px-4 py-2 
+                        shadow-[0px_0px_0px_0px_rgba(0,0,0,1)] hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]
+                          transition-all cursor-pointer focus:outline-none'
                         value={deepness} 
                         onChange={(e) => setDeepness(Number(e.target.value))}
                     >

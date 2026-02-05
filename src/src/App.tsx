@@ -9,7 +9,7 @@ import { ORDER_TYPE, orderOptions } from './types/constants.ts'
 import './style/radio.css'
 import RadioGroup from './components/RadioGroup.tsx'
 import GithubIcon from "./assets/githubicon.png"
-import { Explainations } from './components/explainations/Explainations.tsx';
+import { Explanations } from './components/explanations/Explanations.tsx';
 import {getTreeDeepness} from "../utils/BinaryTree.ts"
 
 function App() {
@@ -43,9 +43,6 @@ function App() {
         setRoot(BasicTree(NumberArray, OrderType))
       }
       catch (error) {
-        // if (!toast.isActive(toastIdRed.current as Id)) {
-        //   toastIdRed.current = toast.error("Format needed : [1,2,null,2,...]")
-        // }
       }
     }
     if (SearchTree === true) {
@@ -53,9 +50,6 @@ function App() {
         setRoot(BST(NumberArray, OrderType))
       }
       catch (error) {
-        // if (!toast.isActive(toastIdRed.current as Id)) {
-        //   toastIdRed.current = toast.error("Format needed : [1,2,null,2,...]")
-        // }
       }
     }
   })
@@ -63,8 +57,9 @@ function App() {
   if (screenWidth < 640)
   {
     return (
-      <div className='flex w-full min-h-screen justify-center items-center'>
-        <p className='text-black font-semibold'>Not available on mobile yet.</p>
+      <div className='flex w-full gap-5   flex-col min-h-screen justify-center items-center'>
+        <p className='text-black font-bold text-3xl'>Binary Tree Playground</p>
+        <p className='text-black font-semibold'>Not available on mobile yet.🌳</p>
       </div>
     )
   }
@@ -79,7 +74,7 @@ function App() {
         <p className='text-4xl mb-8 lg:mb-15 font-bold mt-8 text-center text-black'>Binary Tree Playground</p>
         <div className='flex flex-col lg:flex-row justify-center w-full xl:w-322'>
           <div className='  w-full flex flex-col items-center'>
-            <Explainations explainationFor={tabOption} setInputText={setInputtext} setExplainationFor={setTabOption}/>
+            <Explanations explainationFor={tabOption} setInputText={setInputtext} setExplainationFor={setTabOption}/>
             {/* <img src={bgtext} className='w-250 h-full ' /> */}
           </div>
           <div className="flex flex-col items-center w-full mb-10 mt-5 lg:mt-0  ">

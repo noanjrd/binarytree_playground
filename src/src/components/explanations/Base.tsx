@@ -1,8 +1,8 @@
 import '../../style/App.css'
-import '../../style/Explainations.css'
+import '../../style/Explanations.css'
 
 
-export function BasicExplainations() {
+export function BasicExplanations() {
 
     return (
         <div className='card relative px-5 py-5  overflow-y-auto  scrollbar-none max-h-[66vh] flex justify-center min-w-130'

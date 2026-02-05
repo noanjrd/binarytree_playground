@@ -1,6 +1,6 @@
 # 🌳 Binary Tree Playground
 
-An interactive **Binary Tree Playground** built with **React**, **TypeScript**, **Vite**, and **Tailwind CSS**.
+An interactive **Binary Tree Visualizer** built with **React**, **TypeScript**, **Vite**, and **Tailwind CSS**.
 
 This project helps you **understand binary trees visually** by constructing a tree from user input and displaying its structure dynamically.
 
@@ -10,14 +10,15 @@ Check it out here: [noanjrd.github.io/binarytree_playground](https://noanjrd.git
 
 ## 🚀 Features
 
-* Build a binary tree from a list of numbers
-* Visual representation of nodes and branches
-* Dynamic sizing based on tree depth
-* Fast development with Vite
-* Styled with Tailwind CSS
-* Designed for learning and experimentation
+* **Multiple Construction Methods**: Build trees using **Preorder** or **Postorder** traversal rules.
+* **BST Support**: Specialized logic to build and validate **Binary Search Trees**.
+* **Interactive Explanations**: Detailed, step-by-step guides to help you understand how Preorder and Postorder traversals work.
+* **Challenge Mode**: Test your knowledge by trying to recreate randomly generated trees.
+* **Visual Representation**: Clear nodes and branches visualization that scales dynamically with tree depth.
+* **Responsive Design**: Styled with **Tailwind CSS** for a clean and modern interface.
 
-**Upcoming updates:** More traversal options and detailed explanations to help you better understand binary trees.
+
+**Upcoming updates:** More interactive features and detailed explanations to help you better understand binary trees.
 
 ---
 

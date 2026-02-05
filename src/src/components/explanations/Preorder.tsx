@@ -1,13 +1,13 @@
 import '../../style/App.css'
-import '../../style/Explainations.css'
+import '../../style/Explanations.css'
 import ArrowIcon from "../../assets/arrow.svg"
 import { useState } from 'react'
 
-interface ExplainationsGroupProps {
+interface ExplanationsGroupProps {
     setInputText: (value: string) => void
 }
 
-export function PreorderExplainations({ setInputText }: ExplainationsGroupProps) {
+export function PreorderExplanations({ setInputText }: ExplanationsGroupProps) {
     const [showSteps, setShowSteps] = useState(false)
     const [visibleArrow, setVisibleArrow] = useState(true)
     return (
