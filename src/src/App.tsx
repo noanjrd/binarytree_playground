@@ -20,18 +20,23 @@ function App() {
   const [SearchTree, setSearchTree] = useState<boolean>(false)
   const [OrderType, setOrderType] = useState<string>(ORDER_TYPE.PREORDER)
   const [tabOption, setTabOption] = useState<string>("Binary Tree")
+  const [screenWidth, setScreenWidth] = useState(window.innerWidth)
+
+
 
   useEffect(() => {
     modifyliste(inputtext)
   }, [inputtext, SearchTree, OrderType])
 
+  useEffect(() => {
+    setScreenWidth(window.innerWidth)
+  }, [])
 
   const modifyliste = ((text: string) => {
     if (text.length === 0) {
       return
     }
     const modtext = text.replace(/\[/g, "").replace(/\]/g, "").replace(/\s+/g,"")
-
     const NumberArray = modtext.split(',').map(String)
     if (SearchTree === false) {
       try {
@@ -55,6 +60,14 @@ function App() {
     }
   })
 
+  if (screenWidth < 640)
+  {
+    return (
+      <div className='flex w-full min-h-screen justify-center items-center'>
+        <p className='text-black font-semibold'>Not available on mobile yet.</p>
+      </div>
+    )
+  }
   return (
     <>
       <div className='relative flex flex-col w-full min-h-screen items-center '>

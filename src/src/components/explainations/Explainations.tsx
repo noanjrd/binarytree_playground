@@ -19,29 +19,29 @@ interface ExplainationsGroupProps {
 export function Explainations({ explainationFor, setInputText, setExplainationFor}: ExplainationsGroupProps) {
 
     const options: Record<string, string> = {
-        "Binary Tree" : "#",
-        "Preorder" : "",
-        "Postorder" : "",
-        "Challenge" : ""
+        "Binary Tree" : "cdff58",
+        "Preorder" : "b9adff",
+        "Postorder" : "ffd268",
+        "Challenge" : "ff9494"
     }
 
     const [root, setRoot] = useState<TreeNode | null>(null)
+    const [deepness, setDeepness] = useState<number>(2)
     useEffect(() => {
-        setRoot(GenerateRandomTree(3))
+        setRoot(GenerateRandomTree(deepness))
     }, [])
     return (
         <>
             <div>
                 <div className='tab-bar flex flex-row border items-center rounded-full '>
-                    {options.map((option:any, index:number) => (
+                    {Object.entries(options).map(([option, color]) => (
                         <>
-                            <div key={index} className={`    flex items-center    w-fit  ${explainationFor === option ? " tab-option-selected" : "tab-option"}`}
+                            <div className={`    flex items-center    w-fit  ${explainationFor === option ? " tab-option-selected" : "tab-option"}`}
                             onClick={() => setExplainationFor(option)}>
                             
                                 <p className={`relative text-black w-fit  text-center  ${explainationFor === option ? "font-bold": "font-semibold" }`}>
-                                    <span className={`absolute w-full h-4.5 border bg-red-600 left-0 top-2.5 -z-2`}></span>
+                                    <span className={`absolute w-full h-3 bg-[#${color}] left-0 top-3 -z-2 ${explainationFor === option ? "visible" : "invisible"}`}></span>
                                     {option}</p>
-                                
                             </div>
                         </>
                     ))}
@@ -57,7 +57,7 @@ export function Explainations({ explainationFor, setInputText, setExplainationFo
                     <PostorderExplainations setInputText={setInputText} />
                 )}
                 {explainationFor === "Challenge" && (
-                    <ChallengeCard root={root} setRoot={setRoot}/>
+                    <ChallengeCard root={root} setRoot={setRoot} setDeepness={setDeepness} deepness={deepness}/>
                 )}
 
             </div>
