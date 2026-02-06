@@ -3,13 +3,16 @@ import '../../style/Explanations.css'
 import ArrowIcon from "../../assets/arrow.svg"
 import { useState } from 'react'
 
+
 interface ExplanationsGroupProps {
     setInputText: (value: string) => void
 }
 
-export function PreorderExplanations({ setInputText }: ExplanationsGroupProps) {
+export function PreorderExplanations({ setInputText }: ExplanationsGroupProps)
+{
     const [showSteps, setShowSteps] = useState(false)
     const [visibleArrow, setVisibleArrow] = useState(true)
+
     return (
         <div onScroll={() => setVisibleArrow(false)} className='card relative px-5 py-5  overflow-y-auto 
         scrollbar-none max-h-[66vh] flex justify-center min-w-130'
@@ -17,12 +20,12 @@ export function PreorderExplanations({ setInputText }: ExplanationsGroupProps) {
                 scrollbarWidth: "none",   // Firefox
                 msOverflowStyle: "none"   // IE 10+
             }}>
-                <div
-                    className={`animate-bounce absolute rotate-180 w-full flex justify-center bottom-4
+            <div
+                className={`animate-bounce absolute rotate-180 w-full flex justify-center bottom-4
                     transition-opacity duration-300 ${visibleArrow ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
-                >
-                    <img src={ArrowIcon} width={20} height={20} />
-                </div>
+            >
+                <img src={ArrowIcon} width={20} height={20} />
+            </div>
             <div className='relative'>
                 <p className='relative text-3xl text-left text-black font-semibold mb-3 w-fit'>
                     <span className="absolute left-0 bottom-0 w-full h-4 bg-[#b9adff] -z-10 invisible sm:visible"></span>
@@ -45,8 +48,7 @@ export function PreorderExplanations({ setInputText }: ExplanationsGroupProps) {
 
                 <button
                     onClick={() => setShowSteps(!showSteps)}
-                    className='cursor-pointer mt-4 mb-2 text-black font-medium hover:opacity-70 transition-opacity flex items-center gap-2'
-                >
+                    className='cursor-pointer mt-4 mb-2 text-black font-medium hover:opacity-70 transition-opacity flex items-center gap-2'>
                     <span className='text-lg'>{showSteps ? '▼' : '▶'}</span>
                     How it works (step by step)
                 </button>
@@ -57,7 +59,6 @@ export function PreorderExplanations({ setInputText }: ExplanationsGroupProps) {
                             <li className='explain-text'><strong>Visit <code className='code'>1</code></strong> (root first!)</li>
                             <li className='explain-text'>Go to left child → <code className='code'>8</code></li>
                         </ul>
-
                         <p className='explain-text font-semibold'>At node <code className='code'>8</code>:</p>
                         <ul className="list-disc ml-6 mb-3">
                             <li className='explain-text'><strong>Visit <code className='code'>8</code></strong></li>
@@ -65,13 +66,11 @@ export function PreorderExplanations({ setInputText }: ExplanationsGroupProps) {
                             <li className='explain-text'>Go to right child → <code className='code'>null</code></li>
                             <li className='explain-text'>Done with <code className='code'>8</code>, go back to <code className='code'>1</code></li>
                         </ul>
-
                         <p className='explain-text font-semibold'>Back at <code className='code'>1</code>, go to right child → <code className='code'>3</code>:</p>
                         <ul className="list-disc ml-6 mb-3">
                             <li className='explain-text'><strong>Visit <code className='code'>3</code></strong></li>
                             <li className='explain-text'>Go to left child → <code className='code'>4</code></li>
                         </ul>
-
                         <p className='explain-text font-semibold'>At node <code className='code'>4</code>:</p>
                         <ul className="list-disc ml-6 mb-3">
                             <li className='explain-text'><strong>Visit <code className='code'>4</code></strong></li>
@@ -79,7 +78,6 @@ export function PreorderExplanations({ setInputText }: ExplanationsGroupProps) {
                             <li className='explain-text'>Go to right child → <code className='code'>null</code></li>
                             <li className='explain-text'>Done with <code className='code'>4</code>, go back to <code className='code'>3</code></li>
                         </ul>
-
                         <p className='explain-text font-semibold'>Back at <code className='code'>3</code>, go to right child → <code className='code'>5</code>:</p>
                         <ul className="list-disc ml-6 mb-3">
                             <li className='explain-text'><strong>Visit <code className='code'>5</code></strong></li>
@@ -89,19 +87,16 @@ export function PreorderExplanations({ setInputText }: ExplanationsGroupProps) {
                         </ul>
                     </div>
                 )}
-
                 <p className='text-black text-left mt-6 font-medium mb-2 '>Preorder output (with nulls)</p>
                 <div className="cursor-pointer hover:opacity-70" onClick={() => setInputText("1,8,null,null,3,4,null,null,5,null,null")}>
                     <p className='explain-text '><code className='code'>[1,8,null,null,3,4,null,null,5,null,null]</code></p>
                 </div>
-
                 <p className='text-black text-left mt-6 font-medium mb-2 '>Why including <code className='code'>null</code> matters?</p>
                 <ul className="list-decimal ml-6 ">
                     <li className='explain-text'>It allows <strong>exact reconstruction of the tree</strong>.</li>
                     <li className='explain-text'>Two different trees can have the same preorder values <strong>without nulls</strong>.</li>
                     <li className='explain-text'>Common in <strong>tree serialization</strong> and interview questions.</li>
                 </ul>
-
             </div>
         </div>
     )

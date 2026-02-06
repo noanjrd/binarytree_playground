@@ -2,17 +2,26 @@ import '../../style/App.css'
 import '../../style/Explanations.css'
 import DisplayBinaryTree from '../DisplayBinaryTree'
 import type { TreeNode } from '../../types/types'
-import { GenerateRandomTree } from '../../../utils/GenerateTree'
 import { getTreeDeepness } from "../../../utils/BinaryTree"
+import { useEffect, useState } from 'react'
+
 
 export interface Props {
     root: TreeNode | null;
     deepness: number;
-    setRoot: (val: TreeNode) => void
-    setDeepness: (val: number) => void
+    answer: string
+    setDeepness: (val: number) => void;
+    setInputText: (val: string) => void
+    ChangeTree: () => void
+    OrderType: string
 }
 
-export function ChallengeCard({ root, setRoot, setDeepness, deepness }: Props) {
+export function ChallengeCard({ root, setDeepness, deepness, answer, ChangeTree, setInputText, OrderType }: Props) {
+    const [showAnswer, setShowAnswer] = useState(false)
+
+    useEffect(() => {
+        setShowAnswer(false)
+    }, [OrderType])
 
     return (
         <div className='card min-w-130 relative px-5 py-5  overflow-y-auto  scrollbar-none max-h-[66vh] flex justify-center'
@@ -26,30 +35,42 @@ export function ChallengeCard({ root, setRoot, setDeepness, deepness }: Props) {
                     Binary Tree Challenge
                 </p>
                 <p className=' text-left text-black  w-fit'>
-                    Try to recreate the binary trees using the visualizer to the right.
+                    Try to recreate this binary trees using the visualizer to the right.
                 </p>
                 <div className='flex justify-center items-center mt-5 '>
                     <DisplayBinaryTree root={root} deepness={getTreeDeepness(root)} />
                 </div>
-               <div className='flex gap-1 flex-row justify-center items-center mt-8'>
-                    <select 
+                <button
+                    onClick={() => setShowAnswer(!showAnswer)}
+                    className='cursor-pointer  mt-4 mb-2 text-black font-medium hover:opacity-70 transition-opacity flex items-center gap-2'
+                >
+                    <span className='text-lg'>{showAnswer ? '▼' : '▶'}</span>
+                    The answer
+                </button>
+                {showAnswer && (
+                    <div className='cursor-pointer hover:opacity-70 ' onClick={() => setInputText(answer)}>
+                        <p className='explain-text ml-5 max-w-100 break-all text-ellipsis'><code className='code'>[{answer}]</code></p>
+                    </div>
+                )}
+                <div className='flex gap-1 flex-row justify-center items-center mt-5'>
+                    <select
                         className='text-black rounded-full font-semibold border-2 border-black  px-4 py-2 
                         shadow-[0px_0px_0px_0px_rgba(0,0,0,1)] hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]
                           transition-all cursor-pointer focus:outline-none'
-                        value={deepness} 
+                        value={deepness}
                         onChange={(e) => setDeepness(Number(e.target.value))}
                     >
+                        <option value="1">Depth: 1</option>
                         <option value="2">Depth: 2</option>
                         <option value="3">Depth: 3</option>
                         <option value="4">Depth: 4</option>
                         <option value="5">Depth: 5</option>
                     </select>
-                    <button className=' button-home-black ' onClick={() => setRoot(GenerateRandomTree(deepness))}
+                    <button className=' button-home-black ' onClick={() => { ChangeTree(); setShowAnswer(false) }}
                     >Regenerate
                     </button>
                 </div>
             </div>
-
         </div>
     )
 }

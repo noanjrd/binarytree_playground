@@ -1,65 +1,91 @@
-// import { useState } from 'react'
 import '../../style/App.css'
 import '../../style/Explanations.css'
 import { BasicExplanations } from './Base'
 import { PreorderExplanations } from './Preorder'
 import { PostorderExplanations } from './Postorder'
 import { ChallengeCard } from './Challenge'
-import { useState } from 'react'
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { GenerateRandomTree } from '../../../utils/GenerateTree'
 import { type TreeNode } from '../../types/types'
+import { GetPostorderList } from '../../../utils/PostorderTree'
+import { GetPreorderList } from '../../../utils/PreorderTree'
+
 
 interface ExplainationsGroupProps {
-    explainationFor: string,
+    explanationFor: string,
     setInputText: (value: string) => void
-    setExplainationFor: (value: string) => void
+    setExplanationFor: (value: string) => void
+    OrderType: string
 }
 
-export function Explanations({ explainationFor, setInputText, setExplainationFor}: ExplainationsGroupProps) {
+const options: Record<string, string> = {
+    "Binary Tree" : "cdff58",
+    "Preorder" : "b9adff",
+    "Postorder" : "ffd268",
+    "Challenge" : "ff9494"
+}
 
-    const options: Record<string, string> = {
-        "Binary Tree" : "cdff58",
-        "Preorder" : "b9adff",
-        "Postorder" : "ffd268",
-        "Challenge" : "ff9494"
+export function Explanations({ explanationFor, setInputText, setExplanationFor, OrderType}: ExplainationsGroupProps)
+{
+    const [deepness, setDeepness] = useState<number>(2)
+    const [root, setRoot] = useState<TreeNode>(GenerateRandomTree(deepness))
+    const [answer, setAnswer] = useState(GetPostorderList(root))
+
+    useEffect(() => {
+        if (OrderType === "Postorder")
+        {
+            setAnswer(GetPostorderList(root))
+        }
+        if (OrderType === "Preorder")
+        {
+            setAnswer(GetPreorderList(root))
+        }
+    }, [OrderType])
+
+    const ChangeTree = () => {
+
+        let newRoot = GenerateRandomTree(deepness)
+        setRoot(newRoot)
+        if (OrderType === "Postorder")
+        {
+            setAnswer(GetPostorderList(newRoot))
+        }
+        if (OrderType === "Preorder")
+        {
+            setAnswer(GetPreorderList(newRoot))
+        }   
     }
 
-    const [root, setRoot] = useState<TreeNode | null>(null)
-    const [deepness, setDeepness] = useState<number>(2)
-    useEffect(() => {
-        setRoot(GenerateRandomTree(deepness))
-    }, [])
     return (
         <>
             <div>
                 <div className='tab-bar flex flex-row border items-center rounded-full '>
                     {Object.entries(options).map(([option, color]) => (
                         <>
-                            <div className={`    flex items-center    w-fit  ${explainationFor === option ? " tab-option-selected" : "tab-option"}`}
-                            onClick={() => setExplainationFor(option)}>
+                            <div className={`    flex items-center    w-fit  ${explanationFor === option ? " tab-option-selected" : "tab-option"}`}
+                            onClick={() => setExplanationFor(option)}>
                             
                                 <p className={`relative text-black w-fit  text-center font-semibold `}>
-                                    <span className={`absolute w-full h-3 bg-[#${color}] left-0 top-3 -z-2 ${explainationFor === option ? "visible" : "invisible"}`}></span>
+                                    <span className={`absolute w-full h-3 bg-[#${color}] left-0 top-3 -z-2 ${explanationFor === option ? "visible" : "invisible"}`}></span>
                                     {option}</p>
                             </div>
                         </>
                     ))}
-
                 </div>
-                {explainationFor === "Binary Tree" && (
+                {explanationFor === "Binary Tree" && (
                     <BasicExplanations  />
                 )}
-                {explainationFor === "Preorder" && (
+                {explanationFor === "Preorder" && (
                     <PreorderExplanations setInputText={setInputText}  />
                 )}
-                {explainationFor === "Postorder" && (
+                {explanationFor === "Postorder" && (
                     <PostorderExplanations setInputText={setInputText} />
                 )}
-                {explainationFor === "Challenge" && (
-                    <ChallengeCard root={root} setRoot={setRoot} setDeepness={setDeepness} deepness={deepness}/>
+                {explanationFor === "Challenge" && (
+                    <ChallengeCard root={root} setInputText={setInputText}
+                    setDeepness={setDeepness} deepness={deepness} 
+                    answer={answer} ChangeTree={ChangeTree} OrderType={OrderType}/>
                 )}
-
             </div>
         </>
     )

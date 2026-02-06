@@ -1,8 +1,10 @@
 import "../style/App.css"
 
 
-export default function DisplayBinaryTree({ root, deepness }: { root: any, deepness:any }) {
-    if (!root) {
+export default function DisplayBinaryTree({ root, deepness }: { root: any, deepness:any })
+{
+    if (!root)
+    {
         return null
     }
     return (
