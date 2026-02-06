@@ -3,6 +3,7 @@ import '../../style/Explanations.css'
 import { BasicExplanations } from './Base'
 import { PreorderExplanations } from './Preorder'
 import { PostorderExplanations } from './Postorder'
+import { BSTExplanations } from './BST'
 import { ChallengeCard } from './Challenge'
 import { useEffect, useState } from 'react'
 import { GenerateRandomTree } from '../../../utils/GenerateTree'
@@ -22,6 +23,7 @@ const options: Record<string, string> = {
     "Binary Tree" : "cdff58",
     "Preorder" : "b9adff",
     "Postorder" : "ffd268",
+    "BST" : "ffaaf8",
     "Challenge" : "ff9494"
 }
 
@@ -74,6 +76,9 @@ export function Explanations({ explanationFor, setInputText, setExplanationFor, 
                 </div>
                 {explanationFor === "Binary Tree" && (
                     <BasicExplanations  />
+                )}
+                {explanationFor === "BST" && (
+                    <BSTExplanations  />
                 )}
                 {explanationFor === "Preorder" && (
                     <PreorderExplanations setInputText={setInputText}  />

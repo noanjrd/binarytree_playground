@@ -24,12 +24,13 @@ export function ChallengeCard({ root, setDeepness, deepness, answer, ChangeTree,
     }, [OrderType])
 
     return (
-        <div className='card min-w-130 relative px-5 py-5  overflow-y-auto  scrollbar-none max-h-[66vh] flex justify-center'
+        <div className='card min-w-140 relative px-5 py-5  overflow-y-auto 
+         items-start scrollbar-none max-h-[66vh] flex '
             style={{
                 scrollbarWidth: "none",   // Firefox
                 msOverflowStyle: "none"   // IE 10+
             }}>
-            <div className='flex flex-col'>
+            <div className='flex flex-col w-full '>
                 <p className='relative text-3xl text-left text-black font-semibold mb-2 w-fit'>
                     <span className="absolute left-0 bottom-0 w-full h-4 bg-[#ff9494] -z-10 invisible sm:visible"></span>
                     Binary Tree Challenge
@@ -37,7 +38,7 @@ export function ChallengeCard({ root, setDeepness, deepness, answer, ChangeTree,
                 <p className=' text-left text-black  w-fit'>
                     Try to recreate this binary trees using the visualizer to the right.
                 </p>
-                <div className='flex justify-center items-center mt-5 '>
+                <div className='flex justify-center items-center mt-5  '>
                     <DisplayBinaryTree root={root} deepness={getTreeDeepness(root)} />
                 </div>
                 <button

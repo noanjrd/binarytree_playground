@@ -15,7 +15,8 @@ export function PostorderExplanations({ setInputText }: ExplanationsGroupProps)
 
     return (
         <>
-            <div onScroll={() => setVisibleArrow(false)} className='relative card min-w-130 px-5 py-5  overflow-y-auto  scrollbar-none max-h-[66vh] flex justify-center'
+            <div onScroll={() => setVisibleArrow(false)} className='relative card min-w-140 px-5 py-5
+             overflow-y-auto items-start scrollbar-none max-h-[66vh] flex'
                 style={{
                     scrollbarWidth: "none",   // Firefox
                     msOverflowStyle: "none"   // IE 10+

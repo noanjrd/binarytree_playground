@@ -14,8 +14,8 @@ export function PreorderExplanations({ setInputText }: ExplanationsGroupProps)
     const [visibleArrow, setVisibleArrow] = useState(true)
 
     return (
-        <div onScroll={() => setVisibleArrow(false)} className='card relative px-5 py-5  overflow-y-auto 
-        scrollbar-none max-h-[66vh] flex justify-center min-w-130'
+        <div onScroll={() => setVisibleArrow(false)} className='card relative px-5 py-5 overflow-y-auto 
+        scrollbar-none max-h-[66vh] flex  items-start min-w-140'
             style={{
                 scrollbarWidth: "none",   // Firefox
                 msOverflowStyle: "none"   // IE 10+
@@ -26,7 +26,7 @@ export function PreorderExplanations({ setInputText }: ExplanationsGroupProps)
             >
                 <img src={ArrowIcon} width={20} height={20} />
             </div>
-            <div className='relative'>
+            <div className='relative '>
                 <p className='relative text-3xl text-left text-black font-semibold mb-3 w-fit'>
                     <span className="absolute left-0 bottom-0 w-full h-4 bg-[#b9adff] -z-10 invisible sm:visible"></span>
                     What is Preorder Traversal?

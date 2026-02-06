@@ -5,18 +5,13 @@ import '../../style/Explanations.css'
 export function BasicExplanations() {
 
     return (
-        <div className='card relative px-5 py-5  overflow-y-auto  scrollbar-none max-h-[66vh] flex justify-center min-w-130'
+        <div className='card relative px-5 py-5  overflow-y-auto 
+        scrollbar-none items-start max-h-[66vh] flex  min-w-140'
             style={{
-                scrollbarWidth: "none",   // Firefox
-                msOverflowStyle: "none"   // IE 10+
+                scrollbarWidth: "none", // Firefox
+                msOverflowStyle: "none" // IE 10+
             }}>
-            {/* <div onClick={() => setExplainationFor("Preorder")}
-                className={`py-2 px-2 absolute rotate-90 flex justify-center bottom-3
-                    cursor-pointer hover:opacity-70 right-3 border-2 border-black rounded-full invisible sm:visible`}
-            >
-                <img src={ArrowIcon} width={15} height={15} />
-            </div> */}
-            <div className='mb-6 '>
+            <div >
                 <p className='relative text-3xl text-left text-black font-semibold mb-3 w-fit'>
                     <span className="absolute left-0 bottom-0 w-full h-4 bg-[#cdff58] -z-10 invisible sm:visible"></span>
                     What is a Binary Tree?
