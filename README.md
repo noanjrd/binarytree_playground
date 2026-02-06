@@ -6,8 +6,6 @@ This project helps you **understand binary trees visually** by constructing tree
 
 **[🔗 Try it live here!](https://noanjrd.github.io/binarytree_playground/)**
 
----
-
 ## ✨ Features
 
 * **Multiple Construction Methods**: Build trees using **Preorder** or **Postorder** traversal with null values.
@@ -25,7 +23,6 @@ This project helps you **understand binary trees visually** by constructing tree
 * **One-Click Examples**: Click any example code to instantly load it into the visualizer.
 * **Responsive Design**: Modern UI built with **Tailwind CSS** (desktop only for now).
 
----
 
 ## 🎯 How to Use
 
@@ -36,16 +33,12 @@ This project helps you **understand binary trees visually** by constructing tree
 
 **Tip**: Use `null` to represent empty nodes for exact tree reconstruction.
 
----
-
 ## 🛠️ Tech Stack
 
 * **React** - UI library
 * **TypeScript** - Type safety
 * **Vite** - Fast build tool
 * **Tailwind CSS** - Styling
-
----
 
 ## 📦 Installation & Development
 
@@ -75,7 +68,6 @@ Build for production:
 ```bash
 npm run build
 ```
----
 
 ## 🎓 Learning Resources
 This visualizer covers:
@@ -85,7 +77,6 @@ This visualizer covers:
 * Binary Search Tree properties and validation
 * Practical use cases for each traversal type
 
----
-
 ## 📄 License
+
 MIT License - feel free to use this project for learning and teaching!
