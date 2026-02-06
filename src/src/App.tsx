@@ -90,7 +90,7 @@ export default function App() {
                 <div className='absolute -right-7 group hover:opacity-70 cursor-pointer'>
                   <img src={QuestionIcon} width={20} />
                   <div className='opacity-0 group-hover:opacity-100 transition-opacity absolute left-1/2 -translate-x-1/2 
-                   top-full mt-2 w-60 bg-black text-white text-sm rounded-lg p-3 z-50 '>
+                   top-full mt-2 w-60 bg-black text-white text-sm rounded-lg p-3 z-50 pointer-events-none '>
                     <p>Enter your binary tree values in array format. Use "null" for empty nodes.</p>
                     <p className='mt-1'>Example: [1,2,3,null,4,5,null]</p>
                   </div>
