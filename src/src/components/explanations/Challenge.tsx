@@ -43,14 +43,14 @@ export function ChallengeCard({ root, setDeepness, deepness, answer, ChangeTree,
                 </div>
                 <button
                     onClick={() => setShowAnswer(!showAnswer)}
-                    className='cursor-pointer  mt-4 mb-2 text-black font-medium hover:opacity-70 transition-opacity flex items-center gap-2'
+                    className='cursor-pointer  mt-4  text-black font-medium hover:opacity-70 transition-opacity flex items-center gap-2'
                 >
-                    <span className='text-lg'>{showAnswer ? '▼' : '▶'}</span>
+                    <span className='text-base'>{showAnswer ? '▼' : '▶'}</span>
                     The answer
                 </button>
                 {showAnswer && (
                     <div className='cursor-pointer hover:opacity-70 ' onClick={() => setInputText(answer)}>
-                        <p className='explain-text ml-5 max-w-100 break-all text-ellipsis'><code className='code'>[{answer}]</code></p>
+                        <p className='explain-text ml-4 max-w-100 break-all text-ellipsis'><code className='code'>[{answer}]</code></p>
                     </div>
                 )}
                 <div className='flex gap-1 flex-row justify-center items-center mt-5'>

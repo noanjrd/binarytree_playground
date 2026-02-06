@@ -16,16 +16,16 @@ export function PostorderExplanations({ setInputText }: ExplanationsGroupProps)
     return (
         <>
             <div onScroll={() => setVisibleArrow(false)} className='relative card min-w-140 px-5 py-5
-             overflow-y-auto items-start scrollbar-none max-h-[66vh] flex'
+             overflow-y-auto items-start scrollbar-none max-h-[66vh] flex '
                 style={{
                     scrollbarWidth: "none",   // Firefox
                     msOverflowStyle: "none"   // IE 10+
                 }}>
-                <div
-                    className={`animate-bounce absolute rotate-180  flex justify-center  bottom-4
+            <div
+                className={`animate-bounce absolute rotate-180 w-full flex justify-center bottom-4 -ml-5 
                     transition-opacity duration-300 ${visibleArrow ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
-                    <img src={ArrowIcon} width={20} height={20} />
-                </div>
+                <img src={ArrowIcon} width={20} height={20} />
+            </div>
                 <div className='relative'>
                     <p className='relative text-3xl text-left text-black font-semibold mb-3 w-fit'>
                         <span className="absolute left-0 bottom-0 w-full h-4 bg-[#ffd268] -z-10 invisible sm:visible"></span>
@@ -43,14 +43,13 @@ export function PostorderExplanations({ setInputText }: ExplanationsGroupProps)
                     <div className='border-3 border-black w-70 rounded-xl flex justify-center items-center'>
                         <p className='text-black text-sm  font-semibold text-left py-5 whitespace-pre-wrap'>     1<br />  /     \<br />8        3<br />       /     \<br />     4        5</p>
                     </div>
-                    <p className='text-black text-left mt-4 font-medium mb-2 text-sm'>Visit Order:</p>
+                    <p className='text-black text-left mt-4 font-medium  text-sm'>Visit Order:</p>
                     <p className='explain-text'>Nodes are visited in this order: <code className='code'>8 → 4 → 5 → 3 → 1</code></p>
                     <button
                         onClick={() => setShowSteps(!showSteps)}
                         className='cursor-pointer  mt-4 mb-2 text-black font-medium 
-                        hover:opacity-70 transition-opacity flex items-center gap-2'
-                    >
-                        <span className='text-lg'>{showSteps ? '▼' : '▶'}</span>
+                        hover:opacity-70 transition-opacity flex items-center gap-2 text-sm'>
+                        <span className='text-xs'>{showSteps ? '▼' : '▶'}</span>
                         How it works (step by step)
                     </button>
                     {showSteps && (
@@ -93,11 +92,11 @@ export function PostorderExplanations({ setInputText }: ExplanationsGroupProps)
                             </ul>
                         </div>
                     )}
-                    <p className='text-black text-left mt-6 font-medium mb-2 '>Postorder output (with nulls)</p>
+                    <p className='text-black text-left text-sm mt-6 font-medium mb-2 '>Postorder output (with nulls):</p>
                     <div className="cursor-pointer hover:opacity-70" onClick={() => setInputText("null,null,8,null,null,4,null,null,5,3,1")}>
                         <p className='explain-text '><code className='code'>[null,null,8,null,null,4, null,null,5,3,1]</code></p>
                     </div>
-                    <p className='text-black text-left mt-6 font-medium mb-2 '>Why including <code className='code'>null</code> matters?</p>
+                    <p className='text-black text-left text-base mt-6 font-medium mb-2 '>Why including <code className='code'>null</code> matters?</p>
                     <ul className="list-decimal ml-6 ">
                         <li className='explain-text'>It allows <strong>exact reconstruction of the tree</strong>.</li>
                         <li className='explain-text'>Two different trees can have the same postorder values <strong>without nulls</strong>.</li>

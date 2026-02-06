@@ -16,6 +16,7 @@ interface ExplainationsGroupProps {
     explanationFor: string,
     setInputText: (value: string) => void
     setExplanationFor: (value: string) => void
+    setOrderType: (val:string) => void
     OrderType: string
 }
 
@@ -27,7 +28,7 @@ const options: Record<string, string> = {
     "Challenge" : "ff9494"
 }
 
-export function Explanations({ explanationFor, setInputText, setExplanationFor, OrderType}: ExplainationsGroupProps)
+export function Explanations({ explanationFor, setInputText, setExplanationFor, OrderType, setOrderType}: ExplainationsGroupProps)
 {
     const [deepness, setDeepness] = useState<number>(2)
     const [root, setRoot] = useState<TreeNode>(GenerateRandomTree(deepness))
@@ -75,7 +76,7 @@ export function Explanations({ explanationFor, setInputText, setExplanationFor, 
                     ))}
                 </div>
                 {explanationFor === "Binary Tree" && (
-                    <BasicExplanations  />
+                    <BasicExplanations setOrderType={setOrderType} setExplanationFor={setExplanationFor}  />
                 )}
                 {explanationFor === "BST" && (
                     <BSTExplanations  />

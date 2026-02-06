@@ -2,36 +2,52 @@
 
 An interactive **Binary Tree Visualizer** built with **React**, **TypeScript**, **Vite**, and **Tailwind CSS**.
 
-This project helps you **understand binary trees visually** by constructing a tree from user input and displaying its structure dynamically.
+This project helps you **understand binary trees visually** by constructing trees from user input and displaying their structure dynamically.
 
-Check it out here: [noanjrd.github.io/binarytree_playground](https://noanjrd.github.io/binarytree_playground/)
+**[🔗 Try it live here!](https://noanjrd.github.io/binarytree_playground/)**
 
 ---
 
-## 🚀 Features
+## ✨ Features
 
-* **Multiple Construction Methods**: Build trees using **Preorder** or **Postorder** traversal rules.
-* **BST Support**: Specialized logic to build and validate **Binary Search Trees**.
-* **Interactive Explanations**: Detailed, step-by-step guides to help you understand how Preorder and Postorder traversals work.
-* **Challenge Mode**: Test your knowledge by trying to recreate randomly generated trees.
-* **Visual Representation**: Clear nodes and branches visualization that scales dynamically with tree depth.
-* **Responsive Design**: Styled with **Tailwind CSS** for a clean and modern interface.
+* **Multiple Construction Methods**: Build trees using **Preorder** or **Postorder** traversal with null values.
+* **Binary Search Tree Support**: Validate and construct **BSTs** with automatic error detection for invalid trees.
+* **Interactive Learning**: 
+  - **Binary Tree Basics**: Learn the fundamentals of binary tree structures
+  - **Preorder Traversal**: Step-by-step explanations with visual examples
+  - **Postorder Traversal**: Detailed guides on visiting nodes in postorder
+  - **BST Concepts**: Understand the rules and benefits of Binary Search Trees
+* **Challenge Mode**: Test your knowledge by recreating randomly generated trees of varying depths.
+* **Dynamic Visualization**: 
+  - Clean node and branch rendering
+  - Scales automatically with tree depth
+  - Smooth fade effects for large trees
+* **One-Click Examples**: Click any example code to instantly load it into the visualizer.
+* **Responsive Design**: Modern UI built with **Tailwind CSS** (desktop only for now).
 
+---
 
-**Upcoming updates:** More interactive features and detailed explanations to help you better understand binary trees.
+## 🎯 How to Use
+
+1. **Enter your tree**: Type an array like `[1,2,3,null,4,5,null]` in the input field
+2. **Choose traversal order**: Select **Preorder** or **Postorder** 
+3. **Optional**: Toggle BST mode to validate Binary Search Tree rules
+4. **Visualize**: Your tree appears instantly on the right side!
+
+**Tip**: Use `null` to represent empty nodes for exact tree reconstruction.
 
 ---
 
 ## 🛠️ Tech Stack
 
-* **React**
-* **TypeScript**
-* **Vite**
-* **Tailwind CSS**
+* **React** - UI library
+* **TypeScript** - Type safety
+* **Vite** - Fast build tool
+* **Tailwind CSS** - Styling
 
 ---
 
-## 📦 Installation
+## 📦 Installation & Development
 
 Clone the repository:
 
@@ -41,23 +57,35 @@ cd binarytree_playground
 ```
 
 Install dependencies:
-
 ```bash
 npm install
 ```
 
 Run the development server:
-
 ```bash
 npm run dev
 ```
 
 Open your browser at:
-
-```
+```bash
 http://localhost:5173
 ```
 
+Build for production:
+```bash
+npm run build
+```
 ---
 
-⭐ If you like this project, feel free to give it a star!
+## 🎓 Learning Resources
+This visualizer covers:
+
+* What is a binary tree and its terminology
+* Two main traversal methods (Preorder, Postorder)
+* Binary Search Tree properties and validation
+* Practical use cases for each traversal type
+
+---
+
+## 📄 License
+MIT License - feel free to use this project for learning and teaching!

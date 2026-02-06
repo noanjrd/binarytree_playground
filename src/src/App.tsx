@@ -73,7 +73,7 @@ export default function App() {
         <div className='flex flex-col lg:flex-row justify-center w-full xl:w-322'>
           <div className='  w-full flex flex-col items-center'>
             <Explanations explanationFor={tabOption} setInputText={setInputtext}
-              setExplanationFor={setTabOption} OrderType={OrderType} />
+              setExplanationFor={setTabOption} OrderType={OrderType}  setOrderType={setOrderType}/>
           </div>
           <div className="flex flex-col items-center w-full mb-10 mt-5 lg:mt-0  ">
             <div className='flex flex-col gap-1 items-center mb-2'>

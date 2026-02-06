@@ -8,22 +8,20 @@ interface ExplanationsGroupProps {
     setInputText: (value: string) => void
 }
 
-export function PreorderExplanations({ setInputText }: ExplanationsGroupProps)
-{
+export function PreorderExplanations({ setInputText }: ExplanationsGroupProps) {
     const [showSteps, setShowSteps] = useState(false)
     const [visibleArrow, setVisibleArrow] = useState(true)
 
     return (
         <div onScroll={() => setVisibleArrow(false)} className='card relative px-5 py-5 overflow-y-auto 
-        scrollbar-none max-h-[66vh] flex  items-start min-w-140'
+        scrollbar-none max-h-[66vh] flex overflow-x-hidden items-start min-w-140'
             style={{
                 scrollbarWidth: "none",   // Firefox
                 msOverflowStyle: "none"   // IE 10+
             }}>
             <div
-                className={`animate-bounce absolute rotate-180 w-full flex justify-center bottom-4
-                    transition-opacity duration-300 ${visibleArrow ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
-            >
+                className={`animate-bounce absolute rotate-180 w-full flex justify-center bottom-4 -ml-5 
+                    transition-opacity duration-300 ${visibleArrow ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
                 <img src={ArrowIcon} width={20} height={20} />
             </div>
             <div className='relative '>
@@ -43,13 +41,14 @@ export function PreorderExplanations({ setInputText }: ExplanationsGroupProps)
                 <div className='border-3 border-black w-70 rounded-xl flex justify-center items-center'>
                     <p className='text-black text-sm  font-semibold text-left py-5 whitespace-pre-wrap'>     1<br />  /     \<br />8        3<br />       /     \<br />     4        5</p>
                 </div>
-                <p className='text-black text-left mt-4 font-medium mb-2 text-sm '>Visit Order:</p>
+                <p className='text-black text-left mt-4 font-medium text-sm '>Visit Order:</p>
                 <p className='explain-text'>Nodes are visited in this order: <code className='code'>1 → 8 → 3 → 4 → 5</code></p>
 
                 <button
                     onClick={() => setShowSteps(!showSteps)}
-                    className='cursor-pointer mt-4 mb-2 text-black font-medium hover:opacity-70 transition-opacity flex items-center gap-2'>
-                    <span className='text-lg'>{showSteps ? '▼' : '▶'}</span>
+                    className='cursor-pointer mt-4 mb-2 text-black font-medium hover:opacity-70
+                    transition-opacity flex items-center gap-2 text-sm'>
+                    <span className='text-xs'>{showSteps ? '▼' : '▶'}</span>
                     How it works (step by step)
                 </button>
                 {showSteps && (
@@ -87,11 +86,11 @@ export function PreorderExplanations({ setInputText }: ExplanationsGroupProps)
                         </ul>
                     </div>
                 )}
-                <p className='text-black text-left mt-6 font-medium mb-2 '>Preorder output (with nulls)</p>
+                <p className='text-black text-sm text-left mt-4 font-medium mb-2 '>Preorder output (with nulls):</p>
                 <div className="cursor-pointer hover:opacity-70" onClick={() => setInputText("1,8,null,null,3,4,null,null,5,null,null")}>
                     <p className='explain-text '><code className='code'>[1,8,null,null,3,4,null,null,5,null,null]</code></p>
                 </div>
-                <p className='text-black text-left mt-6 font-medium mb-2 '>Why including <code className='code'>null</code> matters?</p>
+                <p className='text-black text-left text-base mt-4 font-medium mb-2 '>Why including <code className='code'>null</code> matters?</p>
                 <ul className="list-decimal ml-6 ">
                     <li className='explain-text'>It allows <strong>exact reconstruction of the tree</strong>.</li>
                     <li className='explain-text'>Two different trees can have the same preorder values <strong>without nulls</strong>.</li>
