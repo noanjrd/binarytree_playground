@@ -1,58 +1,59 @@
 import { type TreeNode } from "../types/types"
 
 
-export function Postorder(values:Array<string>)
+export function Preorder(values:Array<string>)
 {
-    let i = values.length-1
+    let i = 0
     function build_tree() : TreeNode | null
     {
-        if (i <0 || values[i] === "null")
+        if (i >= values.length || values[i] === "null")
         {
-            i--
+            i++
             return null
         }
         const node : TreeNode = {val:values[i],left:null, right:null, message:null}
-        i--
-        node.right = build_tree()
+        i++
         node.left = build_tree()
+        node.right = build_tree()
         return node
     }
     const root = build_tree()
     return root
 }
-export function Postorder_bst(values:Array<string>)
+
+export function Preorder_bst(values:Array<string>)
 {
-    let i = values.length -1
+    let i = 0
     function build_tree(min:number,max:number) : TreeNode | null
     {
-        while(values[i] === "null" && i >= 0)
+        while(values[i] === "null" && i < values.length)
         {
-            i--
+            i++
         }
-        if (i < 0)
+        if (i >= values.length)
         {
             return null
         }
         const value = Number(values[i])
-        if (value < min || value > max)
+        if (value < min || value >= max)
         {
             return null
         }
         const node : TreeNode = {val:String(value), left:null, right:null, message:null }
-        i--
-        node.right = build_tree(value,max)
+        i++
         node.left = build_tree(min,value)
+        node.right = build_tree(value,max)
         return node
     }
     const root = build_tree(-Infinity, Infinity)
-    if (i >= 0)
+    if (i < values.length)
     {
         throw new Error(values[i])
     }
     return root
 }
 
-export function GetPostorderList(root : TreeNode | null)  : string
+export function GetPreorderList(root : TreeNode | null)  : string
 {
     let answer = ""
     function buildAnswer(node : TreeNode | null)
@@ -62,9 +63,9 @@ export function GetPostorderList(root : TreeNode | null)  : string
             answer += ",null"
             return
         }
+        answer += `,${node?.val}`
         buildAnswer(node!.left)
         buildAnswer(node!.right)
-        answer += `,${node?.val}`
     }
     buildAnswer(root)
     answer = answer.slice(1)
