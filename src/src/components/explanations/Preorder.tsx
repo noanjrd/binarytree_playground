@@ -1,5 +1,5 @@
-import '../../style/App.css'
-import '../../style/Explanations.css'
+import '../../styles/App.css'
+import '../../styles/Explanations.css'
 import ArrowIcon from "../../assets/arrow.svg"
 import { useState } from 'react'
 

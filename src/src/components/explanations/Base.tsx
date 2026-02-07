@@ -1,5 +1,5 @@
-import '../../style/App.css'
-import '../../style/Explanations.css'
+import '../../styles/App.css'
+import '../../styles/Explanations.css'
 import { useState } from 'react'
 import ArrowIcon from "../../assets/arrow.svg"
 
@@ -46,7 +46,18 @@ export function BasicExplanations({setOrderType, setExplanationFor} : GroupProps
                     <li className='explain-text'><code className='code'>4</code> and <code className='code'>5</code> are children of <code className='code'>3</code>.</li>
                     <li className='explain-text'><code className='code'>8</code>, <code className='code'>3</code>, <code className='code'>4</code>, and <code className='code'>5</code> are leaves.</li>
                 </ul>
-                <p className='text-black text-left mt-6 font-medium mb-2 text-xl '>Tree Traversal</p>
+                    <p className='text-black text-left mt-6 font-medium mb-2 text-xl '>🌳 Why Use Binary Trees?</p>
+                <p className='explain-text max-w-120'>Binary trees are used everywhere in computer science because they organize data efficiently:</p>
+                <ul className="list-disc ml-6 mt-1">
+                    <li onClick={() => setExplanationFor("BST")} className='explain-text max-w-120 hover:opacity-70 cursor-pointer'><strong>Fast searching:</strong> Finding an item in a sorted binary tree (BST) is much faster than searching through a list.</li>
+                    <li className='explain-text'><strong>Organizing files:</strong> Your computer's folders and files are organized in a tree structure.</li>
+                    <li className='explain-text'><strong>Managing data:</strong> Apps and websites use trees to quickly find and update information (like user accounts, products, etc.).</li>
+                    <li className='explain-text'><strong>Making decisions:</strong> AI and recommendation systems use trees to make choices based on patterns.</li>
+                    <li className='explain-text'><strong>Calculators:</strong> When you type <code className='code'>2 + 3 * 4</code>, programs use trees to figure out what to calculate first.</li>
+                </ul>
+                <p className='explain-text mt-2 max-w-120'>Trees make it easy to work with hierarchical data, anything that has a parent-child relationship.</p>
+
+                <p className='text-black text-left mt-6 font-medium mb-2 text-xl '>🪜 Tree Traversal</p>
                 <p className='explain-text'>There are three main ways to traverse (visit all nodes in) a binary tree:</p>
                 <ul className="list-disc ml-6 mt-1">
                     <li onClick={() => {setExplanationFor("Preorder"); setOrderType("Preorder")}} className='explain-text hover:opacity-70 cursor-pointer'><strong>Preorder:</strong> Visit <code className='code'>root → left → right</code></li>

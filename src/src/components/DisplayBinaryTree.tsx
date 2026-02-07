@@ -1,4 +1,4 @@
-import "../style/App.css"
+import "../styles/App.css"
 
 
 export default function DisplayBinaryTree({ root, deepness }: { root: any, deepness:any })

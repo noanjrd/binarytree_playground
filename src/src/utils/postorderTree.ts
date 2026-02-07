@@ -1,4 +1,4 @@
-import { type TreeNode } from "../src/types/types"
+import { type TreeNode } from "../types/types"
 
 
 export function Postorder(values:Array<string>)
@@ -6,7 +6,7 @@ export function Postorder(values:Array<string>)
     let i = values.length-1
     function build_tree() : TreeNode | null
     {
-        if (i <0 || values[i] === "null" || values[i] === "None")
+        if (i <0 || values[i] === "null")
         {
             i--
             return null
@@ -20,43 +20,34 @@ export function Postorder(values:Array<string>)
     const root = build_tree()
     return root
 }
-
 export function Postorder_bst(values:Array<string>)
 {
-    if (values[values.length-1] === "null" || values[values.length - 1] === "None")
+    let i = values.length -1
+    function build_tree(min:number,max:number) : TreeNode | null
     {
-        return null
-    }
-    let max_allowed = -Infinity
-    function build_tree(node:TreeNode|null,val:string) : TreeNode | null
-    {
-        if (Number(val) < max_allowed)
+        while(values[i] === "null" && i >= 0)
         {
-            throw new Error(val)
+            i--
         }
-        if (node === null)
+        if (i < 0)
         {
-            const temp : TreeNode = {val:val, right:null, left:null, message:null}
-            return temp
+            return null
         }
-        if (Number(val) < Number(node.val))
+        const value = Number(values[i])
+        if (value < min || value > max)
         {
-            node.left =  build_tree(node.left,val)
+            return null
         }
-        else
-        {
-            max_allowed = Number(node.val)
-            node.right = build_tree(node.right,val)
-        }
+        const node : TreeNode = {val:String(value), left:null, right:null, message:null }
+        i--
+        node.right = build_tree(value,max)
+        node.left = build_tree(min,value)
         return node
     }
-    const root : TreeNode = {val:values[values.length-1], left:null, right:null, message:null}
-    let i = values.length-2
-    while (i >= 0)
+    const root = build_tree(-Infinity, Infinity)
+    if (i >= 0)
     {
-        if (values[i] !== "null" && values[i] != "None")
-            build_tree(root,values[i])
-        i--
+        throw new Error(values[i])
     }
     return root
 }

@@ -1,8 +1,8 @@
-import '../../style/App.css'
-import '../../style/Explanations.css'
+import '../../styles/App.css'
+import '../../styles/Explanations.css'
 import DisplayBinaryTree from '../DisplayBinaryTree'
 import type { TreeNode } from '../../types/types'
-import { getTreeDeepness } from "../../../utils/BinaryTree"
+import { getTreeDeepness } from "../../utils/binaryTree"
 import { useEffect, useState } from 'react'
 
 

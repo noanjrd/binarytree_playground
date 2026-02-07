@@ -1,4 +1,4 @@
-import { type TreeNode } from '../src/types/types'
+import { type TreeNode } from '../types/types.ts'
 
 
 function GetRandomInt(max:number)

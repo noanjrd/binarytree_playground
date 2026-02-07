@@ -1,15 +1,15 @@
 import { useEffect, useState } from 'react'
-import './style/App.css'
-import { BasicTree, BST } from "../utils/BinaryTree.ts"
+import './styles/App.css'
+import { BasicTree, BST } from "./utils/binaryTree.ts"
 import DisplayBinaryTree from "./components/DisplayBinaryTree.tsx"
 import QuestionIcon from "./assets/question.svg"
 import { type TreeNode } from './types/types.ts'
 import { ORDER_TYPE, orderOptions } from './types/constants.ts'
-import './style/radio.css'
+import './styles/radio.css'
 import RadioGroup from './components/RadioGroup.tsx'
 import GithubIcon from "./assets/githubicon.png"
 import { Explanations } from './components/explanations/Explanations.tsx';
-import { getTreeDeepness } from "../utils/BinaryTree.ts"
+import { getTreeDeepness } from "./utils/binaryTree.ts"
 
 export default function App() {
 
@@ -30,11 +30,12 @@ export default function App() {
   }, [])
 
   const modifyliste = ((text: string) => {
-    if (text.length === 0) {
+    if (text.length === 0)
+    {
       return
     }
     const modtext = text.replace(/\[/g, "").replace(/\]/g, "").replace(/\s+/g, "")
-    const NumberArray = modtext.split(',').map(String)
+    const NumberArray = modtext.split(',').map(String).filter(element => element !== "")
     if (SearchTree === false) {
       try {
         setRoot(BasicTree(NumberArray, OrderType))
@@ -64,12 +65,12 @@ export default function App() {
   return (
     <>
       <div className='relative flex flex-col w-full min-h-screen items-center '>
-        <div className=' bottom-3 hover:opacity-70 cursor-pointer fixed '>
+        <div className='bottom-3  hover:opacity-70 cursor-pointer fixed '>
           <a href='https://github.com/noanjrd/binarytree_playground'>
             <img src={GithubIcon} width={50} height={50} />
           </a>
         </div>
-        <p className='text-4xl mb-8 lg:mb-15 font-bold mt-8 text-center text-black'>Binary Tree Playground</p>
+        <p className='text-4xl mb-8 lg:mb-12 font-bold mt-8 text-center text-black'>Binary Tree Playground</p>
         <div className='flex flex-col lg:flex-row justify-center w-full xl:w-322'>
           <div className='  w-full flex flex-col items-center'>
             <Explanations explanationFor={tabOption} setInputText={setInputtext}
@@ -87,10 +88,10 @@ export default function App() {
                   value={inputtext}
                   onChange={(e) => { setInputtext(e.target.value); }}
                 />
-                <div className='absolute -right-7 group hover:opacity-70 cursor-pointer'>
-                  <img src={QuestionIcon} width={20} />
+                <div className='absolute -right-7 group  cursor-pointer'>
+                  <img className='hover:opacity-70' src={QuestionIcon} width={20} />
                   <div className='opacity-0 group-hover:opacity-100 transition-opacity absolute left-1/2 -translate-x-1/2 
-                   top-full mt-2 w-60 bg-black text-white text-sm rounded-lg p-3 z-50 pointer-events-none '>
+                   top-full mt-2 w-60 bg-black/65 text-white text-sm rounded-lg p-3 z-50 pointer-events-none '>
                     <p>Enter your binary tree values in array format. Use "null" for empty nodes.</p>
                     <p className='mt-1'>Example: [1,2,3,null,4,5,null]</p>
                   </div>

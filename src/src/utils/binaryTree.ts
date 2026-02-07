@@ -1,14 +1,14 @@
-import {Preorder, Preorder_bst} from './PreorderTree'
-import {Postorder,Postorder_bst} from './PostorderTree'
-import {ORDER_TYPE} from '../src/types/constants'
-import { type TreeNode } from '../src/types/types'
+import {Preorder, Preorder_bst} from './preorderTree'
+import {Postorder,Postorder_bst} from './postorderTree'
+import {ORDER_TYPE} from '../types/constants'
+import { type TreeNode } from '../types/types'
 
 
 function checkValidInput(values : Array<string>)
 {
     for (const el of values)
     {
-        if (isNaN(Number(el)) && el != "null" && el != "None")
+        if (isNaN(Number(el)) && el != "null")
         {
             return false
         }
@@ -54,6 +54,7 @@ export function BST(values: Array<string>, sorttype:string) {
     {
         try
         {
+            console.log("here1")
             root = Preorder_bst(values)
         }
         catch (error)

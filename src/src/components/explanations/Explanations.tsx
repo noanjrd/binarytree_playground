@@ -1,15 +1,15 @@
-import '../../style/App.css'
-import '../../style/Explanations.css'
+import '../../styles/App.css'
+import '../../styles/Explanations.css'
 import { BasicExplanations } from './Base'
 import { PreorderExplanations } from './Preorder'
 import { PostorderExplanations } from './Postorder'
 import { BSTExplanations } from './BST'
 import { ChallengeCard } from './Challenge'
 import { useEffect, useState } from 'react'
-import { GenerateRandomTree } from '../../../utils/GenerateTree'
+import { GenerateRandomTree } from '../../utils/generateTree'
 import { type TreeNode } from '../../types/types'
-import { GetPostorderList } from '../../../utils/PostorderTree'
-import { GetPreorderList } from '../../../utils/PreorderTree'
+import { GetPostorderList } from '../../utils/postorderTree'
+import { GetPreorderList } from '../../utils/preorderTree'
 
 
 interface ExplainationsGroupProps {
@@ -63,16 +63,14 @@ export function Explanations({ explanationFor, setInputText, setExplanationFor, 
         <>
             <div>
                 <div className='tab-bar flex flex-row border items-center rounded-full '>
-                    {Object.entries(options).map(([option, color]) => (
-                        <>
-                            <div className={`    flex items-center    w-fit  ${explanationFor === option ? " tab-option-selected" : "tab-option"}`}
+                    {Object.entries(options).map(([option, color], index) => (
+                            <div key={index} className={`    flex items-center    w-fit  ${explanationFor === option ? " tab-option-selected" : "tab-option"}`}
                             onClick={() => setExplanationFor(option)}>
                             
                                 <p className={`relative text-black w-fit  text-center font-semibold `}>
                                     <span className={`absolute w-full h-3 bg-[#${color}] left-0 top-3 -z-2 ${explanationFor === option ? "visible" : "invisible"}`}></span>
                                     {option}</p>
                             </div>
-                        </>
                     ))}
                 </div>
                 {explanationFor === "Binary Tree" && (
