@@ -6,8 +6,6 @@ This project helps you **understand binary trees visually** by constructing tree
 
 **[🔗 Try it live here!](https://noanjrd.github.io/binarytree_playground/)**
 
----
-
 ## ✨ Features
 
 ### Core Functionality
@@ -34,7 +32,6 @@ This project helps you **understand binary trees visually** by constructing tree
 * **Error Handling**: Clear feedback for invalid inputs
 * **Responsive Design**: Modern UI built with **Tailwind CSS** (desktop-optimized)
 
----
 
 ## 🎯 How to Use
 
@@ -45,7 +42,6 @@ This project helps you **understand binary trees visually** by constructing tree
 5. **Learn**: Explore the educational tabs for in-depth explanations
 
 **Tip**: Use `null` to represent empty nodes for exact tree reconstruction.
-
 
 ## 🛠️ Tech Stack
 
@@ -129,3 +125,4 @@ Perfect for students learning data structures or developers refreshing their kno
 ## 📄 License
 
 MIT License - feel free to use this project for learning and teaching!
+
