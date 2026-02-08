@@ -91,7 +91,7 @@ npm run lint         # Run ESLint
 ## 🏗️ Project Structure
 
 ```bash
-binarytree_visualizer/
+binarytree_playground/
 ├── src/
 │   ├── components/
 │   │   ├── DisplayBinaryTree.tsx    # Tree rendering logic
@@ -108,7 +108,6 @@ binarytree_visualizer/
 │   │   └── constants.ts             # App constants
 │   └── styles/                      # CSS modules
 ├── public/                          # Static assets
-└── vite.config.ts                   # Vite configuration
 ```
 
 ## 🎓 Why This Project?
@@ -125,4 +124,5 @@ Perfect for students learning data structures or developers refreshing their kno
 ## 📄 License
 
 MIT License - feel free to use this project for learning and teaching!
+
 
