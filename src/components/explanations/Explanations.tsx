@@ -47,7 +47,7 @@ export function Explanations({ explanationFor, setInputText, setExplanationFor, 
 
     const ChangeTree = () => {
 
-        let newRoot = GenerateRandomTree(deepness)
+        const newRoot = GenerateRandomTree(deepness)
         setRoot(newRoot)
         if (OrderType === "Postorder")
         {

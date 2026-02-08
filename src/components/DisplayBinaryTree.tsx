@@ -1,7 +1,8 @@
 import "../styles/App.css"
+import type { TreeNode } from "../types/types"
 
 
-export default function DisplayBinaryTree({ root, deepness }: { root: any, deepness:any })
+export default function DisplayBinaryTree({ root, deepness }: { root: TreeNode | null, deepness:number })
 {
     if (!root)
     {

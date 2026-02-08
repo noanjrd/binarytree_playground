@@ -19,60 +19,61 @@ export default function App() {
   const [SearchTree, setSearchTree] = useState<boolean>(false)
   const [OrderType, setOrderType] = useState<string>(ORDER_TYPE.PREORDER)
   const [tabOption, setTabOption] = useState<string>("Binary Tree")
-  const [screenWidth, setScreenWidth] = useState(window.innerWidth)
   const [isLoaded, setisLoaded] = useState(false)
+  const screenWidth = window.innerWidth
 
   useEffect(() => {
-    if (isLoaded)
-    {
+    if (isLoaded) {
       saveTreeToStorage({
         inputtext: inputtext,
         OrderType: OrderType,
-        SearchTree : SearchTree,
-        tabOption : tabOption
+        SearchTree: SearchTree,
+        tabOption: tabOption
       })
     }
   }, [inputtext, SearchTree, OrderType, tabOption, isLoaded])
-  
+
+
   useEffect(() => {
-    modifyliste(inputtext)
-  }, [inputtext, SearchTree, OrderType])
+    setisLoaded(true)
+  }, [])
+
 
   useEffect(() => {
     const saved = loadTreeFromStorage()
-    setScreenWidth(window.innerWidth)
     if (saved) {
       setInputtext(saved.inputtext)
       setOrderType(saved.OrderType)
       setTabOption(saved.tabOption)
       setSearchTree(saved.SearchTree)
     }
-    setisLoaded(true)
   }, [])
 
-  const modifyliste = ((text: string) => {
-    if (text.length === 0) {
-      return
-    }
-    const modtext = text.replace(/\[/g, "").replace(/\]/g, "").replace(/\s+/g, "")
-    const NumberArray = modtext.split(',').map(String).filter(element => element !== "")
-    if (SearchTree === false) {
-      try {
-        setRoot(BasicTree(NumberArray, OrderType))
+
+  useEffect(() => {
+    const text = inputtext
+      if (text.length === 0) {
+        return
       }
-      catch (error) {
-        console.error(error)
+      const modtext = text.replace(/\[/g, "").replace(/\]/g, "").replace(/\s+/g, "")
+      const NumberArray = modtext.split(',').map(String).filter(element => element !== "")
+      if (SearchTree === false) {
+        try {
+          setRoot(BasicTree(NumberArray, OrderType))
+        }
+        catch (error) {
+          console.error(error)
+        }
       }
-    }
-    if (SearchTree === true) {
-      try {
-        setRoot(BST(NumberArray, OrderType))
+      if (SearchTree === true) {
+        try {
+          setRoot(BST(NumberArray, OrderType))
+        }
+        catch (error) {
+          console.error(error)
+        }
       }
-      catch (error) {
-        console.error(error)
-      }
-    }
-  })
+  }, [inputtext, SearchTree, OrderType])
 
   if (screenWidth < 640) {
     return (
@@ -121,7 +122,7 @@ export default function App() {
                 <RadioGroup options={orderOptions} value={OrderType} onChange={setOrderType} name="ordertypechange" tabOption={tabOption} setTabOption={setTabOption} />
                 <button
                   className='button-home button-red'
-                  onClick={() => { setInputtext(""), setRoot(null) }}>Reset
+                  onClick={() => { setInputtext(""); setRoot(null) }}>Reset
                 </button>
               </div>
               <button

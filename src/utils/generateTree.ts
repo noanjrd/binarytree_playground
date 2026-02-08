@@ -19,13 +19,13 @@ export function GenerateRandomTree(deepnessMax:number, deepness:number = 0)
     let chance2 = 1
     if ((deepness !== 0 && deepnessMax >= 3) || (deepnessMax < 3))
     {
-        let random = GetRandomInt(2)
+        const random = GetRandomInt(2)
         if (random === 1)
         {
             chance1 = GetRandomInt(2)
             if (chance1 === 2)
             {
-                chance2 == 1
+                chance2 = 1
             }
             else
             {
@@ -53,6 +53,6 @@ export function GenerateRandomTree(deepnessMax:number, deepness:number = 0)
     {
         node.right = GenerateRandomTree(deepnessMax, deepness+1)
     }
-    return (node) 
+    return (node)
 }
 

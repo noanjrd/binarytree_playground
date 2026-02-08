@@ -16,7 +16,7 @@ function checkValidInput(values : Array<string>)
     return true
 }
 
-export function getTreeDeepness(root: TreeNode | null): any
+export function getTreeDeepness(root: TreeNode | null): number
 {
     if (root === null)
     {
