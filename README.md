@@ -10,6 +10,7 @@ This project helps you **understand binary trees visually** by constructing tree
 
 * **Multiple Construction Methods**: Build trees using **Preorder** or **Postorder** traversal with null values.
 * **Binary Search Tree Support**: Validate and construct **BSTs** with automatic error detection for invalid trees.
+* **Automatic Save**: Your tree and settings are automatically saved in your browser using localStorage.
 * **Interactive Learning**: 
   - **Binary Tree Basics**: Learn the fundamentals of binary tree structures
   - **Preorder Traversal**: Step-by-step explanations with visual examples
@@ -30,6 +31,7 @@ This project helps you **understand binary trees visually** by constructing tree
 2. **Choose traversal order**: Select **Preorder** or **Postorder** 
 3. **Optional**: Toggle BST mode to validate Binary Search Tree rules
 4. **Visualize**: Your tree appears instantly on the right side!
+5. **Auto-save**: Your work is automatically saved. Reload the page and your tree will still be there!
 
 **Tip**: Use `null` to represent empty nodes for exact tree reconstruction.
 

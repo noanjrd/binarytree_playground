@@ -1,16 +1,22 @@
+import { useState } from 'react'
 import '../../styles/App.css'
 import '../../styles/Explanations.css'
-
+import ArrowIcon from "../../assets/arrow.svg"
 
 export function BSTExplanations() {
-
+    const [visibleArrow, setVisibleArrow] = useState(true)
     return (
-        <div className='card relative px-5 py-5  overflow-y-auto 
+        <div onScroll={() => setVisibleArrow(false)} className='card relative px-5 py-5  overflow-y-auto 
         scrollbar-none items-start max-h-[66vh] flex  min-w-140'
             style={{
                 scrollbarWidth: "none", // Firefox
                 msOverflowStyle: "none" // IE 10+
             }}>
+            <div
+                className={`animate-bounce absolute rotate-180 w-full flex justify-center bottom-4 -ml-5 
+                    transition-opacity duration-300 ${visibleArrow ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
+                <img src={ArrowIcon} width={20} height={20} />
+            </div>
             <div className=''>
                 <p className='relative text-3xl text-left text-black font-semibold mb-3 w-fit'>
                     <span className="absolute left-0 bottom-0 w-full h-4 bg-[#ffaaf8] -z-10 invisible sm:visible"></span>
@@ -24,7 +30,6 @@ export function BSTExplanations() {
                     <li className='explain-text max-w-110'>This property must be true for <strong>every node</strong> in the tree.</li>
                 </ul>
 
-                {/* Valid BST Example */}
                 <div className='mb-6'>
                     <p className='text-black text-left font-medium mb-2'>Example of a valid BST:</p>
                     <div className='border-3 border-black w-70 rounded-xl flex justify-center mb-2'>
@@ -36,7 +41,6 @@ export function BSTExplanations() {
                     </ul>
                 </div>
 
-                {/* Invalid BST Example */}
                 <div className='mb-6'>
                     <p className='text-black text-left font-medium mb-2'>Example of an invalid BST:</p>
                     <div className='border-3 border-black w-70 rounded-xl flex justify-center mb-2'>
@@ -45,7 +49,6 @@ export function BSTExplanations() {
                     <p className='explain-text'><strong>Problem:</strong> Node <code className='code'>1</code> is in the right subtree of <code className='code'>5</code>, but 1 {'<'} 5. This violates the BST property.</p>
                 </div>
 
-                {/* Why use BST */}
                 <div className='mb-6'>
                     <p className='text-black text-left font-medium mb-2 text-xl'>🔍 Why use a BST?</p>
                     <p className='explain-text mb-3'>BSTs make searching incredibly fast. Real-world example:</p>
@@ -61,11 +64,8 @@ export function BSTExplanations() {
                 
                 </div>
 
-                {/* Time Complexity */}
                 <div className=''>
                     <p className='text-black text-left font-medium mb-3 text-xl'>⏱️ Time Complexity</p>
-                    
-                    {/* Balanced Tree */}
                     <div className='mb-4'>
                         <p className='explain-text font-semibold mb-1'>Balanced tree / evenly distributed tree (best case):</p>
                         <ul className="list-disc ml-6">
@@ -74,7 +74,6 @@ export function BSTExplanations() {
                         </ul>
                     </div>
 
-                    {/* Unbalanced Tree */}
                     <div className='mb-4'>
                         <p className='explain-text font-semibold mb-1'>Unbalanced tree (worst case):</p>
                         <ul className="list-disc ml-6 mb-2">
@@ -83,7 +82,7 @@ export function BSTExplanations() {
                         
                         <div className='ml-6'>
                             <p className='explain-text mb-2'>Inserting <code className='code'>1, 2, 3, 4, 5</code> in order creates a chain:</p>
-                            <div className='border-3 border-black rounded-lg p-4 w-fit'>
+                            <div className='border-3 border-black rounded-lg p-2 w-70'>
                                 <p className='text-sm text-black font-semibold whitespace-pre-wrap'>1<br /> \<br />  2<br />   \<br />    3<br />     \<br />      4<br />       \<br />        5</p>
                             </div>
                         </div>
@@ -91,7 +90,7 @@ export function BSTExplanations() {
 
                     <p className='explain-text'>
                         <a
-                            href="https://www.bigocheatsheet.com/"
+                            href="https://en.wikipedia.org/wiki/Big_O_notation"
                             target="_blank"
                             rel="noopener noreferrer"
                             className='text-black hover:opacity-70 underline font-medium'

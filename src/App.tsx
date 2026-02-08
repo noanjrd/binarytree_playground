@@ -10,6 +10,7 @@ import RadioGroup from './components/RadioGroup.tsx'
 import GithubIcon from "./assets/githubicon.png"
 import { Explanations } from './components/explanations/Explanations.tsx';
 import { getTreeDeepness } from "./utils/binaryTree.ts"
+import { loadTreeFromStorage, saveTreeToStorage } from './utils/storage.ts'
 
 export default function App() {
 
@@ -19,19 +20,38 @@ export default function App() {
   const [OrderType, setOrderType] = useState<string>(ORDER_TYPE.PREORDER)
   const [tabOption, setTabOption] = useState<string>("Binary Tree")
   const [screenWidth, setScreenWidth] = useState(window.innerWidth)
+  const [isLoaded, setisLoaded] = useState(false)
 
-
+  useEffect(() => {
+    if (isLoaded)
+    {
+      saveTreeToStorage({
+        inputtext: inputtext,
+        OrderType: OrderType,
+        SearchTree : SearchTree,
+        tabOption : tabOption
+      })
+    }
+  }, [inputtext, SearchTree, OrderType, tabOption, isLoaded])
+  
   useEffect(() => {
     modifyliste(inputtext)
   }, [inputtext, SearchTree, OrderType])
 
   useEffect(() => {
+    const saved = loadTreeFromStorage()
     setScreenWidth(window.innerWidth)
+    if (saved) {
+      setInputtext(saved.inputtext)
+      setOrderType(saved.OrderType)
+      setTabOption(saved.tabOption)
+      setSearchTree(saved.SearchTree)
+    }
+    setisLoaded(true)
   }, [])
 
   const modifyliste = ((text: string) => {
-    if (text.length === 0)
-    {
+    if (text.length === 0) {
       return
     }
     const modtext = text.replace(/\[/g, "").replace(/\]/g, "").replace(/\s+/g, "")
@@ -74,7 +94,7 @@ export default function App() {
         <div className='flex flex-col lg:flex-row justify-center w-full xl:w-322'>
           <div className='  w-full flex flex-col items-center'>
             <Explanations explanationFor={tabOption} setInputText={setInputtext}
-              setExplanationFor={setTabOption} OrderType={OrderType}  setOrderType={setOrderType}/>
+              setExplanationFor={setTabOption} OrderType={OrderType} setOrderType={setOrderType} />
           </div>
           <div className="flex flex-col items-center w-full mb-10 mt-5 lg:mt-0  ">
             <div className='flex flex-col gap-1 items-center mb-2'>

@@ -54,7 +54,6 @@ export function BST(values: Array<string>, sorttype:string) {
     {
         try
         {
-            console.log("here1")
             root = Preorder_bst(values)
         }
         catch (error)
