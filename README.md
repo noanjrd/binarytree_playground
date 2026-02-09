@@ -87,7 +87,7 @@ npm run build        # Build for production
 npm run preview      # Preview production build
 ```
 
-## 🏗️ Project Structure
+## 📁 Project Structure
 
 ```bash
 binarytree_playground/
@@ -123,5 +123,6 @@ Perfect for students learning data structures or developers refreshing their kno
 ## 📄 License
 
 MIT License - feel free to use this project for learning and teaching!
+
 
 
