@@ -36,7 +36,7 @@ export function BasicExplanations({setOrderType, setExplanationFor} : GroupProps
                     <li className='explain-text'>The top node is called the <strong>root</strong>.</li>
                     <li className='explain-text'>Nodes with no children are called <strong>leaves</strong>.</li>
                 </ul>
-                <p className='text-black text-left mt-6 font-medium mb-2 '>Example:</p>
+                <p className='text-black text-left mt-6 font-semibold mb-2 '>Example:</p>
                 <div className='border-3 border-black w-70 rounded-xl flex justify-center items-center'>
                     <p className='text-black text-sm  font-semibold text-left py-5 whitespace-pre-wrap'>     1<br />  /     \<br />8        3<br />       /     \<br />     4        5</p>
                 </div>
@@ -46,7 +46,7 @@ export function BasicExplanations({setOrderType, setExplanationFor} : GroupProps
                     <li className='explain-text'><code className='code'>4</code> and <code className='code'>5</code> are children of <code className='code'>3</code>.</li>
                     <li className='explain-text'><code className='code'>8</code>, <code className='code'>3</code>, <code className='code'>4</code>, and <code className='code'>5</code> are leaves.</li>
                 </ul>
-                    <p className='text-black text-left mt-6 font-medium mb-2 text-xl '>🌳 Why Use Binary Trees?</p>
+                    <p className='text-black text-left mt-6 font-semibold mb-2 text-xl '>🌳 Why Use Binary Trees?</p>
                 <p className='explain-text max-w-120'>Binary trees are used everywhere in computer science because they organize data efficiently:</p>
                 <ul className="list-disc ml-6 mt-1">
                     <li onClick={() => setExplanationFor("BST")} className='explain-text max-w-120 hover:opacity-70 cursor-pointer'><strong>Fast searching:</strong> Finding an item in a sorted binary tree (BST) is much faster than searching through a list.</li>
@@ -57,7 +57,7 @@ export function BasicExplanations({setOrderType, setExplanationFor} : GroupProps
                 </ul>
                 <p className='explain-text mt-2 max-w-120'>Trees make it easy to work with hierarchical data, anything that has a parent-child relationship.</p>
 
-                <p className='text-black text-left mt-6 font-medium mb-2 text-xl '>🪜 Tree Traversal</p>
+                <p className='text-black text-left mt-6 font-semibold mb-2 text-xl '>🪜 Tree Traversal</p>
                 <p className='explain-text'>There are three main ways to traverse (visit all nodes in) a binary tree:</p>
                 <ul className="list-disc ml-6 mt-1">
                     <li onClick={() => {setExplanationFor("Preorder"); setOrderType("Preorder")}} className='explain-text hover:opacity-70 cursor-pointer'><strong>Preorder:</strong> Visit <code className='code'>root → left → right</code></li>

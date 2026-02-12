@@ -31,7 +31,7 @@ export function BSTExplanations() {
                 </ul>
 
                 <div className='mb-6'>
-                    <p className='text-black text-left font-medium mb-2'>Example of a valid BST:</p>
+                    <p className='text-black text-left font-semibold mb-2'>Example of a valid BST:</p>
                     <div className='border-3 border-black w-70 rounded-xl flex justify-center mb-2'>
                         <p className='text-black text-sm font-semibold text-left py-5 whitespace-pre-wrap'>     5<br />  /     \<br />3        8<br />        /   \<br />      7      9</p>
                     </div>
@@ -42,7 +42,7 @@ export function BSTExplanations() {
                 </div>
 
                 <div className='mb-6'>
-                    <p className='text-black text-left font-medium mb-2'>Example of an invalid BST:</p>
+                    <p className='text-black text-left font-semibold mb-2'>Example of an invalid BST:</p>
                     <div className='border-3 border-black w-70 rounded-xl flex justify-center mb-2'>
                         <p className='text-black text-sm font-semibold text-left py-5 whitespace-pre-wrap'>     5<br />  /     \<br />3        8<br />       /     \ <br />     1        6</p>
                     </div>
@@ -50,10 +50,10 @@ export function BSTExplanations() {
                 </div>
 
                 <div className='mb-6'>
-                    <p className='text-black text-left font-medium mb-2 text-xl'>🔍 Why use a BST?</p>
+                    <p className='text-black text-left font-semibold mb-2 text-xl'>🔍 Why use a BST?</p>
                     <p className='explain-text mb-3'>BSTs make searching incredibly fast. Real-world example:</p>
                     
-                    <p className='text-black text-left font-medium mb-1'>Autocomplete (like Google search)</p>
+                    <p className='text-black text-left font-semibold mb-1'>Autocomplete (like Google search)</p>
                     <p className='explain-text mb-1'>When you type "cat":</p>
                     <ul className="list-disc ml-6 mb-2">
                         <li className='explain-text'>The BST quickly finds all words starting with "ca"</li>
@@ -65,7 +65,7 @@ export function BSTExplanations() {
                 </div>
 
                 <div className=''>
-                    <p className='text-black text-left font-medium mb-3 text-xl'>⏱️ Time Complexity</p>
+                    <p className='text-black text-left font-semibold mb-3 text-xl'>⏱️ Time Complexity</p>
                     <div className='mb-4'>
                         <p className='explain-text font-semibold mb-1'>Balanced tree / evenly distributed tree (best case):</p>
                         <ul className="list-disc ml-6">
@@ -93,7 +93,7 @@ export function BSTExplanations() {
                             href="https://en.wikipedia.org/wiki/Big_O_notation"
                             target="_blank"
                             rel="noopener noreferrer"
-                            className='text-black hover:opacity-70 underline font-medium'
+                            className='text-black hover:opacity-70 underline font-semibold'
                         >
                             Learn more about Big O complexity
                         </a>

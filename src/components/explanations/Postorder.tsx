@@ -39,15 +39,15 @@ export function PostorderExplanations({ setInputText }: ExplanationsGroupProps)
                         <li className='explain-text'><strong>Visit the root node</strong> last.</li>
                     </ul>
                     <p className='explain-text mt-3'><strong>Key idea:</strong> Children are always visited before their parent.</p>
-                    <p className='text-black text-left mt-6 font-medium mb-2 '>Example:</p>
+                    <p className='text-black text-left mt-6 font-semibold mb-2 '>Example:</p>
                     <div className='border-3 border-black w-70 rounded-xl flex justify-center items-center'>
                         <p className='text-black text-sm  font-semibold text-left py-5 whitespace-pre-wrap'>     1<br />  /     \<br />8        3<br />       /     \<br />     4        5</p>
                     </div>
-                    <p className='text-black text-left mt-4 font-medium  text-sm'>Visit Order:</p>
+                    <p className='text-black text-left mt-4 font-semibold  text-sm'>Visit Order:</p>
                     <p className='explain-text'>Nodes are visited in this order: <code className='code'>8 → 4 → 5 → 3 → 1</code></p>
                     <button
                         onClick={() => setShowSteps(!showSteps)}
-                        className='cursor-pointer  mt-4 mb-2 text-black font-medium 
+                        className='cursor-pointer  mt-4 mb-2 text-black font-semibold 
                         hover:opacity-70 transition-opacity flex items-center gap-2 text-sm'>
                         <span className='text-xs'>{showSteps ? '▼' : '▶'}</span>
                         How it works (step by step)
@@ -92,11 +92,11 @@ export function PostorderExplanations({ setInputText }: ExplanationsGroupProps)
                             </ul>
                         </div>
                     )}
-                    <p className='text-black text-left text-sm mt-6 font-medium mb-2 '>Postorder output (with nulls):</p>
+                    <p className='text-black text-left text-sm mt-4 font-semibold mb-2 '>Postorder output (with nulls):</p>
                     <div className="cursor-pointer hover:opacity-70" onClick={() => setInputText("null,null,8,null,null,4,null,null,5,3,1")}>
                         <p className='explain-text '><code className='code'>[null,null,8,null,null,4, null,null,5,3,1]</code></p>
                     </div>
-                    <p className='text-black text-left text-base mt-6 font-medium mb-2 '>Why including <code className='code'>null</code> matters?</p>
+                    <p className='text-black text-left text-base mt-6 font-semibold mb-2 '>Why including <code className='code'>null</code> matters?</p>
                     <ul className="list-decimal ml-6 ">
                         <li className='explain-text'>It allows <strong>exact reconstruction of the tree</strong>.</li>
                         <li className='explain-text'>Two different trees can have the same postorder values <strong>without nulls</strong>.</li>

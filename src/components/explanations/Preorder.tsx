@@ -37,16 +37,16 @@ export function PreorderExplanations({ setInputText }: ExplanationsGroupProps) {
                     <li className='explain-text'><strong>Traverse the right subtree</strong> in preorder.</li>
                 </ul>
                 <p className='explain-text mt-3'><strong>Key idea:</strong> Visit each node <strong>before</strong> visiting its children.</p>
-                <p className='text-black text-left mt-5 font-medium mb-2 '>Example:</p>
+                <p className='text-black text-left mt-5 font-semibold mb-2 '>Example:</p>
                 <div className='border-3 border-black w-70 rounded-xl flex justify-center items-center'>
                     <p className='text-black text-sm  font-semibold text-left py-5 whitespace-pre-wrap'>     1<br />  /     \<br />8        3<br />       /     \<br />     4        5</p>
                 </div>
-                <p className='text-black text-left mt-4 font-medium text-sm '>Visit Order:</p>
+                <p className='text-black text-left mt-4 font-semibold text-sm '>Visit Order:</p>
                 <p className='explain-text'>Nodes are visited in this order: <code className='code'>1 → 8 → 3 → 4 → 5</code></p>
 
                 <button
                     onClick={() => setShowSteps(!showSteps)}
-                    className='cursor-pointer mt-4 mb-2 text-black font-medium hover:opacity-70
+                    className='cursor-pointer mt-4 mb-2 text-black font-semibold hover:opacity-70
                     transition-opacity flex items-center gap-2 text-sm'>
                     <span className='text-xs'>{showSteps ? '▼' : '▶'}</span>
                     How it works (step by step)
@@ -86,11 +86,11 @@ export function PreorderExplanations({ setInputText }: ExplanationsGroupProps) {
                         </ul>
                     </div>
                 )}
-                <p className='text-black text-sm text-left mt-4 font-medium mb-2 '>Preorder output (with nulls):</p>
+                <p className='text-black text-sm text-left mt-4 font-semibold mb-2 '>Preorder output (with nulls):</p>
                 <div className="cursor-pointer hover:opacity-70" onClick={() => setInputText("1,8,null,null,3,4,null,null,5,null,null")}>
                     <p className='explain-text '><code className='code'>[1,8,null,null,3,4,null,null,5,null,null]</code></p>
                 </div>
-                <p className='text-black text-left text-base mt-4 font-medium mb-2 '>Why including <code className='code'>null</code> matters?</p>
+                <p className='text-black text-left text-base mt-4 font-semibold mb-2 '>Why including <code className='code'>null</code> matters?</p>
                 <ul className="list-decimal ml-6 ">
                     <li className='explain-text'>It allows <strong>exact reconstruction of the tree</strong>.</li>
                     <li className='explain-text'>Two different trees can have the same preorder values <strong>without nulls</strong>.</li>
