@@ -44,7 +44,7 @@ export function BasicExplanations({setOrderType, setExplanationFor} : GroupProps
                     <li className='explain-text'><code className='code'>1</code> is the root.</li>
                     <li className='explain-text'><code className='code'>8</code> and <code className='code'>3</code> are children of <code className='code'>1</code>.</li>
                     <li className='explain-text'><code className='code'>4</code> and <code className='code'>5</code> are children of <code className='code'>3</code>.</li>
-                    <li className='explain-text'><code className='code'>8</code>, <code className='code'>3</code>, <code className='code'>4</code>, and <code className='code'>5</code> are leaves.</li>
+                    <li className='explain-text'><code className='code'>8</code>, <code className='code'>4</code>, and <code className='code'>5</code> are leaves.</li>
                 </ul>
                     <p className='text-black text-left mt-6 font-semibold mb-2 text-xl '>🌳 Why Use Binary Trees?</p>
                 <p className='explain-text max-w-120'>Binary trees are used everywhere in computer science because they organize data efficiently:</p>

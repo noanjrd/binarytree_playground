@@ -90,7 +90,7 @@ export function PreorderExplanations({ setInputText }: ExplanationsGroupProps) {
                 <div className="cursor-pointer hover:opacity-70" onClick={() => setInputText("1,8,null,null,3,4,null,null,5,null,null")}>
                     <p className='explain-text '><code className='code'>[1,8,null,null,3,4,null,null,5,null,null]</code></p>
                 </div>
-                <p className='text-black text-left text-base mt-4 font-semibold mb-2 '>Why including <code className='code'>null</code> matters?</p>
+                <p className='text-black text-left text-base mt-6 font-semibold mb-2 '>Why including <code className='code'>null</code> matters?</p>
                 <ul className="list-decimal ml-6 ">
                     <li className='explain-text'>It allows <strong>exact reconstruction of the tree</strong>.</li>
                     <li className='explain-text'>Two different trees can have the same preorder values <strong>without nulls</strong>.</li>
