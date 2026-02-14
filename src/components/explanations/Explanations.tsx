@@ -80,10 +80,10 @@ export function Explanations({ explanationFor, setInputText, setExplanationFor, 
                     <BSTExplanations  />
                 )}
                 {explanationFor === "Preorder" && (
-                    <PreorderExplanations setInputText={setInputText}  />
+                    <PreorderExplanations setInputText={setInputText} setOrderType={setOrderType}  />
                 )}
                 {explanationFor === "Postorder" && (
-                    <PostorderExplanations setInputText={setInputText} />
+                    <PostorderExplanations setInputText={setInputText} setOrderType={setOrderType} />
                 )}
                 {explanationFor === "Challenge" && (
                     <ChallengeCard root={root} setInputText={setInputText}

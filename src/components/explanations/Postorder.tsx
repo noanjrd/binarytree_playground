@@ -6,9 +6,10 @@ import { useState } from 'react'
 
 interface ExplanationsGroupProps {
     setInputText: (value: string) => void
+    setOrderType: (val:string) => void
 }
 
-export function PostorderExplanations({ setInputText }: ExplanationsGroupProps)
+export function PostorderExplanations({ setInputText, setOrderType }: ExplanationsGroupProps)
 {
     const [showSteps, setShowSteps] = useState(false)
     const [visibleArrow, setVisibleArrow] = useState(true)
@@ -93,7 +94,7 @@ export function PostorderExplanations({ setInputText }: ExplanationsGroupProps)
                         </div>
                     )}
                     <p className='text-black text-left text-sm mt-4 font-semibold mb-2 '>Postorder output (with nulls):</p>
-                    <div className="cursor-pointer hover:opacity-70" onClick={() => setInputText("null,null,8,null,null,4,null,null,5,3,1")}>
+                    <div className="cursor-pointer hover:opacity-70" onClick={() => {setInputText("null,null,8,null,null,4,null,null,5,3,1"); setOrderType("Postorder")}}>
                         <p className='explain-text '><code className='code'>[null,null,8,null,null,4, null,null,5,3,1]</code></p>
                     </div>
                     <p className='text-black text-left text-base mt-6 font-semibold mb-2 '>Why including <code className='code'>null</code> matters?</p>
