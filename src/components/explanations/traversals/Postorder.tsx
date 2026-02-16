@@ -1,6 +1,6 @@
-import '../../styles/App.css'
-import '../../styles/Explanations.css'
-import ArrowIcon from "../../assets/arrow.svg"
+import '../../../styles/App.css'
+import '../../../styles/Explanations.css'
+import ArrowIcon from "../../../assets/arrow.svg"
 import { useState } from 'react'
 
 
@@ -12,22 +12,10 @@ interface ExplanationsGroupProps {
 export function PostorderExplanations({ setInputText, setOrderType }: ExplanationsGroupProps)
 {
     const [showSteps, setShowSteps] = useState(false)
-    const [visibleArrow, setVisibleArrow] = useState(true)
 
     return (
-        <>
-            <div onScroll={() => setVisibleArrow(false)} className='relative card min-w-140 px-5 py-5
-             overflow-y-auto items-start scrollbar-none max-h-[66vh] flex '
-                style={{
-                    scrollbarWidth: "none",   // Firefox
-                    msOverflowStyle: "none"   // IE 10+
-                }}>
-            <div
-                className={`animate-bounce absolute rotate-180 w-full flex justify-center bottom-4 -ml-5 
-                    transition-opacity duration-300 ${visibleArrow ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
-                <img src={ArrowIcon} width={20} height={20} />
-            </div>
-                <div className='relative'>
+        <div className='relative w-full'>
+            <div className='relative'>
                     <p className='relative text-3xl text-left text-black font-semibold mb-3 w-fit'>
                         <span className="absolute left-0 bottom-0 w-full h-4 bg-[#ffd268] -z-10 invisible sm:visible"></span>
                         What is Postorder Traversal?
@@ -95,7 +83,7 @@ export function PostorderExplanations({ setInputText, setOrderType }: Explanatio
                     )}
                     <p className='text-black text-left text-sm mt-4 font-semibold mb-2 '>Postorder output (with nulls):</p>
                     <div className="cursor-pointer hover:opacity-70" onClick={() => {setInputText("null,null,8,null,null,4,null,null,5,3,1"); setOrderType("Postorder")}}>
-                        <p className='explain-text '><code className='code'>[null,null,8,null,null,4, null,null,5,3,1]</code></p>
+                        <p className='explain-text '><code className='code'>[null,null,8,null,null,4,null,null,5,3,1]</code></p>
                     </div>
                     <p className='text-black text-left text-base mt-6 font-semibold mb-2 '>Why including <code className='code'>null</code> matters?</p>
                     <ul className="list-decimal ml-6 ">
@@ -105,6 +93,6 @@ export function PostorderExplanations({ setInputText, setOrderType }: Explanatio
                     </ul>
                 </div>
             </div>
-        </>
+        // </div>
     )
 }

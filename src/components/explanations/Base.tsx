@@ -61,7 +61,7 @@ export function BasicExplanations({setOrderType, setExplanationFor} : GroupProps
                 <p className='explain-text'>There are three main ways to traverse (visit all nodes in) a binary tree:</p>
                 <ul className="list-disc ml-6 mt-1">
                     <li onClick={() => {setExplanationFor("Preorder"); setOrderType("Preorder")}} className='explain-text hover:opacity-70 cursor-pointer'><strong>Preorder:</strong> Visit <code className='code'>root → left → right</code></li>
-                    <li className='explain-text'><strong>Inorder:</strong> Visit <code className='code'>left → root → right</code></li>
+                    <li onClick={() => setExplanationFor("Inorder")} className='explain-text cursor-pointer hover:opacity-70' ><strong>Inorder:</strong> Visit <code className='code'>left → root → right</code></li>
                     <li onClick={() => {setExplanationFor("Postorder"); setOrderType("Postorder")}} className='explain-text cursor-pointer hover:opacity-70'><strong>Postorder:</strong> Visit <code className='code'>left → right → root</code></li>
                 </ul>
                 <p className='explain-text mt-2 max-w-120'>Each method produces a different order of nodes and is useful for different purposes.</p>

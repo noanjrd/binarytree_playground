@@ -1,6 +1,6 @@
-import '../../styles/App.css'
-import '../../styles/Explanations.css'
-import ArrowIcon from "../../assets/arrow.svg"
+import '../../../styles/App.css'
+import '../../../styles/Explanations.css'
+import ArrowIcon from "../../../assets/arrow.svg"
 import { useState } from 'react'
 
 
@@ -11,21 +11,10 @@ interface ExplanationsGroupProps {
 
 export function PreorderExplanations({ setInputText, setOrderType }: ExplanationsGroupProps) {
     const [showSteps, setShowSteps] = useState(false)
-    const [visibleArrow, setVisibleArrow] = useState(true)
 
     return (
-        <div onScroll={() => setVisibleArrow(false)} className='card relative px-5 py-5 overflow-y-auto 
-        scrollbar-none max-h-[66vh] flex overflow-x-hidden items-start min-w-140'
-            style={{
-                scrollbarWidth: "none",   // Firefox
-                msOverflowStyle: "none"   // IE 10+
-            }}>
-            <div
-                className={`animate-bounce absolute rotate-180 w-full flex justify-center bottom-4 -ml-5 
-                    transition-opacity duration-300 ${visibleArrow ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
-                <img src={ArrowIcon} width={20} height={20} />
-            </div>
-            <div className='relative '>
+        <div className='relative w-full'>
+            <div className='relative'>
                 <p className='relative text-3xl text-left text-black font-semibold mb-3 w-fit'>
                     <span className="absolute left-0 bottom-0 w-full h-4 bg-[#b9adff] -z-10 invisible sm:visible"></span>
                     What is Preorder Traversal?

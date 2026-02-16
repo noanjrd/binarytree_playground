@@ -1,8 +1,6 @@
 import '../../styles/App.css'
 import '../../styles/Explanations.css'
-import { BasicExplanations } from './Base'
-import { PreorderExplanations } from './Preorder'
-import { PostorderExplanations } from './Postorder'
+import { BasicExplanations } from './Base' 
 import { BSTExplanations } from './BST'
 import { ChallengeCard } from './Challenge'
 import { useEffect, useState } from 'react'
@@ -10,6 +8,7 @@ import { GenerateRandomTree } from '../../utils/generateTree'
 import { type TreeNode } from '../../types/types'
 import { GetPostorderList } from '../../utils/postorderTree'
 import { GetPreorderList } from '../../utils/preorderTree'
+import { Traversals } from './traversals/traversals'
 
 
 interface ExplainationsGroupProps {
@@ -22,8 +21,7 @@ interface ExplainationsGroupProps {
 
 const options: Record<string, string> = {
     "Binary Tree" : "cdff58",
-    "Preorder" : "b9adff",
-    "Postorder" : "ffd268",
+    "Traversal" : "b9adff",
     "BST" : "ffaaf8",
     "Challenge" : "ff9494"
 }
@@ -79,11 +77,10 @@ export function Explanations({ explanationFor, setInputText, setExplanationFor, 
                 {explanationFor === "BST" && (
                     <BSTExplanations  />
                 )}
-                {explanationFor === "Preorder" && (
-                    <PreorderExplanations setInputText={setInputText} setOrderType={setOrderType}  />
-                )}
-                {explanationFor === "Postorder" && (
-                    <PostorderExplanations setInputText={setInputText} setOrderType={setOrderType} />
+                {(explanationFor === "Traversal" || explanationFor==="Postorder" 
+                || explanationFor==="Preorder" || explanationFor === "Inorder") && (
+                    <Traversals setInputText={setInputText} setOrderType={setOrderType} 
+                    setExplanationFor={setExplanationFor} explanationFor={explanationFor} />
                 )}
                 {explanationFor === "Challenge" && (
                     <ChallengeCard root={root} setInputText={setInputText}
