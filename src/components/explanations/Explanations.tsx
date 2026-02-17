@@ -9,14 +9,12 @@ import { type TreeNode } from '../../types/types'
 import { GetPostorderList } from '../../utils/postorderTree'
 import { GetPreorderList } from '../../utils/preorderTree'
 import { Traversals } from './traversals/traversals'
+import { useTreeContext } from '../../contexts/TreeContext'
 
 
 interface ExplainationsGroupProps {
     explanationFor: string,
-    setInputText: (value: string) => void
     setExplanationFor: (value: string) => void
-    setOrderType: (val:string) => void
-    OrderType: string
 }
 
 const options: Record<string, string> = {
@@ -26,32 +24,33 @@ const options: Record<string, string> = {
     "Challenge" : "ff9494"
 }
 
-export function Explanations({ explanationFor, setInputText, setExplanationFor, OrderType, setOrderType}: ExplainationsGroupProps)
+export function Explanations({ explanationFor, setExplanationFor}: ExplainationsGroupProps)
 {
+    const {traversalType} = useTreeContext()
     const [deepness, setDeepness] = useState<number>(2)
     const [root, setRoot] = useState<TreeNode>(GenerateRandomTree(deepness))
     const [answer, setAnswer] = useState(GetPostorderList(root))
 
     useEffect(() => {
-        if (OrderType === "Postorder")
+        if (traversalType === "Postorder")
         {
             setAnswer(GetPostorderList(root))
         }
-        if (OrderType === "Preorder")
+        if (traversalType === "Preorder")
         {
             setAnswer(GetPreorderList(root))
         }
-    }, [OrderType])
+    }, [traversalType])
 
     const ChangeTree = () => {
 
         const newRoot = GenerateRandomTree(deepness)
         setRoot(newRoot)
-        if (OrderType === "Postorder")
+        if (traversalType === "Postorder")
         {
             setAnswer(GetPostorderList(newRoot))
         }
-        if (OrderType === "Preorder")
+        if (traversalType === "Preorder")
         {
             setAnswer(GetPreorderList(newRoot))
         }   
@@ -72,20 +71,19 @@ export function Explanations({ explanationFor, setInputText, setExplanationFor, 
                     ))}
                 </div>
                 {explanationFor === "Binary Tree" && (
-                    <BasicExplanations setOrderType={setOrderType} setExplanationFor={setExplanationFor}  />
+                    <BasicExplanations setExplanationFor={setExplanationFor}  />
                 )}
                 {explanationFor === "BST" && (
                     <BSTExplanations  />
                 )}
                 {(explanationFor === "Traversal" || explanationFor==="Postorder" 
                 || explanationFor==="Preorder" || explanationFor === "Inorder") && (
-                    <Traversals setInputText={setInputText} setOrderType={setOrderType} 
-                    setExplanationFor={setExplanationFor} explanationFor={explanationFor} />
+                    <Traversals setExplanationFor={setExplanationFor} explanationFor={explanationFor} />
                 )}
                 {explanationFor === "Challenge" && (
-                    <ChallengeCard root={root} setInputText={setInputText}
+                    <ChallengeCard root={root} 
                     setDeepness={setDeepness} deepness={deepness} 
-                    answer={answer} ChangeTree={ChangeTree} OrderType={OrderType}/>
+                    answer={answer} ChangeTree={ChangeTree} />
                 )}
             </div>
         </>

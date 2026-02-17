@@ -7,15 +7,14 @@ import { PostorderExplanations } from './Postorder'
 import ArrowIcon from "../../../assets/arrow.svg"
 
 interface ExplanationsGroupProps {
-    setInputText: (value: string) => void
-    setOrderType: (val: string) => void
     setExplanationFor: (val: string) => void
     explanationFor: string
 }
 
-export function Traversals({ setInputText, setOrderType, setExplanationFor, explanationFor }: ExplanationsGroupProps) {
+export function Traversals({ setExplanationFor, explanationFor }: ExplanationsGroupProps) {
     const [selectedOrder, setSelectedOrder] = useState<string>('Preorder')
     const [visibleArrow, setVisibleArrow] = useState(true)
+
     useEffect(() => {
         if (explanationFor !== "Traversal")
         {
@@ -70,9 +69,9 @@ export function Traversals({ setInputText, setOrderType, setExplanationFor, expl
 
             {/* Content */}
             <div className='w-full'>
-                {selectedOrder === 'Preorder' && <PreorderExplanations setInputText={setInputText} setOrderType={setOrderType} />}
+                {selectedOrder === 'Preorder' && <PreorderExplanations  />}
                 {selectedOrder === 'Inorder' && <InorderExplanations />}
-                {selectedOrder === 'Postorder' && <PostorderExplanations setInputText={setInputText} setOrderType={setOrderType} />}
+                {selectedOrder === 'Postorder' && <PostorderExplanations  />}
             </div>
         </div>
     )

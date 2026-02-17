@@ -2,16 +2,17 @@ import '../../styles/App.css'
 import '../../styles/Explanations.css'
 import { useState } from 'react'
 import ArrowIcon from "../../assets/arrow.svg"
+import { useTreeContext } from '../../contexts/TreeContext'
 
 
 interface GroupProps {
     setExplanationFor: (value: string) => void
-    setOrderType: (val:string) => void
 }
 
-export function BasicExplanations({setOrderType, setExplanationFor} : GroupProps)
+export function BasicExplanations({setExplanationFor} : GroupProps)
 {
     const [visibleArrow, setVisibleArrow] = useState(true)
+    const {setTraversalType} = useTreeContext()
 
     return (
         <div onScroll={() => setVisibleArrow(false)}   className='card relative px-5 py-5 overflow-y-auto 
@@ -60,9 +61,9 @@ export function BasicExplanations({setOrderType, setExplanationFor} : GroupProps
                 <p className='text-black text-left mt-6 font-semibold mb-2 text-xl '>🪜 Tree Traversal</p>
                 <p className='explain-text'>There are three main ways to traverse (visit all nodes in) a binary tree:</p>
                 <ul className="list-disc ml-6 mt-1">
-                    <li onClick={() => {setExplanationFor("Preorder"); setOrderType("Preorder")}} className='explain-text hover:opacity-70 cursor-pointer'><strong>Preorder:</strong> Visit <code className='code'>root → left → right</code></li>
+                    <li onClick={() => {setExplanationFor("Preorder"); setTraversalType("Preorder")}} className='explain-text hover:opacity-70 cursor-pointer'><strong>Preorder:</strong> Visit <code className='code'>root → left → right</code></li>
                     <li onClick={() => setExplanationFor("Inorder")} className='explain-text cursor-pointer hover:opacity-70' ><strong>Inorder:</strong> Visit <code className='code'>left → root → right</code></li>
-                    <li onClick={() => {setExplanationFor("Postorder"); setOrderType("Postorder")}} className='explain-text cursor-pointer hover:opacity-70'><strong>Postorder:</strong> Visit <code className='code'>left → right → root</code></li>
+                    <li onClick={() => {setExplanationFor("Postorder"); setTraversalType("Postorder")}} className='explain-text cursor-pointer hover:opacity-70'><strong>Postorder:</strong> Visit <code className='code'>left → right → root</code></li>
                 </ul>
                 <p className='explain-text mt-2 max-w-120'>Each method produces a different order of nodes and is useful for different purposes.</p>
             </div>

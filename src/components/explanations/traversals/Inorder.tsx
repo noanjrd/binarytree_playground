@@ -1,6 +1,5 @@
 import '../../../styles/App.css'
 import '../../../styles/Explanations.css'
-import ArrowIcon from "../../../assets/arrow.svg"
 import { useState } from 'react'
 
 export function InorderExplanations() {
@@ -27,7 +26,6 @@ export function InorderExplanations() {
                     </div>
                     <p className='text-black text-left mt-4 font-semibold  text-sm'>Visit Order:</p>
                     <p className='explain-text'>Nodes are visited in this order: <code className='code'>3 → 5 → 7 → 8 → 9</code></p>
-                    {/* <p className='explain-text mt-2'><strong>Notice:</strong> For a Binary Search Tree (BST), inorder traversal visits nodes in <strong>sorted order</strong>!</p> */}
                     <button
                         onClick={() => setShowSteps(!showSteps)}
                         className='cursor-pointer  mt-4 mb-2 text-black font-semibold 
@@ -92,6 +90,5 @@ export function InorderExplanations() {
                     </ul>
                 </div>
             </div>
-        // </div>
     )
 }

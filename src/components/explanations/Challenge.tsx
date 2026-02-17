@@ -4,6 +4,7 @@ import DisplayBinaryTree from '../DisplayBinaryTree'
 import type { TreeNode } from '../../types/types'
 import { getTreeDeepness } from "../../utils/binaryTree"
 import { useEffect, useState } from 'react'
+import { useTreeContext } from '../../contexts/TreeContext'
 
 
 export interface Props {
@@ -11,17 +12,15 @@ export interface Props {
     deepness: number;
     answer: string
     setDeepness: (val: number) => void;
-    setInputText: (val: string) => void
     ChangeTree: () => void
-    OrderType: string
 }
 
-export function ChallengeCard({ root, setDeepness, deepness, answer, ChangeTree, setInputText, OrderType }: Props) {
+export function ChallengeCard({ root, setDeepness, deepness, answer, ChangeTree}: Props) {
     const [showAnswer, setShowAnswer] = useState(false)
-
+    const {traversalType, setInputText} = useTreeContext()
     useEffect(() => {
         setShowAnswer(false)
-    }, [OrderType])
+    }, [traversalType])
 
     return (
         <div className='card min-w-140 relative px-5 py-5  overflow-y-auto 

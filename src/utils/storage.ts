@@ -1,9 +1,9 @@
 const STORAGE_KEY = "binarytree_data"
 
 export interface StoredData {
-    inputtext : string;
-    OrderType : string;
-    SearchTree : boolean
+    inputText : string;
+    traversalType : string;
+    searchTree : boolean
     tabOption : string
 }
 

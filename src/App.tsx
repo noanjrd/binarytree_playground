@@ -1,37 +1,37 @@
-import { useEffect, useState } from 'react'
+import './styles/radio.css'
 import './styles/App.css'
+import { useEffect, useState } from 'react'
 import { BasicTree, BST } from "./utils/binaryTree.ts"
 import DisplayBinaryTree from "./components/DisplayBinaryTree.tsx"
 import QuestionIcon from "./assets/question.svg"
 import { type TreeNode } from './types/types.ts'
-import { ORDER_TYPE, orderOptions } from './types/constants.ts'
-import './styles/radio.css'
+import { orderOptions } from './types/constants.ts'
 import RadioGroup from './components/RadioGroup.tsx'
 import GithubIcon from "./assets/githubicon.png"
 import { Explanations } from './components/explanations/Explanations.tsx';
 import { getTreeDeepness } from "./utils/binaryTree.ts"
 import { loadTreeFromStorage, saveTreeToStorage } from './utils/storage.ts'
+import { useTreeContext } from './contexts/TreeContext.tsx'
 
 export default function App() {
 
   const [root, setRoot] = useState<TreeNode | null>(null)
-  const [inputtext, setInputtext] = useState("")
-  const [SearchTree, setSearchTree] = useState<boolean>(false)
-  const [OrderType, setOrderType] = useState<string>(ORDER_TYPE.PREORDER)
+  const [searchTree, setSearchTree] = useState<boolean>(false)
   const [tabOption, setTabOption] = useState<string>("Binary Tree")
   const [isLoaded, setisLoaded] = useState(false)
+  const {setTraversalType, traversalType, setInputText, inputText} = useTreeContext()
   const screenWidth = window.innerWidth
 
   useEffect(() => {
     if (isLoaded) {
       saveTreeToStorage({
-        inputtext: inputtext,
-        OrderType: OrderType,
-        SearchTree: SearchTree,
+        inputText: inputText,
+        traversalType: traversalType,
+        searchTree: searchTree,
         tabOption: tabOption
       })
     }
-  }, [inputtext, SearchTree, OrderType, tabOption, isLoaded])
+  }, [inputText, searchTree, traversalType, tabOption, isLoaded])
 
 
   useEffect(() => {
@@ -42,38 +42,39 @@ export default function App() {
   useEffect(() => {
     const saved = loadTreeFromStorage()
     if (saved) {
-      setInputtext(saved.inputtext)
-      setOrderType(saved.OrderType)
+      setInputText(saved.inputText)
+      setTraversalType(saved.traversalType)
       setTabOption(saved.tabOption)
-      setSearchTree(saved.SearchTree)
+      setSearchTree(saved.searchTree)
     }
   }, [])
 
 
   useEffect(() => {
-    const text = inputtext
-      if (text.length === 0) {
+    console.log(inputText)
+    const text = inputText
+      if (!text || text.length === 0) {
         return
       }
       const modtext = text.replace(/\[/g, "").replace(/\]/g, "").replace(/\s+/g, "")
-      const NumberArray = modtext.split(',').map(String).filter(element => element !== "")
-      if (SearchTree === false) {
+      const NumberArray = modtext.split(',').map(String).filter((element:any) => element !== "")
+      if (searchTree === false) {
         try {
-          setRoot(BasicTree(NumberArray, OrderType))
+          setRoot(BasicTree(NumberArray, traversalType))
         }
         catch (error) {
           console.error(error)
         }
       }
-      if (SearchTree === true) {
+      if (searchTree === true) {
         try {
-          setRoot(BST(NumberArray, OrderType))
+          setRoot(BST(NumberArray, traversalType))
         }
         catch (error) {
           console.error(error)
         }
       }
-  }, [inputtext, SearchTree, OrderType])
+  }, [inputText, searchTree, traversalType])
 
   if (screenWidth < 640) {
     return (
@@ -94,20 +95,22 @@ export default function App() {
         <p className='text-4xl mb-8 lg:mb-12 font-bold mt-8 text-center text-black'>Binary Tree Playground</p>
         <div className='flex flex-col lg:flex-row justify-center w-full xl:w-322'>
           <div className='  w-full flex flex-col items-center'>
-            <Explanations explanationFor={tabOption} setInputText={setInputtext}
-              setExplanationFor={setTabOption} OrderType={OrderType} setOrderType={setOrderType} />
+            <Explanations explanationFor={tabOption}  setExplanationFor={setTabOption} />
           </div>
           <div className="flex flex-col items-center w-full mb-10 mt-5 lg:mt-0  ">
             <div className='flex flex-col gap-1 items-center mb-2'>
-              <p className='text-black font-semibold text-3xl mb-5'>Binary Tree Visualizer</p>
+              <p className='text-black font-semibold text-3xl '>Binary Tree Visualizer</p>
+              <p className='text-black text-sm text-center max-w-80 mb-2'>
+                Enter your tree as an array to see it visualized.
+              </p>
 
               <div className=' relative flex flex-row items-center'>
                 <input
                   className="w-70 lg:w-80 text-[#2c2c2c] border-black border-2 p-2.5 
                   focus:outline-none focus:shadow-[2px_2px_0px_rgba(0,0,0,1)] active:shadow-[2px_2px_0px_rgba(0,0,0,1)]"
                   placeholder='Type here : [1,7,null,8,...]'
-                  value={inputtext}
-                  onChange={(e) => { setInputtext(e.target.value); }}
+                  value={inputText}
+                  onChange={(e) => { setInputText(e.target.value)}}
                 />
                 <div className='absolute -right-7 group  cursor-pointer'>
                   <img className='hover:opacity-70' src={QuestionIcon} width={20} />
@@ -119,15 +122,15 @@ export default function App() {
                 </div>
               </div>
               <div className='flex gap-1 flex-row justify-center items-center mt-1'>
-                <RadioGroup options={orderOptions} value={OrderType} onChange={setOrderType} name="ordertypechange" tabOption={tabOption} setTabOption={setTabOption} />
+                <RadioGroup options={orderOptions} value={traversalType} onChange={setTraversalType} name="traversaltypechange" tabOption={tabOption} setTabOption={setTabOption} />
                 <button
                   className='button-home button-red'
-                  onClick={() => { setInputtext(""); setRoot(null) }}>Reset
+                  onClick={() => { setInputText(""); setRoot(null) }}>Reset
                 </button>
               </div>
               <button
                 className='button-home button-blue'
-                onClick={() => { setSearchTree(!SearchTree) }}>{!SearchTree ? "Turn into binary search tree" : "Turn into simple binary tree"}</button>
+                onClick={() => { setSearchTree(!searchTree) }}>{!searchTree ? "Turn into binary search tree" : "Turn into simple binary tree"}</button>
             </div>
             <div className='binarytree relative overflow-y-auto overflow-x-auto  py-5
              scrollbar-none w-80 lg:w-120 flex justify-center  min-h-60 max-h-[calc(100vh-400px)] '>

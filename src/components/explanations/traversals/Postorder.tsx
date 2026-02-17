@@ -1,17 +1,15 @@
+import { useTreeContext } from '../../../contexts/TreeContext'
 import '../../../styles/App.css'
 import '../../../styles/Explanations.css'
-import ArrowIcon from "../../../assets/arrow.svg"
 import { useState } from 'react'
 
 
-interface ExplanationsGroupProps {
-    setInputText: (value: string) => void
-    setOrderType: (val:string) => void
-}
 
-export function PostorderExplanations({ setInputText, setOrderType }: ExplanationsGroupProps)
+
+export function PostorderExplanations()
 {
     const [showSteps, setShowSteps] = useState(false)
+    const {setInputText, setTraversalType} = useTreeContext()
 
     return (
         <div className='relative w-full'>
@@ -82,7 +80,7 @@ export function PostorderExplanations({ setInputText, setOrderType }: Explanatio
                         </div>
                     )}
                     <p className='text-black text-left text-sm mt-4 font-semibold mb-2 '>Postorder output (with nulls):</p>
-                    <div className="cursor-pointer hover:opacity-70" onClick={() => {setInputText("null,null,8,null,null,4,null,null,5,3,1"); setOrderType("Postorder")}}>
+                    <div className="cursor-pointer hover:opacity-70" onClick={() => {setInputText("null,null,8,null,null,4,null,null,5,3,1"); setTraversalType("Postorder")}}>
                         <p className='explain-text '><code className='code'>[null,null,8,null,null,4,null,null,5,3,1]</code></p>
                     </div>
                     <p className='text-black text-left text-base mt-6 font-semibold mb-2 '>Why including <code className='code'>null</code> matters?</p>
@@ -93,6 +91,5 @@ export function PostorderExplanations({ setInputText, setOrderType }: Explanatio
                     </ul>
                 </div>
             </div>
-        // </div>
     )
 }
