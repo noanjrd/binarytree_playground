@@ -11,7 +11,7 @@ interface ExplanationsGroupProps {
     tabOption: string
 }
 
-export function Traversals({ setTabOption, tabOption }: ExplanationsGroupProps) {
+export function Traversal({ setTabOption, tabOption }: ExplanationsGroupProps) {
     const [selectedOrder, setSelectedOrder] = useState<string>('Preorder')
     const [visibleArrow, setVisibleArrow] = useState(true)
 

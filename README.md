@@ -102,7 +102,7 @@ binarytree_playground/
 │   │       ├── BST.tsx              # BST explanations
 │   │       ├── Challenge.tsx        # Challenge mode
 │   │       └── traversals/
-│   │           ├── traversals.tsx   # Traversal selector
+│   │           ├── Traversal.tsx   # Traversal selector
 │   │           ├── Preorder.tsx     # Preorder explanations
 │   │           ├── Inorder.tsx      # Inorder explanations
 │   │           └── Postorder.tsx    # Postorder explanations

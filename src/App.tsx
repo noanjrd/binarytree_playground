@@ -53,9 +53,8 @@ export default function App() {
   useEffect(() => {
     console.log(inputText)
     const text = inputText
-      if (!text || text.length === 0) {
+      if (!text || text.length === 0)
         return
-      }
       const modtext = text.replace(/\[/g, "").replace(/\]/g, "").replace(/\s+/g, "")
       const NumberArray = modtext.split(',').map(String).filter((element:any) => element !== "")
       if (searchTree === false) {
@@ -64,16 +63,14 @@ export default function App() {
         }
         catch (error) {
           console.error(error)
-        }
-      }
+        }}
       if (searchTree === true) {
         try {
           setRoot(BST(NumberArray, traversalType))
         }
         catch (error) {
           console.error(error)
-        }
-      }
+        }}
   }, [inputText, searchTree, traversalType])
 
   if (screenWidth < 640) {
@@ -84,6 +81,7 @@ export default function App() {
       </div>
     )
   }
+
   return (
     <>
       <div className='relative flex flex-col w-full min-h-screen items-center '>

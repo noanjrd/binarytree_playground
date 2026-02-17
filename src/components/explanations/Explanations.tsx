@@ -8,7 +8,7 @@ import { GenerateRandomTree } from '../../utils/generateTree'
 import { type TreeNode } from '../../types/types'
 import { GetPostorderList } from '../../utils/postorderTree'
 import { GetPreorderList } from '../../utils/preorderTree'
-import { Traversals } from './traversals/traversals'
+import { Traversal } from './traversals/Traversal'
 import { useTreeContext } from '../../contexts/TreeContext'
 
 
@@ -78,7 +78,7 @@ export function Explanations({ tabOption, setTabOption}: ExplainationsGroupProps
                 )}
                 {(tabOption === "Traversal" || tabOption==="Postorder" 
                 || tabOption==="Preorder" || tabOption === "Inorder") && (
-                    <Traversals setTabOption={setTabOption} tabOption={tabOption} />
+                    <Traversal setTabOption={setTabOption} tabOption={tabOption} />
                 )}
                 {tabOption === "Challenge" && (
                     <ChallengeCard root={root} 
