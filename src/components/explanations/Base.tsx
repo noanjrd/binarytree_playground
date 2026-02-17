@@ -6,10 +6,10 @@ import { useTreeContext } from '../../contexts/TreeContext'
 
 
 interface GroupProps {
-    setExplanationFor: (value: string) => void
+    setTabOption: (value: string) => void
 }
 
-export function BasicExplanations({setExplanationFor} : GroupProps)
+export function BasicExplanations({setTabOption} : GroupProps)
 {
     const [visibleArrow, setVisibleArrow] = useState(true)
     const {setTraversalType} = useTreeContext()
@@ -50,7 +50,7 @@ export function BasicExplanations({setExplanationFor} : GroupProps)
                     <p className='text-black text-left mt-6 font-semibold mb-2 text-xl '>🌳 Why Use Binary Trees?</p>
                 <p className='explain-text max-w-120'>Binary trees are used everywhere in computer science because they organize data efficiently:</p>
                 <ul className="list-disc ml-6 mt-1">
-                    <li onClick={() => setExplanationFor("BST")} className='explain-text max-w-120 hover:opacity-70 cursor-pointer'><strong>Fast searching:</strong> Finding an item in a sorted binary tree (BST) is much faster than searching through a list.</li>
+                    <li onClick={() => setTabOption("BST")} className='explain-text max-w-120 hover:opacity-70 cursor-pointer'><strong>Fast searching:</strong> Finding an item in a sorted binary tree (BST) is much faster than searching through a list.</li>
                     <li className='explain-text'><strong>Organizing files:</strong> Your computer's folders and files are organized in a tree structure.</li>
                     <li className='explain-text'><strong>Managing data:</strong> Apps and websites use trees to quickly find and update information (like user accounts, products, etc.).</li>
                     <li className='explain-text'><strong>Making decisions:</strong> AI and recommendation systems use trees to make choices based on patterns.</li>
@@ -61,9 +61,9 @@ export function BasicExplanations({setExplanationFor} : GroupProps)
                 <p className='text-black text-left mt-6 font-semibold mb-2 text-xl '>🪜 Tree Traversal</p>
                 <p className='explain-text'>There are three main ways to traverse (visit all nodes in) a binary tree:</p>
                 <ul className="list-disc ml-6 mt-1">
-                    <li onClick={() => {setExplanationFor("Preorder"); setTraversalType("Preorder")}} className='explain-text hover:opacity-70 cursor-pointer'><strong>Preorder:</strong> Visit <code className='code'>root → left → right</code></li>
-                    <li onClick={() => setExplanationFor("Inorder")} className='explain-text cursor-pointer hover:opacity-70' ><strong>Inorder:</strong> Visit <code className='code'>left → root → right</code></li>
-                    <li onClick={() => {setExplanationFor("Postorder"); setTraversalType("Postorder")}} className='explain-text cursor-pointer hover:opacity-70'><strong>Postorder:</strong> Visit <code className='code'>left → right → root</code></li>
+                    <li onClick={() => {setTabOption("Preorder"); setTraversalType("Preorder")}} className='explain-text hover:opacity-70 cursor-pointer'><strong>Preorder:</strong> Visit <code className='code'>root → left → right</code></li>
+                    <li onClick={() => setTabOption("Inorder")} className='explain-text cursor-pointer hover:opacity-70' ><strong>Inorder:</strong> Visit <code className='code'>left → root → right</code></li>
+                    <li onClick={() => {setTabOption("Postorder"); setTraversalType("Postorder")}} className='explain-text cursor-pointer hover:opacity-70'><strong>Postorder:</strong> Visit <code className='code'>left → right → root</code></li>
                 </ul>
                 <p className='explain-text mt-2 max-w-120'>Each method produces a different order of nodes and is useful for different purposes.</p>
             </div>

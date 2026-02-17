@@ -95,7 +95,7 @@ export default function App() {
         <p className='text-4xl mb-8 lg:mb-12 font-bold mt-8 text-center text-black'>Binary Tree Playground</p>
         <div className='flex flex-col lg:flex-row justify-center w-full xl:w-322'>
           <div className='  w-full flex flex-col items-center'>
-            <Explanations explanationFor={tabOption}  setExplanationFor={setTabOption} />
+            <Explanations tabOption={tabOption}  setTabOption={setTabOption} />
           </div>
           <div className="flex flex-col items-center w-full mb-10 mt-5 lg:mt-0  ">
             <div className='flex flex-col gap-1 items-center mb-2'>

@@ -13,8 +13,8 @@ import { useTreeContext } from '../../contexts/TreeContext'
 
 
 interface ExplainationsGroupProps {
-    explanationFor: string,
-    setExplanationFor: (value: string) => void
+    tabOption: string,
+    setTabOption: (value: string) => void
 }
 
 const options: Record<string, string> = {
@@ -24,7 +24,7 @@ const options: Record<string, string> = {
     "Challenge" : "ff9494"
 }
 
-export function Explanations({ explanationFor, setExplanationFor}: ExplainationsGroupProps)
+export function Explanations({ tabOption, setTabOption}: ExplainationsGroupProps)
 {
     const {traversalType} = useTreeContext()
     const [deepness, setDeepness] = useState<number>(2)
@@ -61,26 +61,26 @@ export function Explanations({ explanationFor, setExplanationFor}: Explainations
             <div>
                 <div className='tab-bar flex flex-row border items-center rounded-full '>
                     {Object.entries(options).map(([option, color], index) => (
-                            <div key={index} className={`    flex items-center    w-fit  ${explanationFor === option ? " tab-option-selected" : "tab-option"}`}
-                            onClick={() => setExplanationFor(option)}>
+                            <div key={index} className={`    flex items-center    w-fit  ${tabOption === option ? " tab-option-selected" : "tab-option"}`}
+                            onClick={() => setTabOption(option)}>
                             
                                 <p className={`relative text-black w-fit  text-center font-semibold `}>
-                                    <span className={`absolute w-full h-3 bg-[#${color}] left-0 top-3 -z-2 ${explanationFor === option ? "visible" : "invisible"}`}></span>
+                                    <span className={`absolute w-full h-3 bg-[#${color}] left-0 top-3 -z-2 ${tabOption === option ? "visible" : "invisible"}`}></span>
                                     {option}</p>
                             </div>
                     ))}
                 </div>
-                {explanationFor === "Binary Tree" && (
-                    <BasicExplanations setExplanationFor={setExplanationFor}  />
+                {tabOption === "Binary Tree" && (
+                    <BasicExplanations setTabOption={setTabOption}  />
                 )}
-                {explanationFor === "BST" && (
+                {tabOption === "BST" && (
                     <BSTExplanations  />
                 )}
-                {(explanationFor === "Traversal" || explanationFor==="Postorder" 
-                || explanationFor==="Preorder" || explanationFor === "Inorder") && (
-                    <Traversals setExplanationFor={setExplanationFor} explanationFor={explanationFor} />
+                {(tabOption === "Traversal" || tabOption==="Postorder" 
+                || tabOption==="Preorder" || tabOption === "Inorder") && (
+                    <Traversals setTabOption={setTabOption} tabOption={tabOption} />
                 )}
-                {explanationFor === "Challenge" && (
+                {tabOption === "Challenge" && (
                     <ChallengeCard root={root} 
                     setDeepness={setDeepness} deepness={deepness} 
                     answer={answer} ChangeTree={ChangeTree} />

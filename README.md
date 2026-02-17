@@ -47,7 +47,7 @@ This project helps you **understand binary trees visually** by constructing tree
 
 ## 🛠️ Tech Stack
 
-* **React** - Component-based UI with Context API for state management
+* **React** - Component-based UI
 * **TypeScript** - Type-safe development
 * **Vite** - Fast build tooling
 * **Tailwind CSS** - Utility-first styling

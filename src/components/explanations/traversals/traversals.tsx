@@ -7,21 +7,21 @@ import { PostorderExplanations } from './Postorder'
 import ArrowIcon from "../../../assets/arrow.svg"
 
 interface ExplanationsGroupProps {
-    setExplanationFor: (val: string) => void
-    explanationFor: string
+    setTabOption: (val: string) => void
+    tabOption: string
 }
 
-export function Traversals({ setExplanationFor, explanationFor }: ExplanationsGroupProps) {
+export function Traversals({ setTabOption, tabOption }: ExplanationsGroupProps) {
     const [selectedOrder, setSelectedOrder] = useState<string>('Preorder')
     const [visibleArrow, setVisibleArrow] = useState(true)
 
     useEffect(() => {
-        if (explanationFor !== "Traversal")
+        if (tabOption !== "Traversal")
         {
-            setSelectedOrder(explanationFor)
-            setExplanationFor("Traversal")
+            setSelectedOrder(tabOption)
+            setTabOption("Traversal")
         }
-    }, [explanationFor])
+    }, [tabOption])
 
     return (
         <div
