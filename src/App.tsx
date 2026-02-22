@@ -40,18 +40,17 @@ export default function App() {
 
 
   useEffect(() => {
-    const saved = loadTreeFromStorage()
-    if (saved) {
-      setInputText(saved.inputText)
-      setTraversalType(saved.traversalType)
-      setTabOption(saved.tabOption)
-      setSearchTree(saved.searchTree)
+    const savedData = loadTreeFromStorage()
+    if (savedData) {
+      setInputText(savedData.inputText ?? "")
+      setTraversalType(savedData.traversalType ?? "Preorder")
+      setTabOption(savedData.tabOption ?? "Binary Tree")
+      setSearchTree(savedData.searchTree === true)
     }
   }, [])
 
 
   useEffect(() => {
-    console.log(inputText)
     const text = inputText
       if (!text || text.length === 0)
         return
@@ -59,6 +58,7 @@ export default function App() {
       const NumberArray = modtext.split(',').map(String).filter((element:any) => element !== "")
       if (searchTree === false) {
         try {
+          console.log("heye")
           setRoot(BasicTree(NumberArray, traversalType))
         }
         catch (error) {
@@ -108,7 +108,7 @@ export default function App() {
                   focus:outline-none focus:shadow-[2px_2px_0px_rgba(0,0,0,1)] active:shadow-[2px_2px_0px_rgba(0,0,0,1)]"
                   placeholder='Type here : [1,7,null,8,...]'
                   value={inputText}
-                  onChange={(e) => { setInputText(e.target.value)}}
+                  onChange={(e) => {setInputText(e.target.value)}}
                 />
                 <div className='absolute -right-7 group  cursor-pointer'>
                   <img className='hover:opacity-70' src={QuestionIcon} width={20} />
