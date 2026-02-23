@@ -84,9 +84,8 @@ export function InorderExplanations() {
                     <p className='explain-text mb-2'>Inorder traversal has unique properties that make it extremely useful:</p>
 
                     <ul className="list-disc ml-6">
-                        <li className='explain-text mt-2'><strong>Sorted order for BSTs:</strong> For Binary Search Trees, inorder gives you nodes in ascending order. Example: The tree above outputs <code className='code'>3 → 5 → 7 → 8 → 9</code> (sorted!)</li>
+                        <li className='explain-text mt-2'><strong>Sorted order for BSTs:</strong> For Binary Search Trees, inorder gives you nodes in ascending order. Example: The tree above outputs <code className='code'>3 → 5 → 7 → 8 → 9</code>.</li>
                         <li className='explain-text mt-2'><strong>Validate a BST:</strong> Do an inorder traversal. If the output is sorted, it's a valid BST. If not, it's invalid.</li>
-                        <li className='explain-text mt-2'><strong>Convert BST to sorted array:</strong> Need a sorted list? Just do inorder traversal on your BST and collect the values.</li>
                     </ul>
                 </div>
             </div>
