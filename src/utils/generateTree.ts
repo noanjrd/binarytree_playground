@@ -7,17 +7,17 @@ function GetRandomInt(max:number)
     return val
 }
 
-export function GenerateRandomTree(deepnessMax:number, deepness:number = 0)
+export function GenerateRandomTree(maxDepth:number, depth:number = 0)
 {
     const value = GetRandomInt(19)
     const node : TreeNode = {val:String(value),left:null, right:null, message:null }
-    if (deepness >= deepnessMax)
+    if (depth >= maxDepth)
     {
         return (node)
     }
     let chance1 = 1
     let chance2 = 1
-    if ((deepness !== 0 && deepnessMax >= 3) || (deepnessMax < 3))
+    if ((depth !== 0 && maxDepth >= 3) || (maxDepth < 3))
     {
         const random = GetRandomInt(2)
         if (random === 1)
@@ -46,13 +46,9 @@ export function GenerateRandomTree(deepnessMax:number, deepness:number = 0)
         }
     }
     if (chance1 === 1)
-    {
-        node.left = GenerateRandomTree(deepnessMax, deepness+1)
-    }
+        node.left = GenerateRandomTree(maxDepth, depth+1)
     if (chance2 === 1)
-    {
-        node.right = GenerateRandomTree(deepnessMax, deepness+1)
-    }
+        node.right = GenerateRandomTree(maxDepth, depth+1)
     return (node)
 }
 

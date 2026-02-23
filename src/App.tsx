@@ -12,6 +12,7 @@ import { Explanations } from './components/explanations/Explanations.tsx';
 import { getTreeDeepness } from "./utils/binaryTree.ts"
 import { loadTreeFromStorage, saveTreeToStorage } from './utils/storage.ts'
 import { useTreeContext } from './contexts/TreeContext.tsx'
+import { GenerateRandomTree } from './utils/generateTree.ts'
 
 export default function App() {
 
@@ -19,7 +20,7 @@ export default function App() {
   const [searchTree, setSearchTree] = useState<boolean>(false)
   const [tabOption, setTabOption] = useState<string>("Binary Tree")
   const [isLoaded, setisLoaded] = useState(false)
-  const {setTraversalType, traversalType, setInputText, inputText} = useTreeContext()
+  const {setTraversalType, traversalType, setInputText, inputText, rootChallengeTree, setRootChallengeTree} = useTreeContext()
   const screenWidth = window.innerWidth
 
   useEffect(() => {
@@ -28,10 +29,11 @@ export default function App() {
         inputText: inputText,
         traversalType: traversalType,
         searchTree: searchTree,
-        tabOption: tabOption
+        tabOption: tabOption,
+        rootChallengeTree: rootChallengeTree
       })
     }
-  }, [inputText, searchTree, traversalType, tabOption, isLoaded])
+  }, [inputText, searchTree, traversalType, tabOption, isLoaded, rootChallengeTree])
 
 
   useEffect(() => {
@@ -46,6 +48,7 @@ export default function App() {
       setTraversalType(savedData.traversalType ?? "Preorder")
       setTabOption(savedData.tabOption ?? "Binary Tree")
       setSearchTree(savedData.searchTree === true)
+      setRootChallengeTree(savedData.rootChallengeTree ?? GenerateRandomTree(2))
     }
   }, [])
 

@@ -121,6 +121,14 @@ binarytree_playground/
 ├── public/                          # Static assets
 ```
 
+## 🗓️ Upcoming Updates
+
+- **French Translation**: We are working on a complete French translation of the application and all educational content, making the Binary Tree Playground accessible to French-speaking users.
+- **Inorder Visualizer**: An interactive visualizer for building trees from Inorder traversal is planned, allowing users to explore tree construction from different traversal orders.
+- **More Interactive Features**: Expect new interactive modules, additional challenge modes, and enhanced feedback to further enrich the learning experience.
+
+Stay tuned for these features in future releases!
+
 ## 🎓 Why This Project?
 
 Binary trees are fundamental data structures in computer science, but they can be abstract and hard to visualize. This tool bridges the gap between theory and practice by letting you:

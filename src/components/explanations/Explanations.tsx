@@ -3,13 +3,7 @@ import '../../styles/Explanations.css'
 import { BasicExplanations } from './Base' 
 import { BSTExplanations } from './BST'
 import { ChallengeCard } from './Challenge'
-import { useEffect, useState } from 'react'
-import { GenerateRandomTree } from '../../utils/generateTree'
-import { type TreeNode } from '../../types/types'
-import { GetPostorderList } from '../../utils/postorderTree'
-import { GetPreorderList } from '../../utils/preorderTree'
 import { Traversal } from './traversals/Traversal'
-import { useTreeContext } from '../../contexts/TreeContext'
 
 
 interface ExplainationsGroupProps {
@@ -26,36 +20,6 @@ const options: Record<string, string> = {
 
 export function Explanations({ tabOption, setTabOption}: ExplainationsGroupProps)
 {
-    const {traversalType} = useTreeContext()
-    const [deepness, setDeepness] = useState<number>(2)
-    const [root, setRoot] = useState<TreeNode>(GenerateRandomTree(deepness))
-    const [answer, setAnswer] = useState(GetPostorderList(root))
-
-    useEffect(() => {
-        if (traversalType === "Postorder")
-        {
-            setAnswer(GetPostorderList(root))
-        }
-        if (traversalType === "Preorder")
-        {
-            setAnswer(GetPreorderList(root))
-        }
-    }, [traversalType])
-
-    const ChangeTree = () => {
-
-        const newRoot = GenerateRandomTree(deepness)
-        setRoot(newRoot)
-        if (traversalType === "Postorder")
-        {
-            setAnswer(GetPostorderList(newRoot))
-        }
-        if (traversalType === "Preorder")
-        {
-            setAnswer(GetPreorderList(newRoot))
-        }   
-    }
-
     return (
         <>
             <div>
@@ -81,9 +45,7 @@ export function Explanations({ tabOption, setTabOption}: ExplainationsGroupProps
                     <Traversal setTabOption={setTabOption} tabOption={tabOption} />
                 )}
                 {tabOption === "Challenge" && (
-                    <ChallengeCard root={root} 
-                    setDeepness={setDeepness} deepness={deepness} 
-                    answer={answer} ChangeTree={ChangeTree} />
+                    <ChallengeCard />
                 )}
             </div>
         </>

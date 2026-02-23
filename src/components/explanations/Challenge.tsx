@@ -1,26 +1,47 @@
 import '../../styles/App.css'
 import '../../styles/Explanations.css'
 import DisplayBinaryTree from '../DisplayBinaryTree'
-import type { TreeNode } from '../../types/types'
 import { getTreeDeepness } from "../../utils/binaryTree"
 import { useEffect, useState } from 'react'
 import { useTreeContext } from '../../contexts/TreeContext'
+import { GenerateRandomTree } from '../../utils/generateTree'
+import { GetPostorderList } from '../../utils/postorderTree'
+import { GetPreorderList } from '../../utils/preorderTree'
 
 
-export interface Props {
-    root: TreeNode | null;
-    deepness: number;
-    answer: string
-    setDeepness: (val: number) => void;
-    ChangeTree: () => void
-}
-
-export function ChallengeCard({ root, setDeepness, deepness, answer, ChangeTree}: Props) {
+export function ChallengeCard() {
     const [showAnswer, setShowAnswer] = useState(false)
-    const {traversalType, setInputText} = useTreeContext()
+    const {setInputText, traversalType, depthChallengeTree, setDepthChallengeTree, rootChallengeTree, setRootChallengeTree} =useTreeContext()
+    const [answer, setAnswer] = useState<string>("")
+
+    useEffect(() => {
+        if (traversalType === "Postorder")
+        {
+            setAnswer(GetPostorderList(rootChallengeTree))
+        }
+        if (traversalType === "Preorder")
+        {
+            setAnswer(GetPreorderList(rootChallengeTree))
+        }
+    }, [traversalType])
+
     useEffect(() => {
         setShowAnswer(false)
     }, [traversalType])
+
+    const ChangeTree = () => {
+
+        const newRoot = GenerateRandomTree(depthChallengeTree)
+        setRootChallengeTree(newRoot)
+        if (traversalType === "Postorder")
+        {
+            setAnswer(GetPostorderList(newRoot))
+        }
+        if (traversalType === "Preorder")
+        {
+            setAnswer(GetPreorderList(newRoot))
+        }   
+    }
 
     return (
         <div className='card min-w-140 relative px-5 py-5  overflow-y-auto 
@@ -38,7 +59,7 @@ export function ChallengeCard({ root, setDeepness, deepness, answer, ChangeTree}
                     Try to recreate this binary trees using the visualizer to the right.
                 </p>
                 <div className='flex justify-center items-center mt-5  '>
-                    <DisplayBinaryTree root={root} deepness={getTreeDeepness(root)} />
+                    <DisplayBinaryTree root={rootChallengeTree} deepness={getTreeDeepness(rootChallengeTree)} />
                 </div>
                 <button
                     onClick={() => setShowAnswer(!showAnswer)}
@@ -57,8 +78,8 @@ export function ChallengeCard({ root, setDeepness, deepness, answer, ChangeTree}
                         className='text-black rounded-full font-semibold border-2 border-black  px-4 py-2 
                         shadow-[0px_0px_0px_0px_rgba(0,0,0,1)] hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]
                           transition-all cursor-pointer focus:outline-none'
-                        value={deepness}
-                        onChange={(e) => setDeepness(Number(e.target.value))}
+                        value={depthChallengeTree}
+                        onChange={(e) => setDepthChallengeTree(Number(e.target.value))}
                     >
                         <option value="1">Depth: 1</option>
                         <option value="2">Depth: 2</option>

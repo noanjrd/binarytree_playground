@@ -1,3 +1,5 @@
+import type { TreeNode } from "../types/types";
+
 const STORAGE_KEY = "binarytree_data"
 
 export interface StoredData {
@@ -5,6 +7,7 @@ export interface StoredData {
     traversalType : string
     searchTree : boolean
     tabOption : string
+    rootChallengeTree : TreeNode | null
 }
 
 export const saveTreeToStorage = (data:StoredData) => {
