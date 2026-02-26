@@ -102,7 +102,7 @@ binarytree_playground/
 │   │       ├── BST.tsx              # BST explanations
 │   │       ├── Challenge.tsx        # Challenge mode
 │   │       └── traversals/
-│   │           ├── Traversal.tsx   # Traversal selector
+│   │           ├── Traversal.tsx    # Traversal selector
 │   │           ├── Preorder.tsx     # Preorder explanations
 │   │           ├── Inorder.tsx      # Inorder explanations
 │   │           └── Postorder.tsx    # Postorder explanations
@@ -144,3 +144,4 @@ Perfect for students learning data structures or developers refreshing their kno
 ## 📄 License
 
 MIT License - feel free to use this project for learning and teaching!
+
