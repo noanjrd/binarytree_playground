@@ -127,8 +127,6 @@ binarytree_playground/
 - **Inorder Visualizer**: An interactive visualizer for building trees from Inorder traversal is planned, allowing users to explore tree construction from different traversal orders.
 - **More Interactive Features**: Expect new interactive modules, additional challenge modes, and enhanced feedback to further enrich the learning experience.
 
-Stay tuned for these features in future releases!
-
 ## 🎓 Why This Project?
 
 Binary trees are fundamental data structures in computer science, but they can be abstract and hard to visualize. This tool bridges the gap between theory and practice by letting you:
@@ -144,4 +142,5 @@ Perfect for students learning data structures or developers refreshing their kno
 ## 📄 License
 
 MIT License - feel free to use this project for learning and teaching!
+
 
