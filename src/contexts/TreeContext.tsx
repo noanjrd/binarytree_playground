@@ -1,6 +1,6 @@
 import { createContext, useContext, useState, type ReactNode } from "react";
 import type { TreeNode } from "../types/types";
-import { GenerateRandomTree } from "../utils/generateTree";
+import { generateRandomTree } from "../utils/generateTree";
 
 interface TreeContextType {
     traversalType : string
@@ -20,7 +20,7 @@ export function TreeProvider({ children }: {children:ReactNode})
     const [inputText, setInputText] = useState("")
     const [traversalType, setTraversalType] = useState("Preorder")
     const [depthChallengeTree, setDepthChallengeTree] = useState(2)
-    const [rootChallengeTree, setRootChallengeTree] = useState(GenerateRandomTree(depthChallengeTree))
+    const [rootChallengeTree, setRootChallengeTree] = useState(generateRandomTree(depthChallengeTree))
     return (
         <TreeContext.Provider value={{
             inputText,

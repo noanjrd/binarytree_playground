@@ -1,7 +1,7 @@
 import './styles/radio.css'
 import './styles/App.css'
 import { useEffect, useState } from 'react'
-import { BasicTree, BST } from "./utils/binaryTree.ts"
+import { buildTreeFromArray, buildBSTFromArray } from "./utils/binaryTree.ts"
 import DisplayBinaryTree from "./components/DisplayBinaryTree.tsx"
 import QuestionIcon from "./assets/question.svg"
 import { type TreeNode } from './types/types.ts'
@@ -12,7 +12,7 @@ import { Explanations } from './components/explanations/Explanations.tsx';
 import { getTreeDeepness } from "./utils/binaryTree.ts"
 import { loadTreeFromStorage, saveTreeToStorage } from './utils/storage.ts'
 import { useTreeContext } from './contexts/TreeContext.tsx'
-import { GenerateRandomTree } from './utils/generateTree.ts'
+import { generateRandomTree } from './utils/generateTree.ts'
 
 export default function App() {
 
@@ -48,28 +48,32 @@ export default function App() {
       setTraversalType(savedData.traversalType ?? "Preorder")
       setTabOption(savedData.tabOption ?? "Binary Tree")
       setSearchTree(savedData.searchTree === true)
-      setRootChallengeTree(savedData.rootChallengeTree ?? GenerateRandomTree(2))
+      setRootChallengeTree(savedData.rootChallengeTree ?? generateRandomTree(2))
     }
   }, [])
 
 
   useEffect(() => {
     const text = inputText
-      if (!text || text.length === 0)
+      if (text.length === 0)
+      {
+        setInputText("")
+        setRoot(null)
         return
+      }
       const modtext = text.replace(/\[/g, "").replace(/\]/g, "").replace(/\s+/g, "")
       const NumberArray = modtext.split(',').map(String).filter((element:any) => element !== "")
       if (searchTree === false) {
         try {
           console.log("heye")
-          setRoot(BasicTree(NumberArray, traversalType))
+          setRoot(buildTreeFromArray(NumberArray, traversalType))
         }
         catch (error) {
           console.error(error)
         }}
       if (searchTree === true) {
         try {
-          setRoot(BST(NumberArray, traversalType))
+          setRoot(buildBSTFromArray(NumberArray, traversalType))
         }
         catch (error) {
           console.error(error)

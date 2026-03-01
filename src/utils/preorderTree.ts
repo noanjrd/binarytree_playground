@@ -1,7 +1,7 @@
 import { type TreeNode } from "../types/types"
 
 
-export function Preorder(values:Array<string>)
+export function preorderTreeFromArray(values:Array<string>)
 {
     let i = 0
     function build_tree() : TreeNode | null
@@ -21,7 +21,7 @@ export function Preorder(values:Array<string>)
     return root
 }
 
-export function Preorder_bst(values:Array<string>)
+export function preorderBSTFromArray(values:Array<string>)
 {
     let i = 0
     function build_tree(min:number,max:number) : TreeNode | null
@@ -53,7 +53,7 @@ export function Preorder_bst(values:Array<string>)
     return root
 }
 
-export function GetPreorderList(root : TreeNode | null)  : string
+export function getPreorderList(root : TreeNode | null)  : string
 {
     let answer = ""
     function buildAnswer(node : TreeNode | null)

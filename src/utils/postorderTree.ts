@@ -1,7 +1,7 @@
 import { type TreeNode } from "../types/types"
 
 
-export function Postorder(values:Array<string>)
+export function postorderTreeFromArray(values:Array<string>)
 {
     let i = values.length-1
     function build_tree() : TreeNode | null
@@ -20,7 +20,7 @@ export function Postorder(values:Array<string>)
     const root = build_tree()
     return root
 }
-export function Postorder_bst(values:Array<string>)
+export function postorderBSTFromArray(values:Array<string>)
 {
     let i = values.length -1
     function build_tree(min:number,max:number) : TreeNode | null
@@ -52,7 +52,7 @@ export function Postorder_bst(values:Array<string>)
     return root
 }
 
-export function GetPostorderList(root : TreeNode | null)  : string
+export function getPostorderList(root : TreeNode | null)  : string
 {
     let answer = ""
     function buildAnswer(node : TreeNode | null)

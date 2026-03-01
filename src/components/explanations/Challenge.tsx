@@ -4,9 +4,9 @@ import DisplayBinaryTree from '../DisplayBinaryTree'
 import { getTreeDeepness } from "../../utils/binaryTree"
 import { useEffect, useState } from 'react'
 import { useTreeContext } from '../../contexts/TreeContext'
-import { GenerateRandomTree } from '../../utils/generateTree'
-import { GetPostorderList } from '../../utils/postorderTree'
-import { GetPreorderList } from '../../utils/preorderTree'
+import { generateRandomTree } from '../../utils/generateTree'
+import { getPostorderList } from '../../utils/postorderTree'
+import { getPreorderList } from '../../utils/preorderTree'
 
 
 export function ChallengeCard() {
@@ -17,11 +17,11 @@ export function ChallengeCard() {
     useEffect(() => {
         if (traversalType === "Postorder")
         {
-            setAnswer(GetPostorderList(rootChallengeTree))
+            setAnswer(getPostorderList(rootChallengeTree))
         }
         if (traversalType === "Preorder")
         {
-            setAnswer(GetPreorderList(rootChallengeTree))
+            setAnswer(getPreorderList(rootChallengeTree))
         }
     }, [traversalType])
 
@@ -31,15 +31,15 @@ export function ChallengeCard() {
 
     const ChangeTree = () => {
 
-        const newRoot = GenerateRandomTree(depthChallengeTree)
+        const newRoot = generateRandomTree(depthChallengeTree)
         setRootChallengeTree(newRoot)
         if (traversalType === "Postorder")
         {
-            setAnswer(GetPostorderList(newRoot))
+            setAnswer(getPostorderList(newRoot))
         }
         if (traversalType === "Preorder")
         {
-            setAnswer(GetPreorderList(newRoot))
+            setAnswer(getPreorderList(newRoot))
         }   
     }
 

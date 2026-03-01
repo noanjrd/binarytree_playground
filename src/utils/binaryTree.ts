@@ -1,5 +1,5 @@
-import {Preorder, Preorder_bst} from './preorderTree'
-import {Postorder,Postorder_bst} from './postorderTree'
+import {preorderTreeFromArray, preorderBSTFromArray} from './preorderTree'
+import {postorderTreeFromArray, postorderBSTFromArray} from './postorderTree'
 import {ORDER_TYPE} from '../types/constants'
 import { type TreeNode } from '../types/types'
 
@@ -25,7 +25,7 @@ export function getTreeDeepness(root: TreeNode | null): number
     return 1 + Math.max(getTreeDeepness(root.left), getTreeDeepness(root.right))
 }
 
-export function BasicTree(values: Array<string>, sorttype:string)
+export function buildTreeFromArray(values: Array<string>, sorttype:string)
 {
     let root = null
     if (checkValidInput(values) === false)
@@ -34,27 +34,25 @@ export function BasicTree(values: Array<string>, sorttype:string)
     }
     if (sorttype === ORDER_TYPE.PREORDER)
     {
-        root = Preorder(values)
+        root = preorderTreeFromArray(values)
     }
     if (sorttype === ORDER_TYPE.POSTORDER)
     {
-        root = Postorder(values)
+        root = postorderTreeFromArray(values)
     }
     return root
 }
 
-export function BST(values: Array<string>, sorttype:string) {
+export function buildBSTFromArray(values: Array<string>, sorttype:string) {
 
     let root = null
     if (checkValidInput(values) === false)
-    {
         return {val:"", right:null, left:null, message:null}
-    }
     if (sorttype === ORDER_TYPE.PREORDER)
     {
         try
         {
-            root = Preorder_bst(values)
+            root = preorderBSTFromArray(values)
         }
         catch (error)
         {if (error instanceof Error) {
@@ -66,12 +64,14 @@ export function BST(values: Array<string>, sorttype:string) {
     {
         try
         {
-            root = Postorder_bst(values)
+            root = postorderBSTFromArray(values)
         }
         catch (error)
-        {if (error instanceof Error) {
-            return {val:`Invalid binary search tree `,right:null, left:null, message : `(${error.message})`}
-        }
+        {
+            if (error instanceof Error)
+            {
+                return {val:`Invalid binary search tree `,right:null, left:null, message : `(${error.message})`}
+            }  
         }
     }
     return root
